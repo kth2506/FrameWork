@@ -6,6 +6,8 @@ using namespace std;
 
 // C++의 특징
 
+
+
 // class - 집합
 // ** 1. 정보은닉	 - private
 // ** 2. 캡슐화 - 기능의 고유화
