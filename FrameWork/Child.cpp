@@ -2,7 +2,12 @@
 
 void Child::Initialize()
 {
-	m_Number = 100;
+	m_Number = 10;
+}
+
+void Child::Update()
+{
+	m_Number += 10;
 }
 
 void Child::Output()
