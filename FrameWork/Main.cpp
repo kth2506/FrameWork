@@ -18,7 +18,7 @@ using namespace std;
 // object 객체 - class로 만들어야함
 void co();
 void Initalize(int& _Number);
-
+  
 struct AAA
 {
 	int Number = 0;
