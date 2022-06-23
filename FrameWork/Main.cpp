@@ -1,12 +1,61 @@
-// ** FrameWork ver0.4-1 06.23
-#include "Parent.h"
-#include "Child.h"
-#include "Bullet.h"
-#include <stdlib.h>
-#include <cstring>
+// ** FrameWork ver1.1 06.23
+
+#include "Headers.h"
+#include "MainUpdate.h"
+
+// ** Singleton
+
+class Singleton
+{	
+private:
+	static Singleton* Instance;
+public:
+	static Singleton* GetInstance()
+	{
+		if (Instance == nullptr)
+			Instance = new Singleton();
+		return Instance;
+	}
+
+private:
+	int Number;
+public:
+	int GetNumber() const { return Number; }
+	void SetNumber(const int& _Number) { Number = _Number; }
+	
+private:
+	Singleton() : Number(0) {};
+public:
+	~Singleton() {};
+};
+
+Singleton* Singleton::Instance = nullptr;
+
 
 int main(void)
 {
+	Singleton::GetInstance()->SetNumber(10);
+	cout << Singleton::GetInstance()->GetNumber() << endl;
+
+	/*MainUpdate Main;
+	Main.Initialize();
+
+
+	ULONGLONG Time = GetTickCount64();
+	while (true)
+	{
+		if (Time + 50 < GetTickCount64())
+		{
+			Time = GetTickCount64();
+			system("cls");
+
+
+			Main.Update();
+			Main.Render();
+		}
+
+	}*/
+
 
 	return 0;
 }

@@ -13,42 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\Parent">
-      <UniqueIdentifier>{3f643574-e83c-4d05-9be8-4afcc1e1c993}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Parent\Child">
-      <UniqueIdentifier>{1b022ad6-ac87-4cf7-8e4e-6bf58b77e289}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Parent\Bullet">
-      <UniqueIdentifier>{d503780c-cc12-4338-b1df-7efadfa2adac}</UniqueIdentifier>
+    <Filter Include="소스 파일\MainUpdate">
+      <UniqueIdentifier>{ef1281ea-3595-48ae-88b9-7604c9443e2b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Parent.cpp">
-      <Filter>소스 파일\Parent</Filter>
-    </ClCompile>
-    <ClCompile Include="Child.cpp">
-      <Filter>소스 파일\Parent\Child</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>소스 파일\Parent\Bullet</Filter>
+    <ClCompile Include="MainUpdate.cpp">
+      <Filter>소스 파일\MainUpdate</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Parent.h">
-      <Filter>소스 파일\Parent</Filter>
-    </ClInclude>
     <ClInclude Include="Headers.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Child.h">
-      <Filter>소스 파일\Parent\Child</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>소스 파일\Parent\Bullet</Filter>
+    <ClInclude Include="MainUpdate.h">
+      <Filter>소스 파일\MainUpdate</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

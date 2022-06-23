@@ -1,8 +1,13 @@
 #pragma once
 
-// ** FrameWork ver02-1 06.21
+#include <Windows.h>
 #include <iostream>
 #include <vector>
 #include <list>
 #include <map>
+#include <stdlib.h>
+#include <cstring>
+#include <time.h>
+
 using namespace std;
+
