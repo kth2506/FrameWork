@@ -533,3 +533,7 @@ int main(void)
 // ** 순수 가상 함수 사용 검색
 #pragma endregion
 
+#pragma region 14. Singleton
+
+#pragma endregion
+

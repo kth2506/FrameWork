@@ -1,5 +1,4 @@
 #pragma once
-
 #include <Windows.h>
 #include <iostream>
 #include <vector>
@@ -11,3 +10,6 @@
 
 using namespace std;
 
+
+#include "Enum.h"
+#include "Constant.h"
