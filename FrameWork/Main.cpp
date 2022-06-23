@@ -1,18 +1,12 @@
-// ** FrameWork ver0.4 06.23
+// ** FrameWork ver0.4-1 06.23
 #include "Parent.h"
 #include "Child.h"
 #include "Bullet.h"
 #include <stdlib.h>
 #include <cstring>
 
-
 int main(void)
 {
-	{
-		Parent* pParent = new Child;
-		// (스택 영역)
-		delete pParent;
-	}
 
 	return 0;
 }
@@ -392,6 +386,10 @@ Object* GetObject(string _str)
 #pragma region 10. 연산자 오버로딩
 /*
 
+// const, & 사용 시기
+// const - 상수화 키워드 , 변경을 하면 안되는 곳에서 사용
+// & 변수의 메모리 주소값, 레퍼런스
+
 struct tagInfo
 {
 
@@ -485,3 +483,4 @@ int main(void)
 // ** virtual 함수를 사용하는 이유
 // ** 순수 가상 함수 사용 검색
 #pragma endregion
+
