@@ -1,4 +1,4 @@
-// ** FrameWork ver03 06.22
+// ** FrameWork ver04t 06.23
 #include "Parent.h"
 #include "Child.h"
 #include "Bullet.h"
