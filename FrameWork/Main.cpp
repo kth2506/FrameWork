@@ -1,63 +1,18 @@
-// ** FrameWork ver04t 06.23
+// ** FrameWork ver0.4 06.23
 #include "Parent.h"
 #include "Child.h"
 #include "Bullet.h"
 #include <stdlib.h>
 #include <cstring>
 
-struct tagInfo
-{
-
-	int Number = 0;
-
-	tagInfo() {};
-	tagInfo(int _Number) : Number(_Number) {};
-};
-
-class Object
-{
-private:
-	tagInfo Info;
-
-public:
-	Object& operator+=(const Object& _Obj)
-	{
-		Info.Number += _Obj.Info.Number;
-		return *this;
-	}
-	
-	Object& operator++()
-	{
-		Info.Number++;
-		return *this;
-	}
-
-	Object& operator--()
-	{
-		Info.Number--;
-		return *this;
-	}
-public:
-	Object() { };
-	Object(tagInfo _Info) : Info(_Info) { };
-	~Object() { };
-
-	void Output()
-	{
-		cout << Info.Number << endl;
-	}
-};
 
 int main(void)
 {
-	Object o1(tagInfo(10));
-	Object o2(o1);
-
-	o1.Output();
-	o2 += o1;
-	++o2;
-	--o2;
-	o2.Output();
+	{
+		Parent* pParent = new Child;
+		// (스택 영역)
+		delete pParent;
+	}
 
 	return 0;
 }
@@ -71,8 +26,9 @@ int main(void)
 	 class - 집합
 	 object 객체 - class로 만들어야함
 */
+#pragma endregion
 
-// 1. 정보은닉	 - private
+#pragma region 1. 정보은닉 - private
 /*
 	private:		** 자기 자신만 사용 가능
 
@@ -80,18 +36,21 @@ int main(void)
 
 	public:		** 공개된 상태
 */
+#pragma endregion
 
-// ** 2. 캡슐화 - 기능의 고유화
-/* 데이터 (변수) 와 기능 (함수) 를 묶음으로 사용하는 것
+#pragma region 2. 캡슐화 - 기능의 고유화
+/* 데이터 (변수) 와 기능 (함수) 를 하나의 묶음으로 사용하는 것
 */
+#pragma endregion
 
-// ** 3. 추상화 - 포괄적
+#pragma region 3. 추상화 - 포괄적
 /*
 		존재하지 않는 형태를 추상 클래스 라고 한다.
 		대상이 특정되지 않는 경우
 */
+#pragma endregion
 
-// ** 4. 상속 - 상속
+#pragma region 4. 상속 - 상속
 /*
 
 class AAA
@@ -136,18 +95,21 @@ public:
 };
 
 */
+#pragma endregion
 
-// ** 5. 다형성 - 형태의 다양함	
+#pragma region 5. 다형성 - 형태의 다양함	
 /*
 	다양한 형태로 존재할 수 있다.
 */
+#pragma endregion
 
-// ** 6. namespace
+#pragma region 6. namespace
 /*
 // 별도의 영역을 지정하여 동일한 이름의 함수를 사용할 수 있도록 함
 */
+#pragma endregion
 
-// ** 7. 생성자 & 소멸자 & 복사 생성자
+#pragma region 7. 생성자 & 소멸자 & 복사 생성자
 /*
 class Object
 {
@@ -219,13 +181,15 @@ int main(void)
 	return 0;
 }
 */
+#pragma endregion
 
-// ** 8. 깊은 복사 , 얕은 복사
+#pragma region 8. 깊은 복사 , 얕은 복사
 /* 
 검색
 */
+#pragma endregion
 
-// ** 9. 오버로딩 & 오버라이딩
+#pragma region 9. 오버로딩 & 오버라이딩
 /*
 	오버로딩 - 복사생성자
 	전달값의 개수와 자료형에 따라서 선택적으로 호출됨
@@ -423,9 +387,9 @@ Object* GetObject(string _str)
 }
 
 */
+#pragma endregion
 
-
-// ** 10. 연산자 오버로딩
+#pragma region 10. 연산자 오버로딩
 /*
 
 struct tagInfo
@@ -486,8 +450,38 @@ int main(void)
 }
 
 */
-
-// ** 11. 포인터
-
 #pragma endregion
 
+#pragma region 11. 포인터
+
+/*  [ 포인터 ]
+	1. * 데이터, & 주소반환 연산자
+	2. 포인터변수라면 동적할당(new) 해야함
+	3. 클래스 & 구조체 [ . ](점) 아니면 [ -> ] (화살표) 로 접근
+	4. 동적할당 했다면 반드시 할당해제 해야함 - 빠져나와도 삭제되지 않기 때문에
+	(스택에 들어간 Temp 와 같이 메모리 누수가 일어날수 있기 때문에)
+
+	
+*/
+#pragma endregion
+
+#pragma region 12. inline
+/*
+	inline - 함수의 작동우선순위를 높여주는것
+
+	클래스 내에 함수를 정의하면 자동으로 inline 함수가 된다
+	메모리 해제 등의 함수를 inline으로 사용하면 효율을 높일수 있다.
+
+*/
+#pragma endregion
+
+#pragma region 13. 가상함수
+// ** [virtual] = 가상함수
+// ** 함수의 끝에 [= 0] 을 붙이게 되면 [순수 가상 함수] 가 된다.
+
+// ** [순수 가상 함수]
+// ** virtual 함수가 함수의 몸체가 없을때 사용한다.
+
+// ** virtual 함수를 사용하는 이유
+// ** 순수 가상 함수 사용 검색
+#pragma endregion

@@ -7,7 +7,7 @@ class Bullet : public Parent
 	{
 		m_Number = 100;
 	}
-	void Update()
+	virtual void Update()
 	{
 		m_Number += 100;
 	}
@@ -15,5 +15,6 @@ class Bullet : public Parent
 	{
 		cout << m_Number << endl;
 	}
+	
 };
 
