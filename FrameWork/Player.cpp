@@ -1,39 +1,36 @@
 #include "Player.h"
-
-Player::Player() {  }
+#include "InputManager.h"
+Player::Player()
+	: Horizontal(0), Vertical(0) {  }
 Player::~Player() {  }
 
 void Player::Initialize()
 {
+	Horizontal = 0;
+	Vertical = 0;
 }
 
 void Player::Update()
 {
-	/*DWORD InputKey = 0;
+	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
-cout << "ют╥б : "; cin >> InputKey;
+	
+	if (dwKey & KEY_UP)
+		Vertical += 1;
+	if (dwKey & KEY_DOWN)
+		Vertical -= 1;
+	if (dwKey & KEY_LEFT)
+		Horizontal -= 1;
+	if (dwKey & KEY_RIGHT)
+		Horizontal += 1;
 
-if (InputKey & KYE_UP)
-	cout << "KYE_UP" << endl;
-if (InputKey & KYE_DOWN)
-	cout << "KYE_DOWN" << endl;
-if (InputKey & KYE_LEFT)
-	cout << "KYE_LEFT" << endl;
-if (InputKey & KYE_RIGHT)
-	cout << "KYE_RIGHT" << endl;
-if (InputKey & KYE_SPACE)
-	cout << "KYE_SPACE" << endl;
-if (InputKey & KYE_ENTER)
-	cout << "KYE_ENTER" << endl;
-if (InputKey & KYE_CTRL)
-	cout << "KYE_CTRL" << endl;
-if (InputKey & KYE_ALT)
-	cout << "KYE_ALT" << endl;*/
+
 }
 
 void Player::Render()
 {
-	Message("Player");
+	cout << "X : " << Horizontal << endl;
+	cout << "Y : " << Vertical << endl;
 }
 
 void Player::Release()
