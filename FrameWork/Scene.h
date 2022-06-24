@@ -13,6 +13,6 @@ public:
 
 public:
 	Scene();
-	~Scene() ;
+	virtual ~Scene();
 
 };

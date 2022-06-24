@@ -15,22 +15,21 @@ void SceneManager::SetScene(SCENEID _SceneState)
 	if (SceneState != nullptr)
 		::Safe_Delete(SceneState);
 
-
 	switch (_SceneState)
 	{
-	case LOGO:
+	case SCENEID::LOGO:
 		SceneState = new Logo;
 		break;
 
-	case MENU:
+	case SCENEID::MENU:
 		SceneState = new Menu;
 		break;
 
-	case STAGE:		
+	case SCENEID::STAGE:
 		SceneState = new Stage;
 		break;
 
-	case EXIT:
+	case SCENEID::EXIT:
 		exit(0);
 		break;
 	}

@@ -11,7 +11,7 @@ public:
 
 public:
 	Menu();
-	~Menu();
+	virtual ~Menu();
 
 };
 

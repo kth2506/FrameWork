@@ -11,7 +11,7 @@ public:
 
 public:
 	Logo();
-	~Logo();
+	virtual ~Logo();
 	
 };
 

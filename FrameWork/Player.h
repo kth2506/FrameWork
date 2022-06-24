@@ -11,6 +11,6 @@ public:
 
 public:
 	Player();
-	~Player();
+	virtual ~Player();
 };
 

@@ -11,7 +11,7 @@ public:
 
 public:
 	Stage();
-	~Stage();
+	virtual ~Stage();
 
 };
 
