@@ -1,11 +1,11 @@
 #include "SceneManager.h"
 
-
+SceneManager* SceneManager::Instance = nullptr;
 SceneManager::SceneManager() {}
 
 SceneManager::~SceneManager(){}
 
-void SceneManager::SetScene(SCENEID _SceneState)
+void SceneManager::SetScene(int _SceneState)
 {
 	switch (_SceneState)
 	{
@@ -20,8 +20,6 @@ void SceneManager::SetScene(SCENEID _SceneState)
 		break;
 	case EXIT:
 		cout << "EXIT" << endl;
-		break;
-	default:
 		break;
 	}
 

@@ -1,43 +1,33 @@
-// ** FrameWork ver1.1 06.23
+// ** FrameWork ver1.2 06.24
 
 #include "Headers.h"
 #include "MainUpdate.h"
 
-// ** Singleton
-
-class Singleton
-{	
-private:
-	static Singleton* Instance;
-public:
-	static Singleton* GetInstance()
-	{
-		if (Instance == nullptr)
-			Instance = new Singleton();
-		return Instance;
-	}
-
-private:
-	int Number;
-public:
-	int GetNumber() const { return Number; }
-	void SetNumber(const int& _Number) { Number = _Number; }
-	
-private:
-	Singleton() : Number(0) {};
-public:
-	~Singleton() {};
-};
-
-Singleton* Singleton::Instance = nullptr;
-
-
 int main(void)
 {
-	Singleton::GetInstance()->SetNumber(10);
-	cout << Singleton::GetInstance()->GetNumber() << endl;
 
-	/*MainUpdate Main;
+	/*DWORD InputKey = 0;
+	
+	cout << "ют╥б : "; cin >> InputKey;
+	
+	if (InputKey & KYE_UP)
+		cout << "KYE_UP" << endl;
+	if (InputKey & KYE_DOWN)
+		cout << "KYE_DOWN" << endl;
+	if (InputKey & KYE_LEFT)
+		cout << "KYE_LEFT" << endl;
+	if (InputKey & KYE_RIGHT)
+		cout << "KYE_RIGHT" << endl;
+	if (InputKey & KYE_SPACE)
+		cout << "KYE_SPACE" << endl;
+	if (InputKey & KYE_ENTER)
+		cout << "KYE_ENTER" << endl;
+	if (InputKey & KYE_CTRL)
+		cout << "KYE_CTRL" << endl;
+	if (InputKey & KYE_ALT)
+		cout << "KYE_ALT" << endl;*/
+
+	MainUpdate Main;
 	Main.Initialize();
 
 
@@ -54,7 +44,7 @@ int main(void)
 			Main.Render();
 		}
 
-	}*/
+	}
 
 
 	return 0;
@@ -534,6 +524,32 @@ int main(void)
 #pragma endregion
 
 #pragma region 14. Singleton
-
+// ** Singleton
+//
+//class Singleton
+//{	
+//private:
+//	static Singleton* Instance;
+//public:
+//	static Singleton* GetInstance()
+//	{
+//		if (Instance == nullptr)
+//			Instance = new Singleton();
+//		return Instance;
+//	}
+//
+//private:
+//	int Number;
+//public:
+//	int GetNumber() const { return Number; }
+//	void SetNumber(const int& _Number) { Number = _Number; }
+//	
+//private:
+//	Singleton() : Number(0) {};
+//public:
+//	~Singleton() {};
+//};
+//
+//Singleton* Singleton::Instance = nullptr;
 #pragma endregion
 

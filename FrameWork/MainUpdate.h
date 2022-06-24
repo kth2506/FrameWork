@@ -2,8 +2,8 @@
 class MainUpdate
 {
 private:
-	int Count = 0;
-	SCENEID state;
+	int Count;
+	int SceneState;
 public:
 	void Initialize();
 	void Update();

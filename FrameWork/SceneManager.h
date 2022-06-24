@@ -16,7 +16,7 @@ public:
 private:
 	;
 public:
-	void SetScene(SCENEID _SceneState);
+	void SetScene(int _SceneState);
 
 private:
 	SceneManager();
