@@ -1,4 +1,4 @@
-// ** FrameWork ver1.2 06.24
+// ** FrameWork ver2.3 06.24
 
 #include "Headers.h"
 #include "MainUpdate.h"
@@ -6,26 +6,6 @@
 int main(void)
 {
 
-	/*DWORD InputKey = 0;
-	
-	cout << "입력 : "; cin >> InputKey;
-	
-	if (InputKey & KYE_UP)
-		cout << "KYE_UP" << endl;
-	if (InputKey & KYE_DOWN)
-		cout << "KYE_DOWN" << endl;
-	if (InputKey & KYE_LEFT)
-		cout << "KYE_LEFT" << endl;
-	if (InputKey & KYE_RIGHT)
-		cout << "KYE_RIGHT" << endl;
-	if (InputKey & KYE_SPACE)
-		cout << "KYE_SPACE" << endl;
-	if (InputKey & KYE_ENTER)
-		cout << "KYE_ENTER" << endl;
-	if (InputKey & KYE_CTRL)
-		cout << "KYE_CTRL" << endl;
-	if (InputKey & KYE_ALT)
-		cout << "KYE_ALT" << endl;*/
 
 	MainUpdate Main;
 	Main.Initialize();
@@ -37,9 +17,8 @@ int main(void)
 		if (Time + 50 < GetTickCount64())
 		{
 			Time = GetTickCount64();
+
 			system("cls");
-
-
 			Main.Update();
 			Main.Render();
 		}
@@ -50,6 +29,26 @@ int main(void)
 	return 0;
 }
 
+/*DWORD InputKey = 0;
+
+cout << "입력 : "; cin >> InputKey;
+
+if (InputKey & KYE_UP)
+	cout << "KYE_UP" << endl;
+if (InputKey & KYE_DOWN)
+	cout << "KYE_DOWN" << endl;
+if (InputKey & KYE_LEFT)
+	cout << "KYE_LEFT" << endl;
+if (InputKey & KYE_RIGHT)
+	cout << "KYE_RIGHT" << endl;
+if (InputKey & KYE_SPACE)
+	cout << "KYE_SPACE" << endl;
+if (InputKey & KYE_ENTER)
+	cout << "KYE_ENTER" << endl;
+if (InputKey & KYE_CTRL)
+	cout << "KYE_CTRL" << endl;
+if (InputKey & KYE_ALT)
+	cout << "KYE_ALT" << endl;*/
 
 
 #pragma region C++

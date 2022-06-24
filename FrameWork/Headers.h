@@ -11,5 +11,6 @@
 using namespace std;
 
 
-#include "Enum.h"
+#include "Define.h"
 #include "Constant.h"
+#include "Enum.h"

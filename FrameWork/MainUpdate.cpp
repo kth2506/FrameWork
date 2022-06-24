@@ -4,20 +4,20 @@
 #include "Headers.h"
 #include "Constant.h"
 
-MainUpdate::MainUpdate(){}
+MainUpdate::MainUpdate() : SceneState(0) {}
 MainUpdate::~MainUpdate() { Release(); }
 
 void MainUpdate::Initialize()
 {
-	SceneState = LOGO;
-	SceneManager::GetInstance()->SetScene(SceneState);
+	SceneManager::GetInstance()->SetScene(LOGO);
 
 }
 
 void MainUpdate::Update()
 {
 	InputManager::GetInstance()->InputKey();
-	DWORD dwKey = InputManager::GetInstance()->GetKey();
+	SceneManager::GetInstance()->Update();
+	/*DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	
 	if (dwKey & KEY_UP)
@@ -33,23 +33,17 @@ void MainUpdate::Update()
 	if (dwKey & KEY_CTRL)
 	cout << "KEY_CTRL" << endl;
 	if (dwKey & KEY_ALT)
-	cout << "KEY_ALT" << endl;
+	cout << "KEY_ALT" << endl;*/
 
-	if (dwKey & KEY_ENTER)
-	{
-		//cout << "KEY_ENTER" << endl;
-		if (SceneState > EXIT)
-			SceneState = 0;
-
-		SceneManager::GetInstance()->SetScene(SceneState);
-		SceneState++;
-
-	}
+	//if (dwKey & KEY_ENTER)
+	//{
+	//
+	//}
 }
 
 void MainUpdate::Render()
 {
-
+	SceneManager::GetInstance()->Render();
 }
 
 void MainUpdate::Release()
