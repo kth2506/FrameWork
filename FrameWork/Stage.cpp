@@ -1,15 +1,9 @@
 #include "Stage.h"
-
-
 #include "SceneManager.h"
 #include "InputManager.h"
-Stage::Stage()
-{
-}
+Stage::Stage() {  }
+Stage::~Stage() {  }
 
-Stage::~Stage()
-{
-}
 void Stage::Initialize()
 {
 }
@@ -21,7 +15,7 @@ void Stage::Update()
 
 	if (dwKey & KEY_ENTER)
 	{
-		SceneManager::GetInstance()->SetScene(EXIT);
+		SceneManager::GetInstance()->SetScene(LOGO);
 	}
 }
 

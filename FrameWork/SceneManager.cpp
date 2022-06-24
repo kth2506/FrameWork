@@ -4,18 +4,16 @@
 #include "Menu.h"
 #include "Stage.h"
 
-SceneManager* SceneManager1	:Instance = nullptr;
+SceneManager* SceneManager::Instance = nullptr;
 
 SceneManager::SceneManager() : SceneState(nullptr){}
-SceneManager::~SceneManager(){	Release();}
+SceneManager::~SceneManager() {	Release(); }
 
 void SceneManager::SetScene(SCENEID _SceneState)
 {
+
 	if (SceneState != nullptr)
-	{
-		delete SceneState;
-		SceneState = nullptr;
-	}
+		::Safe_Delete(SceneState);
 
 
 	switch (_SceneState)
@@ -52,8 +50,7 @@ void SceneManager::Render()
 
 void SceneManager::Release()
 {
-	delete SceneState;
-	SceneState = nullptr;
+	::Safe_Delete(SceneState);
 }
 
 

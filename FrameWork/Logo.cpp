@@ -1,9 +1,14 @@
 #include "Logo.h"
-
 #include "SceneManager.h"
 #include "InputManager.h"
+
+Logo::Logo() : Scene() {  }
+Logo::~Logo() {  }
+
+
 void Logo::Initialize()
 {
+	str = "Logo";
 }
 
 void Logo::Update()
@@ -18,17 +23,9 @@ void Logo::Update()
 
 void Logo::Render()
 {
-	cout << "Logo" << endl;
+	cout << str << endl;
 }
 
 void Logo::Release()
-{
-}
-
-Logo::Logo()
-{
-}
-
-Logo::~Logo()
 {
 }

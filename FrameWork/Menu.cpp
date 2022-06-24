@@ -1,14 +1,8 @@
 #include "Menu.h"
-
 #include "SceneManager.h"
 #include "InputManager.h"
-Menu::Menu()
-{
-}
-
-Menu::~Menu()
-{
-}
+Menu::Menu() {  }
+Menu::~Menu() {  }
 
 void Menu::Initialize()
 {
