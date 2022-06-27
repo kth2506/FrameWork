@@ -145,6 +145,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainUpdate.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -161,11 +162,13 @@
     <ClInclude Include="Logo.h" />
     <ClInclude Include="MainUpdate.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Stage.h" />
+    <ClInclude Include="Struct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

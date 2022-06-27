@@ -17,6 +17,7 @@ void Menu::Update()
 	{
 		SceneManager::GetInstance()->SetScene(STAGE);
 	}
+
 }
 
 void Menu::Render()

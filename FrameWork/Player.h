@@ -13,7 +13,12 @@ public:
 	virtual void Release() override;
 
 public:
+	virtual Object* Clone() override{ return new Player(*this);	}
+
+public:
 	Player();
+	Player(Transform _Info);
+
 	virtual ~Player();
 };
 
