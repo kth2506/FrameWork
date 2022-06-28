@@ -4,7 +4,7 @@
 #include "Headers.h"
 #include "Constant.h"
 
-MainUpdate::MainUpdate() : SceneState(0) {}
+MainUpdate::MainUpdate(){}
 MainUpdate::~MainUpdate() { Release(); }
 
 void MainUpdate::Initialize()

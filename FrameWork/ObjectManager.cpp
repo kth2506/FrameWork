@@ -33,6 +33,15 @@ void ObjectManager::Render()
 		(*iter2)->Render();
 }
 
+void ObjectManager::Update()
+{
+	for (map<string, list<Object*>>::iterator iter = ObjectList.begin();
+		iter != ObjectList.end(); ++iter)
+		for (list<Object*>::iterator iter2 = iter->second.begin();
+			iter2 != iter->second.end(); ++iter2)
+			(*iter2)->Update();
+}
+
 list<Object*>* ObjectManager::GetObjectList(string _strKey)
 {
 	map<string, list<Object*>>::iterator iter = ObjectList.find(_strKey);

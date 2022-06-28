@@ -4,6 +4,7 @@
 #include "ObjectManager.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Bullet.h"
 
 Logo::Logo() : Scene() {  }
 Logo::~Logo() {  }

@@ -11,6 +11,7 @@ public:
 
 public:
 	virtual Object* Clone() override{return new Enemy(*this);}
+
 public:
 	Enemy();
 	Enemy(Transform _Info);

@@ -18,9 +18,10 @@ private:
 
 public:
 	void AddObject(Object* _Object);
-	void Render();
-
 	list<Object*>* GetObjectList(string _strKey);
+
+	void Render();
+	void Update();
 private:
 	ObjectManager();
 public:

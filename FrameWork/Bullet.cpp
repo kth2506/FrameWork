@@ -1,27 +1,36 @@
-#include "Enemy.h"
+#include "Bullet.h"
 #include "CursorManager.h"
-Enemy::Enemy() {}
-Enemy::Enemy(Transform _Info) : Object(_Info){}
-Enemy::~Enemy() {}
 
-void Enemy::Initialize()
+
+Bullet::Bullet(){}
+
+Bullet::Bullet(Transform _Info){}
+
+Bullet::~Bullet() {  }
+
+void Bullet::Initialize()
 {
-	strKey = "¡Ú";
+	strKey = "£ª";
 
 	TransInfo.Position = Vector3(80.0f, 15.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 1.0f);
+
 }
 
-void Enemy::Update()
+
+void Bullet::Update()
 {
+	TransInfo.Position.x += 2.0f;
 }
 
-void Enemy::Render()
+void Bullet::Render()
 {
 	CursorManager::Draw(TransInfo.Position.x, TransInfo.Position.y, strKey);
+
 }
 
-void Enemy::Release()
+void Bullet::Release()
 {
+
 }
