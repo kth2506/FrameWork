@@ -4,7 +4,7 @@
 
 Bullet::Bullet(){}
 
-Bullet::Bullet(Transform _Info){}
+Bullet::Bullet(Transform _Info) : Object(_Info){}
 
 Bullet::~Bullet() {  }
 
@@ -19,9 +19,11 @@ void Bullet::Initialize()
 }
 
 
-void Bullet::Update()
+int Bullet::Update()
 {
 	TransInfo.Position.x += 2.0f;
+	return 0;
+
 }
 
 void Bullet::Render()

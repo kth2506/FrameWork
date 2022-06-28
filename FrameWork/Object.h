@@ -8,7 +8,7 @@ protected:
 	string strKey;
 public:
 	virtual void Initialize()PURE;
-	virtual void Update()PURE;
+	virtual int Update()PURE;
 	virtual void Render()PURE;
 	virtual void Release()PURE;
 	virtual Object* Clone()PURE;

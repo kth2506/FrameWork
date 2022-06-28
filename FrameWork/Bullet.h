@@ -6,7 +6,7 @@ private:
 public:
 
 	virtual void Initialize() override;
-	virtual void Update() override;
+	virtual int Update() override;
 	virtual void Render() override;
 	virtual void Release() override;
 	virtual Object* Clone() {return new Bullet(*this);}

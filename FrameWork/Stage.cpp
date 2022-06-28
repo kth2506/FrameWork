@@ -10,14 +10,21 @@ Stage::~Stage() { Release(); }
 
 void Stage::Initialize()
 {
-	// ** 1. 반환 형태가 Object* && list<Objcet*>
-	// ** 2. Key 가 전달되어야 한다
-	list<Object*>* pPlayerList = ObjectManager::GetInstance()->GetObjectList("Player");
-	
-	if(pPlayerList != nullptr)
-		pPlayer = pPlayerList->front();
+	Object* pEnemyProto = new Enemy;
+	pEnemyProto->Initialize();
 
-	//list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("★");
+
+	for (int i = 0; i < 5; ++i)
+	{
+		srand(DWORD(GetTickCount64() * (i + 1)));
+
+		Object* pEnemy = pEnemyProto->Clone();
+		pEnemy->SetPosition(118.0f, float(rand() % 30));
+
+		ObjectManager::GetInstance()->AddObject(pEnemy);
+
+	}
+	
 
 }
 
