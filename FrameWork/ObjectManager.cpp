@@ -47,8 +47,8 @@ void ObjectManager::Update()
 				Object* Temp = *iter2;
 				iter2 = iter->second.erase(iter2);
 
-				delete(Temp);
-				(Temp) = nullptr;
+				delete Temp;
+				Temp = nullptr;
 			}
 			else
 				++iter2;
