@@ -1,4 +1,5 @@
 #include "ObjectManager.h"
+#include "CollisionManager.h"
 #include "Object.h"
 #include "Player.h"
 #include "Enemy.h"
@@ -42,6 +43,7 @@ void ObjectManager::Update()
 			iter2 != iter->second.end(); )
 		{
 			int result = (*iter2)->Update();
+
 			if (result == BUFFER_OVER)
 			{
 				Object* Temp = *iter2;
@@ -52,8 +54,8 @@ void ObjectManager::Update()
 			}
 			else
 				++iter2;
-		}
 
+		}
 	}
 
 }
@@ -63,7 +65,7 @@ list<Object*>* ObjectManager::GetObjectList(string _strKey)
 	map<string, list<Object*>>::iterator iter = ObjectList.find(_strKey);
 
 	if(iter == ObjectList.end())
-		return nullptr;
+	return nullptr;
 
 	return &iter->second;
 }

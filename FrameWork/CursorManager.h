@@ -20,22 +20,3 @@ public:
 		cout << _str;
 	}
 };
-
-
-//
-//
-//private:
-//	static CursorManager* Instance;
-//public:
-//	static CursorManager* GetInstance()
-//	{
-//		if (Instance == nullptr)
-//			Instance = new CursorManager();
-//		return Instance;
-//	}
-//
-//
-//private:
-//	CursorManager();
-//public:
-//	~CursorManager();

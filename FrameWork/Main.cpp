@@ -1,15 +1,12 @@
-// ** FrameWork ver5.2 06.28
+// ** FrameWork ver6.2 06.29
 
 #include "Headers.h"
 #include "MainUpdate.h"
 
 int main(void)
 {
-
-
 	MainUpdate Main;
 	Main.Initialize();
-
 
 	ULONGLONG Time = GetTickCount64();
 	while (true)
@@ -22,9 +19,7 @@ int main(void)
 			Main.Update();
 			Main.Render();
 		}
-
 	}
-
 
 	return 0;
 }

@@ -13,7 +13,11 @@ void Player::Initialize()
 {
 	strKey = "¡Ü";
 
-	TransInfo.Position = Vector3(40.0f, 15.0f);
+	Buffer[0] = (char*)"¿À";
+	Buffer[1] = (char*)"¤µ";
+	
+
+	TransInfo.Position = Vector3(20.0f, 15.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 1.0f);
 }
@@ -37,7 +41,7 @@ int Player::Update()
 	{
 		Object* pBullet = new Bullet;
 		pBullet->Initialize();
-		pBullet->SetPosition(TransInfo.Position);
+		pBullet->SetPosition(TransInfo.Position.x - TransInfo.Scale.x * 0.5f , TransInfo.Position.y);
 
 		ObjectManager::GetInstance()->AddObject(pBullet);
 	}
@@ -47,8 +51,13 @@ int Player::Update()
 
 void Player::Render()
 {
-	CursorManager::Draw(TransInfo.Position.x, TransInfo.Position.y, strKey);
+	
+		CursorManager::Draw(
+			TransInfo.Position.x - (TransInfo.Scale.x * 0.5f),
+			TransInfo.Position.y, strKey);
+	
 
+	
 }
 
 void Player::Release()

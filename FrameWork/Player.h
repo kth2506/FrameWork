@@ -6,7 +6,6 @@ private:
 	int Horizontal;
 	int Vertical;
 public:
-
 	virtual void Initialize() override;
 	virtual int Update() override;
 	virtual void Render() override;
