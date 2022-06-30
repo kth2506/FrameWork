@@ -6,16 +6,18 @@ class Object
 protected:
 	Transform TransInfo;
 	string strKey;
-	char* Buffer[2];
-
+	char* Buffer[MAX_SIZE];
+	int Hp;
 public:
 	virtual void Initialize()PURE;
 	virtual int Update()PURE;
 	virtual void Render()PURE;
 	virtual void Release()PURE;
 	virtual Object* Clone()PURE;
-
+	
 public:
+	int GetHp() { return Hp; }
+	void SetHp() { --Hp; }
 	string GetKey() const { return strKey; }
 
 	Vector3 GetPosition() const	{ return TransInfo.Position; }

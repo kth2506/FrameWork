@@ -1,20 +1,22 @@
-// ** FrameWork ver6.2 06.29
+// ** FrameWork ver7.0 06.30 
 
 #include "Headers.h"
 #include "MainUpdate.h"
+
+
 
 int main(void)
 {
 	MainUpdate Main;
 	Main.Initialize();
-
+	
 	ULONGLONG Time = GetTickCount64();
 	while (true)
 	{
 		if (Time + 50 < GetTickCount64())
 		{
 			Time = GetTickCount64();
-
+	
 			system("cls");
 			Main.Update();
 			Main.Render();
@@ -526,5 +528,48 @@ int main(void)
 //};
 //
 //Singleton* Singleton::Instance = nullptr;
+#pragma endregion
+
+#pragma region 15. template
+
+//
+//template <typename T1, typename T2>
+//class Temp
+//{
+//public:
+//	static T1* Func()
+//	{
+//		return new T2;
+//	}
+//
+//};
+//
+//
+//class A
+//{
+//public:
+//	int Number;
+//
+//};
+//
+//
+//// T 자료형을 보내주는 매개변수
+//template <typename T>
+//T* Func()
+//{
+//	return new T;
+//}
+//
+//
+//int main(void)
+//{
+//	A* a = Func<A>();
+//
+//	a->Number = 10;
+//
+//	return 0;
+//}
+
+
 #pragma endregion
 

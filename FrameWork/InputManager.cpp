@@ -27,7 +27,8 @@ void InputManager::InputKey()
 		Key |= KEY_CTRL;
 	if (GetAsyncKeyState(VK_MENU))
 		Key |= KEY_ALT;
-
+	if (GetAsyncKeyState(VK_TAB))
+		Key |= KEY_TAB;
 
 }
 

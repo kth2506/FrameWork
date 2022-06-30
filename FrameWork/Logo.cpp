@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Bullet.h"
+#include "ObjectFactory.h"
 
 Logo::Logo() : Scene() {  }
 Logo::~Logo() {  }
@@ -14,11 +15,9 @@ void Logo::Initialize()
 {
 	str = "Logo";
 
-	Object* pPlayer = new Player;
-	pPlayer->Initialize();
-
 	
-	ObjectManager::GetInstance()->AddObject(pPlayer);
+	ObjectManager::GetInstance()->AddObject
+	(ObjectFactory<Player>::CreateObject());
 
 }
 

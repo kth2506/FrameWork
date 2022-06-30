@@ -3,6 +3,8 @@
 #include "CursorManager.h"
 #include "Bullet.h"
 #include "ObjectManager.h"
+#include "ObjectFactory.h"
+
 Player::Player()
 	: Horizontal(0), Vertical(0) {  }
 
@@ -11,7 +13,7 @@ Player::~Player() {  }
 
 void Player::Initialize()
 {
-	strKey = "¡Ü";
+	strKey = "Player";
 
 	Buffer[0] = (char*)"¿À";
 	Buffer[1] = (char*)"¤µ";
@@ -19,7 +21,7 @@ void Player::Initialize()
 
 	TransInfo.Position = Vector3(20.0f, 15.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
-	TransInfo.Scale = Vector3(2.0f, 1.0f);
+	TransInfo.Scale = Vector3(2.0f, 2.0f);
 }
 
 int Player::Update()
@@ -38,24 +40,21 @@ int Player::Update()
 		TransInfo.Position.x += 1;
 
 	if (dwKey & KEY_SPACE)
-	{
-		Object* pBullet = new Bullet;
-		pBullet->Initialize();
-		pBullet->SetPosition(TransInfo.Position.x - TransInfo.Scale.x * 0.5f , TransInfo.Position.y);
-
-		ObjectManager::GetInstance()->AddObject(pBullet);
-	}
+		ObjectManager::GetInstance()->AddObject(
+			ObjectFactory<Bullet>::CreateObject(TransInfo.Position));
 
 	return 0;
 }
 
 void Player::Render()
 {
-	
+	for (int i = 0; i < MAX_SIZE; ++i)
+	{
 		CursorManager::Draw(
 			TransInfo.Position.x - (TransInfo.Scale.x * 0.5f),
-			TransInfo.Position.y, strKey);
-	
+			TransInfo.Position.y - (TransInfo.Scale.y * 0.5f) + i,
+			Buffer[i]);
+	}
 
 	
 }
