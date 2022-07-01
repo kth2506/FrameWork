@@ -12,21 +12,39 @@ void Bullet::Initialize()
 {
 	strKey = "Bullet";
 
-	Buffer[0] = (char*)"¡¬";
-	Buffer[1] = (char*)"/";
+	Buffer[0] = (char*)"==@";
+	Buffer[1] = (char*)"==@";
 
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
-	TransInfo.Scale = Vector3(2.0f, 2.0f);
+	TransInfo.Scale = Vector3(6.0f, 2.0f);
+	TransInfo.Direction = Vector3(0.1f, -0.06f);
 
+
+	
 }
 
 
 int Bullet::Update()
 {
-	TransInfo.Position.x += 2.0f;
-	return 0;
 
+	Vector3 Target = Vector3(60.0f, 15.0f);
+
+	Vector3 Result = Target - TransInfo.Position;
+	float distance = sqrt((Result.x * Result.x) + (Result.y * Result.y));
+
+	cout << TransInfo.Direction.x << endl;
+	cout << TransInfo.Direction.y << endl;
+
+	TransInfo.Direction /= distance;
+
+
+
+	TransInfo.Position += TransInfo.Direction;
+
+
+
+	return 0;
 }
 
 void Bullet::Render()

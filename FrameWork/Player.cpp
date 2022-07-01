@@ -5,10 +5,9 @@
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
 
-Player::Player()
-	: Horizontal(0), Vertical(0) {  }
+Player::Player(){  }
 
-Player::Player(Transform _Info) : Object(_Info) , Horizontal(0), Vertical(0){}
+Player::Player(Transform _Info) : Object(_Info){}
 Player::~Player() {  }
 
 void Player::Initialize()
@@ -41,7 +40,7 @@ int Player::Update()
 
 	if (dwKey & KEY_SPACE)
 		ObjectManager::GetInstance()->AddObject(
-			ObjectFactory<Bullet>::CreateObject(TransInfo.Position));
+			ObjectFactory<Bullet>::CreateObject(TransInfo.Position.x + TransInfo.Scale.x, TransInfo.Position.y));
 
 	return 0;
 }

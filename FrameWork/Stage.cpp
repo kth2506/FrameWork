@@ -58,7 +58,6 @@ void Stage::Update()
 	Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 	Object* pEnemy = ObjectManager::GetInstance()->GetObjectList("Enemy")->front();
 	
-	// 충돌
 	{
 		if (pBulletList != nullptr)
 		{
@@ -81,7 +80,7 @@ void Stage::Update()
 			{
 				if (CollisionManager::Collision(pPlayer, *Playeriter))
 				{
-					CursorManager::Draw(50.0f, 1.0f, "충돌입니다");
+					CursorManager::Draw(50.0f, 1.0f, "Collision!!!");
 				}
 
 			}
@@ -98,10 +97,10 @@ void Stage::Update()
 					if (CollisionManager::Collision(*Bulletiter, *Enemyiter))
 					{
 						Bulletiter = pBulletList->erase(Bulletiter);
-						CursorManager::Draw(50.0f, 1.0f, "맞았습니다");
+						CursorManager::Draw(50.0f, 1.0f, "Hit!!!!");
 
 						(*Enemyiter)->SetHp();
-						cout << " 상대의 체력 : " << (*Enemyiter)->GetHp() << endl;
+						cout << " Enemy : " << (*Enemyiter)->GetHp() << endl;
 
 					}
 					else

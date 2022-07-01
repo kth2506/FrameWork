@@ -2,9 +2,6 @@
 #include "Object.h"
 class Player : public Object
 {
-private:
-	int Horizontal;
-	int Vertical;
 public:
 	virtual void Initialize() override;
 	virtual int Update() override;

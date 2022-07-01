@@ -25,7 +25,9 @@ public:
 	void SetPosition(Vector3 _Position)	{ TransInfo.Position = _Position; }
 
 	Vector3 GetScale() const { return TransInfo.Scale; }
-	void SetScale(float _x, float _y)	{ TransInfo.Scale = Vector3(_x, _y); }
+	void SetScale(float _x, float _y)	{ TransInfo.Scale = Vector3(_x, _y); }	
+	void SetScale(Vector3 _Scale) { TransInfo.Scale = _Scale; }
+
 
 
 public:

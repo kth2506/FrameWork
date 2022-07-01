@@ -27,10 +27,11 @@ public:
 	{
 		Object* pObject = new T;
 		pObject->Initialize();
-
 		pObject->SetPosition(_Position);
 
 		return pObject;
 	}
 
 };
+
+
