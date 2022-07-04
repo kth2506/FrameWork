@@ -135,6 +135,9 @@
     <ClCompile Include="ScrollBox.cpp">
       <Filter>소스 파일\03. UserInterface\ScrollBox</Filter>
     </ClCompile>
+    <ClCompile Include="CursorManager.cpp">
+      <Filter>소스 파일\99.Manager\CursorManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers.h">
@@ -179,9 +182,6 @@
     <ClInclude Include="Enemy.h">
       <Filter>소스 파일\02. Object\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectManager.h">
-      <Filter>소스 파일\99.Manager\ObjectManager</Filter>
-    </ClInclude>
     <ClInclude Include="Struct.h">
       <Filter>헤더 파일\include</Filter>
     </ClInclude>
@@ -208,6 +208,9 @@
     </ClInclude>
     <ClInclude Include="MathManager.h">
       <Filter>소스 파일\99.Manager\MathManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>소스 파일\99.Manager\ObjectManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

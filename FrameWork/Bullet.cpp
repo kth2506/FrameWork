@@ -18,7 +18,6 @@ void Bullet::Initialize()
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(6.0f, 2.0f);
-	TransInfo.Direction = Vector3(0.1f, -0.06f);
 
 
 	
@@ -27,18 +26,14 @@ void Bullet::Initialize()
 
 int Bullet::Update()
 {
-
 	Vector3 Target = Vector3(60.0f, 15.0f);
 
-	Vector3 Result = Target - TransInfo.Position;
-	float distance = sqrt((Result.x * Result.x) + (Result.y * Result.y));
+	float Width = Target.x - TransInfo.Position.x;
+	float Height = Target.y - TransInfo.Position.y;
 
-	cout << TransInfo.Direction.x << endl;
-	cout << TransInfo.Direction.y << endl;
+	float Distance = sqrt((Width * Width) + (Height * Height));
 
-	TransInfo.Direction /= distance;
-
-
+	TransInfo.Direction = Vector3(Width / Distance, Height / Distance);
 
 	TransInfo.Position += TransInfo.Direction;
 
@@ -49,13 +44,13 @@ int Bullet::Update()
 
 void Bullet::Render()
 {
-	for (int i = 0; i < MAX_SIZE; ++i)
-	{
-		CursorManager::Draw(
-			TransInfo.Position.x - (TransInfo.Scale.x * 0.5f),
-			TransInfo.Position.y - (TransInfo.Scale.y * 0.5f) + i,
-			Buffer[i]);
-	}
+	//for (int i = 0; i < MAX_SIZE; ++i)
+	//{
+	//	CursorManager::Draw(
+	//		TransInfo.Position.x - (TransInfo.Scale.x * 0.5f),
+	//		TransInfo.Position.y - (TransInfo.Scale.y * 0.5f) + i,
+	//		Buffer[i]);
+	//}
 }
 
 void Bullet::Release()

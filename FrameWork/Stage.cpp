@@ -48,6 +48,10 @@ void Stage::Update()
 		Enable_UI();
 	}
 
+	if (dwKey & KEY_ESCAPE)
+	{
+		exit(0);
+	}
 
 	ObjectManager::GetInstance()->Update();
 
@@ -80,7 +84,6 @@ void Stage::Update()
 			{
 				if (CollisionManager::Collision(pPlayer, *Playeriter))
 				{
-					CursorManager::Draw(50.0f, 1.0f, "Collision!!!");
 				}
 
 			}
@@ -97,7 +100,6 @@ void Stage::Update()
 					if (CollisionManager::Collision(*Bulletiter, *Enemyiter))
 					{
 						Bulletiter = pBulletList->erase(Bulletiter);
-						CursorManager::Draw(50.0f, 1.0f, "Hit!!!!");
 
 						(*Enemyiter)->SetHp();
 						cout << " Enemy : " << (*Enemyiter)->GetHp() << endl;
