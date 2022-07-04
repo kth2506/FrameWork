@@ -11,7 +11,7 @@ MainUpdate::~MainUpdate() { Release(); }
 
 void MainUpdate::Initialize()
 {
-	CursorManager::GetInstance()->CreateBuffer(120.0f, 30.0f);
+	CursorManager::GetInstance()->CreateBuffer((float)Console_Width, (float)Console_Height);
 	SceneManager::GetInstance()->SetScene(LOGO);
 
 }
