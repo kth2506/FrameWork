@@ -1,34 +1,38 @@
 #include "ObjectManager.h"
 #include "CollisionManager.h"
+#include "ObjectPool.h"
+
 #include "Object.h"
 #include "Player.h"
 #include "Enemy.h"
 ObjectManager* ObjectManager::Instance = nullptr;
 
-ObjectManager::ObjectManager(){}
+ObjectManager::ObjectManager()
+{
+	EnableList = ObjectPool::GetEnableList();
+}
 ObjectManager::~ObjectManager(){}
 
 
 void ObjectManager::AddObject(Object* _Object)
 {
-	//ObjectList
+	map<string, list<Object*>>::iterator iter = EnableList->find(_Object->GetKey());
 
-	map<string, list<Object*>>::iterator iter = ObjectList.find(_Object->GetKey());
-
-	if (iter == ObjectList.end())
+	if (iter == EnableList->end())
 	{
 		list<Object*> TempList;
 		TempList.push_back(_Object);
-		ObjectList.insert(make_pair(_Object->GetKey(), TempList));
+		EnableList->insert(make_pair(_Object->GetKey(), TempList));
 	}
 	else
 		iter->second.push_back(_Object);
+
 }
 
 void ObjectManager::Render()
 {
-	for(map<string, list<Object*>>::iterator iter = ObjectList.begin();
-		iter != ObjectList.end(); ++iter)
+	for(map<string, list<Object*>>::iterator iter = EnableList->begin();
+		iter != EnableList->end(); ++iter)
 		for (list<Object*>::iterator iter2 = iter->second.begin();
 			iter2 != iter->second.end(); ++iter2)
 		(*iter2)->Render();
@@ -36,36 +40,15 @@ void ObjectManager::Render()
 
 void ObjectManager::Update()
 {
-	for (map<string, list<Object*>>::iterator iter = ObjectList.begin();
-		iter != ObjectList.end(); ++iter)
-	{
-		for (list<Object*>::iterator iter2 = iter->second.begin();
-			iter2 != iter->second.end(); )
-		{
-			int result = (*iter2)->Update();
-
-			if (result == BUFFER_OVER)
-			{
-				Object* Temp = *iter2;
-				iter2 = iter->second.erase(iter2);
-
-				delete Temp;
-				Temp = nullptr;
-			}
-			else
-				++iter2;
-
-		}
-	}
-
+	ObjectPool::GetInstance()->Update();
 }
 
 list<Object*>* ObjectManager::GetObjectList(string _strKey)
 {
-	map<string, list<Object*>>::iterator iter = ObjectList.find(_strKey);
+	map<string, list<Object*>>::iterator iter = EnableList->find(_strKey);
 
-	if(iter == ObjectList.end())
-	return nullptr;
+	if(iter == EnableList->end())
+		return nullptr;
 
 	return &iter->second;
 }

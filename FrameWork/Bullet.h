@@ -3,6 +3,7 @@
 class Bullet : public Object
 {
 private:
+	Object* pPlayer;
 public:
 
 	virtual void Initialize() override;

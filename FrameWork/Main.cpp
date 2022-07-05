@@ -1,4 +1,4 @@
-// ** FrameWork ver9.0 07.04
+// ** FrameWork ver10.0 07.05
 
 #include "Headers.h"
 #include "MainUpdate.h"

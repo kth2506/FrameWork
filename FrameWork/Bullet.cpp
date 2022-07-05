@@ -1,6 +1,7 @@
 #include "Bullet.h"
 #include "CursorManager.h"
-
+#include "Player.h"
+#include "ObjectManager.h"
 
 Bullet::Bullet(){}
 
@@ -12,12 +13,12 @@ void Bullet::Initialize()
 {
 	strKey = "Bullet";
 
-	Buffer[0] = (char*)"==@";
-	Buffer[1] = (char*)"==@";
+	Buffer[0] = (char*)"¢´";
+	Buffer[1] = (char*)"";
 
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
-	TransInfo.Scale = Vector3(6.0f, 2.0f);
+	TransInfo.Scale = Vector3(2.0f, 2.0f);
 
 
 	
@@ -26,7 +27,8 @@ void Bullet::Initialize()
 
 int Bullet::Update()
 {
-	Vector3 Target = Vector3(60.0f, 15.0f);
+	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
+	Vector3 Target = pPlayer->GetPosition();
 
 	float Width = Target.x - TransInfo.Position.x;
 	float Height = Target.y - TransInfo.Position.y;
@@ -44,9 +46,14 @@ int Bullet::Update()
 
 void Bullet::Render()
 {
-	CursorManager::GetInstance()->WriteBuffer(
-		TransInfo.Position.x, TransInfo.Position.y, (char*)"BBB", Color
-	);
+	for (int i = 0; i < 1; ++i)
+	{
+		CursorManager::GetInstance()->WriteBuffer(
+			TransInfo.Position.x - TransInfo.Scale.x * 0.5f,
+			TransInfo.Position.y - TransInfo.Scale.y * 0.5f + i,
+			Buffer[i], Color
+		);
+	}
 }
 
 void Bullet::Release()

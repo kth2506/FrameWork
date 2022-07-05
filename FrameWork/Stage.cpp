@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Stage.h"
 #include "Player.h"
 #include "Enemy.h"
@@ -84,8 +85,10 @@ void Stage::Update()
 			{
 				if (CollisionManager::Collision(pPlayer, *Playeriter))
 				{
+					CursorManager::GetInstance()->WriteBuffer(
+						60, 1.5, (char*)"맞았습니다", 15
+					);
 				}
-
 			}
 		}
 
@@ -101,11 +104,12 @@ void Stage::Update()
 					{
 						Bulletiter = pBulletList->erase(Bulletiter);
 
-						//(*Enemyiter)->SetHp();
-						//char* hp = (char*)((*Enemyiter)->GetHp());
-						//CursorManager::GetInstance()->WriteBuffer(
-						//	50, 3, hp, 15
-						//);
+						(*Enemyiter)->SetHp();
+						char* hp = new char;
+						sprintf(hp, "%d", (*Enemyiter)->GetHp());
+						CursorManager::GetInstance()->WriteBuffer(
+							60, 1.5, hp, 15
+						);
 					}
 					else
 						++Bulletiter;
