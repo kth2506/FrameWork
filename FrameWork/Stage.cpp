@@ -101,7 +101,7 @@ void Stage::Update()
 					{
 						Bulletiter = pBulletList->erase(Bulletiter);
 
-						//(*Enemyiter)->SetHp();
+						(*Enemyiter)->SetHp();
 						//char* hp = (char*)((*Enemyiter)->GetHp());
 						//CursorManager::GetInstance()->WriteBuffer(
 						//	50, 3, hp, 15
