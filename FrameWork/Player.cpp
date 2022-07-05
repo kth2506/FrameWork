@@ -5,9 +5,9 @@
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
 
-Player::Player(){  }
+Player::Player() : pBullet(nullptr){  }
 
-Player::Player(Transform _Info) : Object(_Info){}
+Player::Player(Transform _Info) : Object(_Info), pBullet(nullptr) {}
 Player::~Player() {  }
 
 void Player::Initialize()
@@ -39,9 +39,26 @@ int Player::Update()
 		TransInfo.Position.x += 1;
 
 	if (dwKey & KEY_SPACE)
+	{
+		pBullet = ObjectManager::GetInstance()->GetObjectList("Bullet")->front();
+		//if (pBullet->GetDirection().x < 0)
+		//{
 		ObjectManager::GetInstance()->AddObject(
-			ObjectFactory<Bullet>::CreateObject(TransInfo.Position.x + TransInfo.Scale.x, TransInfo.Position.y));
+			ObjectFactory<Bullet>::CreateObject(
+				TransInfo.Position.x - TransInfo.Scale.x,
+				TransInfo.Position.y - TransInfo.Scale.y));
+		//}
+		//else if (pBullet->GetDirection().x >= 0)
+		//{
+		//ObjectManager::GetInstance()->AddObject(
+		//	ObjectFactory<Bullet>::CreateObject(
+		//		TransInfo.Position.x + TransInfo.Scale.x,
+		//		TransInfo.Position.y + TransInfo.Scale.y));
+		//}
 
+
+
+	}
 	return 0;
 }
 

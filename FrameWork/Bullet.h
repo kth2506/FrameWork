@@ -3,7 +3,7 @@
 class Bullet : public Object
 {
 private:
-	Object* pPlayer;
+	Object* pEnemy;
 public:
 
 	virtual void Initialize() override;

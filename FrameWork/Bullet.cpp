@@ -18,17 +18,18 @@ void Bullet::Initialize()
 
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
-	TransInfo.Scale = Vector3(2.0f, 2.0f);
-
+	TransInfo.Scale = Vector3(2.0f, 1.0f);
 
 	
 }
 
 
+
+
 int Bullet::Update()
 {
-	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
-	Vector3 Target = pPlayer->GetPosition();
+	pEnemy = ObjectManager::GetInstance()->GetObjectList("Enemy")->front();
+	Vector3 Target = pEnemy->GetPosition();
 
 	float Width = Target.x - TransInfo.Position.x;
 	float Height = Target.y - TransInfo.Position.y;

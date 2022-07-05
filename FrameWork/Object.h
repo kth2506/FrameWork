@@ -29,6 +29,9 @@ public:
 	void SetScale(float _x, float _y)	{ TransInfo.Scale = Vector3(_x, _y); }	
 	void SetScale(Vector3 _Scale) { TransInfo.Scale = _Scale; }
 
+	Vector3 GetDirection() const { return TransInfo.Direction; }
+	void SetDirection(float _x, float _y) { TransInfo.Direction = Vector3(_x, _y); }
+	void SetDirection(Vector3 _Direction) { TransInfo.Direction = _Direction; }
 
 
 public:

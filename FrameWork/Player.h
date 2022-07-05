@@ -1,5 +1,6 @@
 #pragma once
 #include "Object.h"
+class Object;
 class Player : public Object
 {
 public:
@@ -7,7 +8,8 @@ public:
 	virtual int Update() override;
 	virtual void Render() override;
 	virtual void Release() override;
-
+private:
+	Object* pBullet;
 public:
 	virtual Object* Clone() override{ return new Player(*this);	}
 
