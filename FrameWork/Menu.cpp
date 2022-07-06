@@ -20,6 +20,10 @@ void Menu::Update()
 		SceneManager::GetInstance()->SetScene(STAGE);
 	}
 
+	if (dwKey & KEY_ESCAPE)
+	{
+		exit(0);
+	}
 }
 
 void Menu::Render()

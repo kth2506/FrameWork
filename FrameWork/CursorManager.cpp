@@ -4,7 +4,7 @@
 CursorManager* CursorManager::Instance = nullptr;
 
 CursorManager::CursorManager() 
-: BufferIndex(0){}
+: BufferIndex(0), point() {}
 CursorManager::~CursorManager() { DestroyBuffer(); }
 
 
@@ -12,7 +12,9 @@ POINT CursorManager::GetPoint()
 {
 	GetCursorPos(&point); // 마우스 위치를 받아온다
 	ScreenToClient(GetConsoleWindow(), &point); // 해당 클라이언트 기준으로 좌표를 변환한다
-
+	point.x /= 8;
+	point.y /= 18;
+	
 	return point;
 }
 
@@ -20,7 +22,6 @@ void CursorManager::CreateBuffer(const int& _Width, const int& _Height)
 {
 	
 	CONSOLE_CURSOR_INFO Cursor; // 커서  설정
-
 
 	Cursor.bVisible = FALSE;	// 커서 안보이게함
 	Cursor.dwSize = 1;		// 커서의 사이즈 설정

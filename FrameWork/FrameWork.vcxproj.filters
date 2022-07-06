@@ -221,5 +221,8 @@
     <ClInclude Include="ObjectPool.h">
       <Filter>소스 파일\98. Pattern</Filter>
     </ClInclude>
+    <ClInclude Include="Explain.h">
+      <Filter>헤더 파일\include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

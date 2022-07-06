@@ -3,6 +3,7 @@
 #include "CursorManager.h"
 #include "Player.h"
 #include "ObjectManager.h"
+#include "MathManager.h"
 
 Bullet::Bullet(){}
 
@@ -20,7 +21,7 @@ void Bullet::Initialize()
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 1.0f);
-
+	TransInfo.Direction = Vector3(0.0f, 0.0f);
 	
 }
 
@@ -30,27 +31,15 @@ void Bullet::Initialize()
 
 int Bullet::Update()
 {
-	p = CursorManager::GetInstance()->GetPoint();
-	p.x /= 8;
-	p.y /= 18;
-	char* aa = new char;
-	sprintf(aa, "%d", p.x);
-	char* bb = new char;
-	sprintf(bb, "%d", p.y);
-	Vector3 Target = Vector3((float)p.x, (float)p.y);
-	CursorManager::GetInstance()->WriteBuffer(60, 1, aa, 15);
-	CursorManager::GetInstance()->WriteBuffer(66, 1, bb, 15);
-	//Vector3 Target = Vector3(0.0f, 0.0f)
-	float Width = Target.x - TransInfo.Position.x;
-	float Height = Target.y - TransInfo.Position.y;
+	//TransInfo.Direction = MathManager::GetDirection(TransInfo.Position);
+	//
+	//TransInfo.Position += TransInfo.Direction;
 
-	float Distance = sqrt((Width * Width) + (Height * Height));
-
-	TransInfo.Direction = Vector3(Width / Distance, Height / Distance);
-
+	TransInfo.Direction = MathManager::GetDirection(
+		TransInfo.Position, Vector3(60.0f, 15.0f));
+	
 	TransInfo.Position += TransInfo.Direction;
-
-
+	
 
 	return 0;
 }

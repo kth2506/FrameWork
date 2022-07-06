@@ -4,7 +4,6 @@ class Bullet : public Object
 {
 private:
 	Object* pEnemy;
-	POINT p;
 public:
 
 	virtual void Initialize() override;

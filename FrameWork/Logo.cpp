@@ -30,6 +30,11 @@ void Logo::Update()
 	{
 		SceneManager::GetInstance()->SetScene(MENU);
 	}
+
+	if (dwKey & KEY_ESCAPE)
+	{
+		exit(0);
+	}
 }
 
 void Logo::Render()

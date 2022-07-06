@@ -95,7 +95,7 @@ void Stage::Update()
 		if (pEnemyList != nullptr && pBulletList != nullptr)
 		{
 			for (list<Object*>::iterator Enemyiter = pEnemyList->begin();
-				Enemyiter != pEnemyList->end(); ++Enemyiter)
+				Enemyiter != pEnemyList->end(); )
 			{
 				for (list<Object*>::iterator Bulletiter = pBulletList->begin();
 					Bulletiter != pBulletList->end();)
@@ -103,33 +103,26 @@ void Stage::Update()
 					if (CollisionManager::Collision(*Bulletiter, *Enemyiter))
 					{
 						Bulletiter = pBulletList->erase(Bulletiter);
-
+					
 						(*Enemyiter)->SetHp();
-						char* hp = new char;
-						sprintf(hp, "%d", (*Enemyiter)->GetHp());
-						CursorManager::GetInstance()->WriteBuffer(
-							60, 1.5, hp, 15
-						);
+						//char* hp = new char;
+						//sprintf(hp, "%d", (*Enemyiter)->GetHp());
+						//CursorManager::GetInstance()->WriteBuffer(
+						//	60, 1.5, hp, 15
+						//);
 					}
 					else
 						++Bulletiter;
 				}
-			}
-		}
 
 
-
-		if (pEnemyList != nullptr)
-		{
-			for (auto iter = pEnemyList->begin();
-				iter != pEnemyList->end(); )
-			{
-				if ((*iter)->GetHp() <= 0)
+				if ((*Enemyiter)->GetHp() <= 0)
 				{
-					iter = pEnemyList->erase(iter);
+					Enemyiter = pEnemyList->erase(Enemyiter);
 				}
 				else
-					++iter;
+					++Enemyiter;
+
 			}
 		}
 

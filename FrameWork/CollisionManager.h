@@ -2,6 +2,9 @@
 
 #include "Headers.h"
 #include "Object.h"
+#include "ObjectPool.h"
+#include "CursorManager.h"
+
 
 class CollisionManager
 {
@@ -35,6 +38,9 @@ public:
 			Position_B.y + (Scale_B.y * 0.5f) > Position_A.y - (Scale_A.y * 0.5f))
 			return true;
 
+		
+
 		return false;
 	}
+	
 };
