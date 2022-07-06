@@ -7,6 +7,15 @@ CursorManager::CursorManager()
 : BufferIndex(0){}
 CursorManager::~CursorManager() { DestroyBuffer(); }
 
+
+POINT CursorManager::GetPoint()
+{
+	GetCursorPos(&point); // 마우스 위치를 받아온다
+	ScreenToClient(GetConsoleWindow(), &point); // 해당 클라이언트 기준으로 좌표를 변환한다
+
+	return point;
+}
+
 void CursorManager::CreateBuffer(const int& _Width, const int& _Height)
 {
 	

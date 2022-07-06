@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Bullet.h"
 #include "CursorManager.h"
 #include "Player.h"
@@ -26,11 +27,20 @@ void Bullet::Initialize()
 
 
 
+
 int Bullet::Update()
 {
-	pEnemy = ObjectManager::GetInstance()->GetObjectList("Enemy")->front();
-	Vector3 Target = pEnemy->GetPosition();
-
+	p = CursorManager::GetInstance()->GetPoint();
+	p.x /= 8;
+	p.y /= 18;
+	char* aa = new char;
+	sprintf(aa, "%d", p.x);
+	char* bb = new char;
+	sprintf(bb, "%d", p.y);
+	Vector3 Target = Vector3((float)p.x, (float)p.y);
+	CursorManager::GetInstance()->WriteBuffer(60, 1, aa, 15);
+	CursorManager::GetInstance()->WriteBuffer(66, 1, bb, 15);
+	//Vector3 Target = Vector3(0.0f, 0.0f)
 	float Width = Target.x - TransInfo.Position.x;
 	float Height = Target.y - TransInfo.Position.y;
 

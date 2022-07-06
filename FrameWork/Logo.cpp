@@ -6,6 +6,7 @@
 #include "Enemy.h"
 #include "Bullet.h"
 #include "ObjectFactory.h"
+#include "CursorManager.h"
 
 Logo::Logo() : Scene() {  }
 Logo::~Logo() {  }
@@ -33,7 +34,9 @@ void Logo::Update()
 
 void Logo::Render()
 {
-	cout << str << endl;
+	CursorManager::GetInstance()->WriteBuffer(
+		60, 15,(char*)"Logo", 15
+	);
 }
 
 void Logo::Release()

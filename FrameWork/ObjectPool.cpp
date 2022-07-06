@@ -35,7 +35,7 @@ void ObjectPool::Update()
 
 				(*iter).second.erase(iter2);
 			}
-			break;
+				break;
 
 			default:
 				++iter2;

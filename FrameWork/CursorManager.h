@@ -14,10 +14,11 @@ public:
 		return Instance;
 	}
 private:
-	
+	POINT point;
 	int BufferIndex;			// ** 버퍼의 인덱스 접근을 위한 변수
 	HANDLE hBuffer[2];	// 2개의 버퍼
 public:
+	POINT GetPoint();
 	void CreateBuffer(const int& _Width,const int& _Height);		// 버퍼를 생성
 	void WriteBuffer(float _x, float _y, char* _str, int _Color = 15);		// 그리기 버퍼  
 	void WriteBuffer(Vector3 _Position, char* _str, int _Color = 15);		// 그리기 버퍼  

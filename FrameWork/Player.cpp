@@ -30,31 +30,44 @@ int Player::Update()
 
 	
 	if (dwKey & KEY_UP)
+	{
 		TransInfo.Position.y -= 1;
+		TransInfo.Direction.y = 1;
+	}
 	if (dwKey & KEY_DOWN)
+	{
 		TransInfo.Position.y += 1;
+		TransInfo.Direction.y = -1;
+
+	}
 	if (dwKey & KEY_LEFT)
+	{
 		TransInfo.Position.x -= 1;
+		TransInfo.Direction.x = -1;
+
+	}
 	if (dwKey & KEY_RIGHT)
+	{
 		TransInfo.Position.x += 1;
+		TransInfo.Direction.x = 1;
+	}
 
 	if (dwKey & KEY_SPACE)
 	{
-		pBullet = ObjectManager::GetInstance()->GetObjectList("Bullet")->front();
-		//if (pBullet->GetDirection().x < 0)
-		//{
+		if (TransInfo.Direction.x < 0)
+		{
+		ObjectManager::GetInstance()->AddObject(
+		ObjectFactory<Bullet>::CreateObject(
+			TransInfo.Position.x ,
+			TransInfo.Position.y ));
+		}
+		else if (TransInfo.Direction.x > 0)
+		{
 		ObjectManager::GetInstance()->AddObject(
 			ObjectFactory<Bullet>::CreateObject(
-				TransInfo.Position.x - TransInfo.Scale.x,
-				TransInfo.Position.y - TransInfo.Scale.y));
-		//}
-		//else if (pBullet->GetDirection().x >= 0)
-		//{
-		//ObjectManager::GetInstance()->AddObject(
-		//	ObjectFactory<Bullet>::CreateObject(
-		//		TransInfo.Position.x + TransInfo.Scale.x,
-		//		TransInfo.Position.y + TransInfo.Scale.y));
-		//}
+				TransInfo.Position.x ,
+				TransInfo.Position.y ));
+		}
 
 
 
