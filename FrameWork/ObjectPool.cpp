@@ -37,25 +37,13 @@ void ObjectPool::Update()
 				(*iter).second.erase(iter2);
 			}
 				break;
-
+			case 2:
+				CursorManager::GetInstance()->WriteBuffer(50.0f, 1.0f, (char*)"충돌입니다");
+				++iter2;
 				default:
 				++iter2;
 				break;
 			}
-		}
-	}
-}
-
-void ObjectPool::ObjectCollision()
-{
-
-	for (map<string, list<Object*>>::iterator iter = EnableList.begin();
-		iter != EnableList.end(); ++iter)
-	{
-		for (list<Object*>::iterator iter2 = iter->second.begin();
-			iter2 != iter->second.end(); ++iter2)
-		{
-			CursorManager::GetInstance()->WriteBuffer(50.0f, 1.0f, (char*)"충돌입니다");
 		}
 	}
 }

@@ -31,14 +31,14 @@ void Bullet::Initialize()
 
 int Bullet::Update()
 {
-	//TransInfo.Direction = MathManager::GetDirection(TransInfo.Position);
-	//
-	//TransInfo.Position += TransInfo.Direction;
-
-	TransInfo.Direction = MathManager::GetDirection(
-		TransInfo.Position, Vector3(60.0f, 15.0f));
+	TransInfo.Direction = MathManager::GetDirection(TransInfo.Position);
 	
 	TransInfo.Position += TransInfo.Direction;
+
+	//TransInfo.Direction = MathManager::GetDirection(
+	//	TransInfo.Position, Vector3(60.0f, 15.0f));
+	//
+	//TransInfo.Position += TransInfo.Direction;
 	
 
 	return 0;
