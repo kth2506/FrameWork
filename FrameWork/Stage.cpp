@@ -63,8 +63,7 @@ void Stage::Update()
 	Object* pEnemy = ObjectManager::GetInstance()->GetObjectList("Enemy")->front();
 	if (dwKey & KEY_ESCAPE)
 	{
-		map<string, list <Object*>>::iterator iter;
-		ObjectManager::GetInstance()->TakeObject(iter, "Bullet");
+		ObjectManager::GetInstance()->TakeObject("Bullet");
 	}
 	{
 		if (pBulletList != nullptr)
