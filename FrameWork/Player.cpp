@@ -44,7 +44,7 @@ int Player::Update()
 
 	if (dwKey & KEY_SPACE)
 	{
-		ObjectManager::GetInstance()->AddObject(	"Bullet");
+		ObjectManager::GetInstance()->AddObject("Bullet");
 	}
 	return 0;
 }

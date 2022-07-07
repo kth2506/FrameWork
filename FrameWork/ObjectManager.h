@@ -17,7 +17,9 @@ private:
 	map<string, list<Object*>>* EnableList;
 public:
 	void AddObject(string _Key);
-	void SetObjectPosition(Vector3 _Position);
+	void AddObject(string _Key, float _x, float _y);
+	void AddObject(string _Key, Vector3 _Position);
+
 	list<Object*>* GetObjectList(string _strKey);
 	list<Object*>::iterator ThrowObject(list<Object*>::iterator _Where, Object* _Object);
 	void Update();

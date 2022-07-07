@@ -17,6 +17,49 @@ ObjectManager::~ObjectManager(){}
 
 
 
+//
+//void ObjectManager::AddObject(string _Key, float _x, float _y)
+//{
+//	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
+//
+//	if (pObject == nullptr)
+//		pObject = ObjectFactory<Bullet>::CreateObject(_x, _y);
+//
+//	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
+//
+//	if (iter == EnableList->end())
+//	{
+//		list<Object*> TempList;
+//		TempList.push_back(pObject);
+//		EnableList->insert(make_pair(pObject->GetKey(), TempList));
+//	}
+//	else
+//		iter->second.push_back(pObject);
+//
+//}
+//
+//
+//void ObjectManager::AddObject(string _Key, Vector3 _Position)
+//{
+//	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
+//
+//	if (pObject == nullptr)
+//		pObject = ObjectFactory<Bullet>::CreateObject();
+//
+//	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
+//
+//	if (iter == EnableList->end())
+//	{
+//		list<Object*> TempList;
+//		TempList.push_back(pObject);
+//		EnableList->insert(make_pair(pObject->GetKey(), TempList));
+//	}
+//	else
+//		iter->second.push_back(pObject);
+//
+//}
+
+
 void ObjectManager::AddObject(string _Key)
 {
 	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
@@ -36,11 +79,6 @@ void ObjectManager::AddObject(string _Key)
 		iter->second.push_back(pObject);
 }
 
-void ObjectManager::SetObjectPosition(Vector3 _Position)
-{
-
-
-}
 
 list<Object*>* ObjectManager::GetObjectList(string _strKey)
 {
@@ -81,6 +119,9 @@ void ObjectManager::Render()
 			iter2 != iter->second.end(); ++iter2)
 		(*iter2)->Render();
 }
+
+
+
 
 
 

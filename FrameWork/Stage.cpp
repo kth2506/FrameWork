@@ -34,7 +34,7 @@ void Stage::Initialize()
 		Object* pEnemy = pEnemyProto->Clone();
 		pEnemy->SetPosition(float(rand() % 118) , float(rand() % 26) + pEnemy->GetScale().y * 2);
 
-		//ObjectManager::GetInstance()->AddObject("Enemy");
+		ObjectManager::GetInstance()->AddObject("Enemy");
 
 	}
 	
