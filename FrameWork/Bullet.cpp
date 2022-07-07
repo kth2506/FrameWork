@@ -51,7 +51,7 @@ void Bullet::Render()
 		CursorManager::GetInstance()->WriteBuffer(
 			TransInfo.Position.x - TransInfo.Scale.x * 0.5f,
 			TransInfo.Position.y - TransInfo.Scale.y * 0.5f + i,
-			Buffer[i], Color
+			Buffer[i], 13
 		);
 	}
 }

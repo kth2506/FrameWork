@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include "ScrollBox.h"
 #include "CursorManager.h"
 #include "InputManager.h"
@@ -9,40 +11,50 @@ void ScrollBox::Initialize()
 {
 
 
-	strKey = "ScrollBox"; 	
-	TextureList.push_back("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
-	TextureList.push_back("¦¢¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¦¢");
-	TextureList.push_back("¦¢¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¦¢");
-	TextureList.push_back(" £¯£þ£þ £þ£þ£þ£þ£¯£þ¡¬£ü");
-	TextureList.push_back("£ü¡¡¡¡¡¡¡¡¡¡¡¡¡¡£ü -¦¥£ü");
-	TextureList.push_back(" ¡¬_______________¡¬__£¯");
+	strKey = "ScrollBox";
+	TextureList.push_back("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
+	for (int i = 0; i < 22; ++i)
+	TextureList.push_back("¦¢¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¦¢");
+	TextureList.push_back("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
 
-	TransInfo.Position = Vector3(float(120 / 2), 5.0f);
+	TransInfo.Position = Vector3(float(120 / 2), 10.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
-	TransInfo.Scale = Vector3(14.0f, 6.0f);
+	TransInfo.Scale = Vector3(34.0f, 17.0f);
 }
 
 int ScrollBox::Update()
 {
-	DWORD dwKey = InputManager::GetInstance()->GetKey();
-
-	auto iter = TextureList.begin();
-	++iter;
-
-	if (dwKey & KEY_CTRL)
-	{
-		if (TransInfo.Position.y + TransInfo.Scale.y < 29)
-		{
-			TextureList.insert(iter, "¦¢¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¦¢");
-			++TransInfo.Scale.y;
-		}
-	}
+	//system("PAUSE");
+	//DWORD dwKey = InputManager::GetInstance()->GetKey();
+	//
+	//auto iter = TextureList.begin();
+	//++iter;
+	//
+	//if (dwKey & KEY_CTRL)
+	//{
+	//	if (TransInfo.Position.y + TransInfo.Scale.y < 29)
+	//	{
+	//		TextureList.insert(iter, "¦¢¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¦¢");
+	//		++TransInfo.Scale.y;
+	//	}
+	//}
 	return 0;
 }
 
 void ScrollBox::Render()
 {
+	char* Temp = new char;
 
+	for (int i = 0; i < TextureList.size(); ++i)
+	{
+		strcpy(Temp, TextureList[i].c_str());
+		CursorManager::GetInstance()->WriteBuffer(
+			TransInfo.Position.x - TransInfo.Scale.x * 0.5f,
+			TransInfo.Position.y - TransInfo.Scale.y * 0.5f + i,
+			Temp);
+	}
+
+	::Safe_Delete(Temp);
 	//for (int i = 0 ; i < TextureList.size(); ++i)
 	//{
 	//	CursorManager::Draw(

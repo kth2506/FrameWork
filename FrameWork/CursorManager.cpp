@@ -28,7 +28,7 @@ void CursorManager::CreateBuffer(const int& _Width, const int& _Height)
 	
 	COORD Size = { (SHORT)_Width, (SHORT)_Height };
 
-	SMALL_RECT rect = { 0, 0 , _Width , _Height	};
+	SMALL_RECT rect = { 0, 0 , (SHORT)_Width , (SHORT)_Height	};
 
 	for (int i = 0; i < 2; ++i)
 	{
@@ -64,6 +64,28 @@ void CursorManager::WriteBuffer(float _x, float _y, char* _str, int _Color)
 
 }
 
+void CursorManager::WriteBuffer(float _x, float _y, int _Value, int _Color)
+{
+	DWORD dw;
+
+	COORD CursorPosition = { SHORT(_x), SHORT(_y) };
+
+	// 좌표 이동
+	SetConsoleCursorPosition(hBuffer[BufferIndex], CursorPosition);
+
+	// 텍스트 색 변경
+	SetColor(_Color);
+
+	char Buffer[4];
+	_itoa(_Value, Buffer, 10);
+
+	char* pBuffer = new char[strlen(Buffer)];
+	strcpy(pBuffer, Buffer);
+	// 버퍼에 쓰기
+	WriteFile(hBuffer[BufferIndex], pBuffer, (DWORD)strlen(pBuffer), &dw, NULL);
+
+}
+
 void CursorManager::WriteBuffer(Vector3 _Position, char* _str, int _Color)
 {
 	DWORD dw;
@@ -78,6 +100,28 @@ void CursorManager::WriteBuffer(Vector3 _Position, char* _str, int _Color)
 
 	// 버퍼에 쓰기
 	WriteFile(hBuffer[BufferIndex], _str, (DWORD)strlen(_str), &dw, NULL);
+}
+
+void CursorManager::WriteBuffer(Vector3 _Position, int _Value, int _Color)
+{
+
+	DWORD dw;
+
+	COORD CursorPosition = { SHORT(_Position.x), SHORT(_Position.y) };
+
+	// 좌표 이동
+	SetConsoleCursorPosition(hBuffer[BufferIndex], CursorPosition);
+
+	// 텍스트 색 변경
+	SetColor(_Color);
+	char Buffer[4];
+	_itoa(_Value, Buffer, 10);
+
+	char* pBuffer = new char[strlen(Buffer)];
+	strcpy(pBuffer, Buffer);
+
+	// 버퍼에 쓰기
+	WriteFile(hBuffer[BufferIndex], pBuffer, (DWORD)strlen(pBuffer), &dw, NULL);
 }
 
 void CursorManager::FlippingBuffer()

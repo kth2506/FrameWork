@@ -145,6 +145,7 @@
     <ClCompile Include="CursorManager.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Intro.cpp" />
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainUpdate.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Explain.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Intro.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="MainUpdate.h" />
     <ClInclude Include="MathManager.h" />
