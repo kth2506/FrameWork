@@ -11,18 +11,21 @@
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
 
-Stage::Stage() : Check(false){  }
+Stage::Stage() : Check(0){  }
 Stage::~Stage() { Release(); }
 
 void Stage::Initialize()
 {
-	Check = false;
+	Check = 0;
 	
+	pPlayer = new Player;
+	pPlayer->Initialize();
+
+	Object* pEnemyProto = ObjectFactory<Enemy>::CreateObject();
 
 	pUI = new ScrollBox;
 	pUI->Initialize();
 
-	Object* pEnemyProto = ObjectFactory<Enemy>::CreateObject();
 
 	for (int i = 0; i < 10; ++i)
 	{
@@ -31,7 +34,7 @@ void Stage::Initialize()
 		Object* pEnemy = pEnemyProto->Clone();
 		pEnemy->SetPosition(float(rand() % 118) , float(rand() % 26) + pEnemy->GetScale().y * 2);
 
-		ObjectManager::GetInstance()->AddObject(pEnemy);
+		//ObjectManager::GetInstance()->AddObject("Enemy");
 
 	}
 	
@@ -42,6 +45,9 @@ void Stage::Update()
 {
 
 
+	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
+	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
+
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_TAB)
@@ -49,33 +55,36 @@ void Stage::Update()
 		Enable_UI();
 	}
 
-	//if (dwKey & KEY_ESCAPE)
-	//{
-	//	exit(0);
-	//}
-
-	ObjectManager::GetInstance()->Update();
-
-	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
-	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
-
-	Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
-	Object* pEnemy = ObjectManager::GetInstance()->GetObjectList("Enemy")->front();
 	if (dwKey & KEY_ESCAPE)
 	{
-		ObjectManager::GetInstance()->TakeObject("Bullet");
+		if (pBulletList->size())
+		{
+			ObjectPool::GetInstance()->CatchObject(pBulletList->back());
+			pBulletList->pop_back();
+		}
 	}
+
+	pPlayer->Update();
+	ObjectManager::GetInstance()->Update();
+
+	//Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
+	//Object* pEnemy = ObjectManager::GetInstance()->GetObjectList("Enemy")->front();
+	//if (dwKey & KEY_ESCAPE)
+	//{
+	//	ObjectManager::GetInstance()->AddObject("Bullet");
+	//}
+
 	{
 		if (pBulletList != nullptr)
 		{
 
 			for (list<Object*>::iterator iter = pBulletList->begin();
-				iter != pBulletList->end(); ++iter)
+				iter != pBulletList->end(); )
 			{
-				//if ((*iter)->GetPosition().x >= 120.0f)
-				//	iter = pBulletList->erase(iter);
-				//else
-				//	++iter;
+				if ((*iter)->GetPosition().x >= 120.0f)								
+					iter = ObjectManager::GetInstance()->ThrowObject(iter, (*iter));
+				else
+					++iter;
 			}
 		}
 
@@ -84,7 +93,7 @@ void Stage::Update()
 			if (pEnemyList != nullptr)
 			{
 				for (list<Object*>::iterator Enemyiter = pEnemyList->begin();
-					Enemyiter != pEnemyList->end(); )
+					Enemyiter != pEnemyList->end(); ++Enemyiter)
 				{
 					/*if (CollisionManager::RectCollision(pPlayer, *Enemyiter))
 					{
@@ -97,91 +106,34 @@ void Stage::Update()
 						for (list<Object*>::iterator Bulletiter = pBulletList->begin();
 							Bulletiter != pBulletList->end(); )
 						{
-
-
 							if (CollisionManager::RectCollision(*Bulletiter, *Enemyiter))
 							{
 								Bulletiter = ObjectManager::GetInstance()->ThrowObject(Bulletiter, (*Bulletiter));
 								(*Enemyiter)->SetHp();
-
 							}
 							else
 								++Bulletiter;
-
-
 						}
 					}
 
-					if ((*Enemyiter)->GetHp() <= 0)
-					{
-						Enemyiter = ObjectManager::GetInstance()->ThrowObject(Enemyiter, (*Enemyiter));
-					}
-					else
-						++Enemyiter;
-				
+					//if ((*Enemyiter)->GetHp() <= 0)
+					//	Enemyiter = ObjectManager::GetInstance()->ThrowObject(Enemyiter, (*Enemyiter));
+					//else
+					//	++Enemyiter;
 				}
 			}
-
-
-			//if (pEnemyList != nullptr && pPlayer != nullptr)
-			//{
-			//	for (list<Object*>::iterator Playeriter = pEnemyList->begin();
-			//		Playeriter != pEnemyList->end(); ++Playeriter)
-			//	{
-			//		if (CollisionManager::CircleCollision(pPlayer, *Playeriter))
-			//		{
-			//			CursorManager::GetInstance()->WriteBuffer(
-			//				60, 1.5, (char*)"맞았습니다", 15
-			//			);
-			//		}
-			//	}
-			//}
-			//
-			//if (pEnemyList != nullptr && pBulletList != nullptr)
-			//{
-			//	for (list<Object*>::iterator Enemyiter = pEnemyList->begin();
-			//		Enemyiter != pEnemyList->end(); )
-			//	{
-			//		for (list<Object*>::iterator Bulletiter = pBulletList->begin();
-			//			Bulletiter != pBulletList->end();)
-			//		{
-			//			if (CollisionManager::CircleCollision(*Bulletiter, *Enemyiter))
-			//			{
-			//				ObjectManager::GetInstance()->ThrowObject((*Enemyiter));
-			//
-			//				//Bulletiter = pBulletList->erase(Bulletiter);
-			//				//
-			//				//(*Enemyiter)->SetHp();
-			//				//CursorManager::GetInstance()->WriteBuffer(
-			//				//	60, 1.5, (*Enemyiter)->GetHp(), 15
-			//				//);
-			//			}
-			//			else
-			//				++Bulletiter;
-			//		}
-			//
-			//
-			//		if ((*Enemyiter)->GetHp() <= 0)
-			//		{
-			//			Enemyiter = pEnemyList->erase(Enemyiter);
-			//		}
-			//		else
-			//			++Enemyiter;
-			//
-			//	}
-			//}
-
 		}
-
-		if (Check)
-			pUI->Update();
-
-	
 	}
+
+	if (Check)
+		pUI->Update();
+
 }
 
 void Stage::Render()
 {
+	pPlayer->Render();
+
 	ObjectManager::GetInstance()->Render();
 
 	if (Check)
@@ -191,6 +143,8 @@ void Stage::Render()
 
 void Stage::Release()
 {
+	delete pPlayer;
+	pPlayer = nullptr;
 }
 
 

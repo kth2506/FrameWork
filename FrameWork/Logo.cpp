@@ -15,11 +15,10 @@ Logo::~Logo() {  }
 void Logo::Initialize()
 {
 	str = "Logo";
-
 	
-	ObjectManager::GetInstance()->AddObject
-	(ObjectFactory<Player>::CreateObject());
-
+	
+	ObjectManager::GetInstance()->AddObject("Player");
+	
 }
 
 void Logo::Update()
@@ -27,9 +26,7 @@ void Logo::Update()
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_ENTER)
-	{
 		SceneManager::GetInstance()->SetScene(MENU);
-	}
 
 	if (dwKey & KEY_ESCAPE)
 	{

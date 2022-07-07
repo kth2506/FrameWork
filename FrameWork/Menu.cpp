@@ -16,9 +16,7 @@ void Menu::Update()
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_ENTER)
-	{
 		SceneManager::GetInstance()->SetScene(STAGE);
-	}
 
 	if (dwKey & KEY_ESCAPE)
 	{

@@ -24,6 +24,20 @@ void ObjectPool::CatchObject(Object* _Object)
 
 }
 
+Object* ObjectPool::ThrowObject(string _Key)
+{
+	map<string, list<Object*>>::iterator Disableiter = DisableList.find(_Key);
+
+	if (Disableiter != DisableList.end() && Disableiter->second.size())
+	{
+		Object* pObject = Disableiter->second.front();
+		Disableiter->second.pop_front();
+		return pObject;
+	}
+
+	return nullptr;
+}
+
 void ObjectPool::Update()
 {
 
@@ -59,7 +73,6 @@ void ObjectPool::Update()
 
 				(*iter).second.erase(iter2);
 			}
-				break;
 
 			default:
 				++iter2;

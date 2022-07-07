@@ -18,6 +18,8 @@ void Bullet::Initialize()
 	Buffer[0] = (char*)"¢´";
 	Buffer[1] = (char*)"";
 
+	Object* pPlayer = new Player;
+	pPlayer->GetPosition();	
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 1.0f);

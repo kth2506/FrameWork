@@ -7,7 +7,7 @@
 
 Player::Player() : pBullet(nullptr){  }
 
-Player::Player(Transform _Info) : Object(_Info), pBullet(nullptr) {}
+Player::Player(Transform _Info) : Object(_Info){}
 Player::~Player() {  }
 
 void Player::Initialize()
@@ -21,6 +21,7 @@ void Player::Initialize()
 	TransInfo.Position = Vector3(20.0f, 15.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 2.0f);
+	Color = 15;
 }
 
 int Player::Update()
@@ -43,8 +44,7 @@ int Player::Update()
 
 	if (dwKey & KEY_SPACE)
 	{
-		ObjectManager::GetInstance()->AddObject(
-			ObjectFactory<Bullet>::CreateObject(	TransInfo.Position));
+		ObjectManager::GetInstance()->AddObject(	"Bullet");
 	}
 	return 0;
 }
@@ -55,8 +55,8 @@ void Player::Render()
 	{
 
 		CursorManager::GetInstance()->WriteBuffer(
-			TransInfo.Position.x - TransInfo.Scale.x * 0.5f, 
-			TransInfo.Position.y - TransInfo.Scale.y * 0.5f + i, 
+			TransInfo.Position.x , 
+			TransInfo.Position.y + i, 
 			Buffer[i], Color
 		);
 	}
