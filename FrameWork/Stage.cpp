@@ -10,6 +10,8 @@
 #include "CursorManager.h"
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
+#include "ObjectPool.h"
+#include "ProtoType.h"
 
 Stage::Stage() : Check(0){  }
 Stage::~Stage() { Release(); }
@@ -17,45 +19,21 @@ Stage::~Stage() { Release(); }
 void Stage::Initialize()
 {
 	Check = 0;
-	
-	pPlayer = new Player;
-	pPlayer->Initialize();
-
-	Object* pEnemyProto = ObjectFactory<Enemy>::CreateObject();
 
 	pUI = new ScrollBox;
 	pUI->Initialize();
-
-
-	for (int i = 0; i < 10; ++i)
-	{
-		srand(DWORD(GetTickCount64() * (i + 1)));
-
-		Object* pEnemy = pEnemyProto->Clone();
-		pEnemy->SetPosition(float(rand() % 118) , float(rand() % 26) + pEnemy->GetScale().y * 2);
-
-		ObjectManager::GetInstance()->AddObject("Enemy");
-
-	}
-	
 
 }
 
 void Stage::Update()
 {
-
-
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
+	//Enable_UI();
 	if (dwKey & KEY_TAB)
-	{
-		Enable_UI();
-	}
-
-	if (dwKey & KEY_ESCAPE)
 	{
 		if (pBulletList->size())
 		{
@@ -64,25 +42,23 @@ void Stage::Update()
 		}
 	}
 
+	if (dwKey & KEY_ESCAPE)
+	{
+		exit(0);
+	}
+
 	pPlayer->Update();
 	ObjectManager::GetInstance()->Update();
 
-	//Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
-	//Object* pEnemy = ObjectManager::GetInstance()->GetObjectList("Enemy")->front();
-	//if (dwKey & KEY_ESCAPE)
-	//{
-	//	ObjectManager::GetInstance()->AddObject("Bullet");
-	//}
 
 	{
 		if (pBulletList != nullptr)
 		{
-
 			for (list<Object*>::iterator iter = pBulletList->begin();
 				iter != pBulletList->end(); )
 			{
-				if ((*iter)->GetPosition().x >= 120.0f)								
-					iter = ObjectManager::GetInstance()->ThrowObject(iter, (*iter));
+				if ((*iter)->GetPosition().x >= 120.0f)
+					iter = pBulletList->erase(iter);
 				else
 					++iter;
 			}
@@ -97,6 +73,7 @@ void Stage::Update()
 				{
 					/*if (CollisionManager::RectCollision(pPlayer, *Enemyiter))
 					{
+						Enemyiter
 						continue;
 					}*/
 

@@ -85,6 +85,15 @@
     <Filter Include="소스 파일\03. UserInterface\Intro">
       <UniqueIdentifier>{6f8f32b8-5b26-434d-b672-a6c2144c71d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Item">
+      <UniqueIdentifier>{d6caf8fa-9a7f-4bd7-84fc-cf6150817da8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\98. Pattern\ProtoType">
+      <UniqueIdentifier>{2162f3d4-afc9-4bdd-a89a-81f39dbe605c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\98. Pattern\ObjectPool">
+      <UniqueIdentifier>{459e955e-afc1-4a13-8161-8ca19bcd8435}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -144,11 +153,17 @@
     <ClCompile Include="CursorManager.cpp">
       <Filter>소스 파일\99.Manager\CursorManager</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectPool.cpp">
-      <Filter>소스 파일\98. Pattern</Filter>
-    </ClCompile>
     <ClCompile Include="Intro.cpp">
       <Filter>소스 파일\03. UserInterface\Intro</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>소스 파일\02. Object\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectPool.cpp">
+      <Filter>소스 파일\98. Pattern\ObjectPool</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtoType.cpp">
+      <Filter>소스 파일\98. Pattern\ProtoType</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -224,14 +239,20 @@
     <ClInclude Include="ObjectManager.h">
       <Filter>소스 파일\99.Manager\ObjectManager</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectPool.h">
-      <Filter>소스 파일\98. Pattern</Filter>
-    </ClInclude>
     <ClInclude Include="Explain.h">
       <Filter>헤더 파일\include</Filter>
     </ClInclude>
     <ClInclude Include="Intro.h">
       <Filter>소스 파일\03. UserInterface\Intro</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>소스 파일\02. Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPool.h">
+      <Filter>소스 파일\98. Pattern\ObjectPool</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtoType.h">
+      <Filter>소스 파일\98. Pattern\ProtoType</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

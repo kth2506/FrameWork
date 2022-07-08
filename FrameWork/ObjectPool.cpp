@@ -11,8 +11,7 @@ ObjectPool::~ObjectPool() {}
 
 void ObjectPool::CatchObject(Object* _Object)
 {
-	map<string, list<Object*>>::iterator Disableiter =
-		DisableList.find(_Object->GetKey());
+	map<string, list<Object*>>::iterator Disableiter = DisableList.find(_Object->GetKey());
 	if (Disableiter == DisableList.end())
 	{
 		list<Object*> TempList;
@@ -32,6 +31,8 @@ Object* ObjectPool::ThrowObject(string _Key)
 	{
 		Object* pObject = Disableiter->second.front();
 		Disableiter->second.pop_front();
+
+		pObject->Initialize();
 		return pObject;
 	}
 

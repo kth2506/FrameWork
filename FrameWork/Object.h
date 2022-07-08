@@ -6,11 +6,11 @@ class Object
 protected:
 	Transform TransInfo;
 	string strKey;
-	char* Buffer[MAX_SIZE];
+	char* Buffer[3];
 	int Color = 15;
 	int Hp;
 public:
-	virtual void Initialize()PURE;
+	virtual Object* Initialize(string _Key)PURE;
 	virtual int Update()PURE;
 	virtual void Render()PURE;
 	virtual void Release()PURE;

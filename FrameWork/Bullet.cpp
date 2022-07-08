@@ -11,9 +11,9 @@ Bullet::Bullet(Transform _Info) : Object(_Info){}
 
 Bullet::~Bullet() {  }
 
-void Bullet::Initialize()
+Object* Bullet::Initialize(string _Key)
 {
-	strKey = "Bullet";
+	strKey = _Key;
 
 	Buffer[0] = (char*)"¢´";
 	Buffer[1] = (char*)"";
@@ -23,19 +23,14 @@ void Bullet::Initialize()
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 1.0f);
-	TransInfo.Direction = Vector3(0.0f, 0.0f);
-	
+	TransInfo.Direction = MathManager::GetCursorDirection(TransInfo.Position);
+
+	return this;
 }
-
-
-
-
 
 int Bullet::Update()
 {
-	TransInfo.Direction = MathManager::GetDirection(TransInfo.Position);
 	
-	TransInfo.Position += TransInfo.Direction;
 
 	//TransInfo.Direction = MathManager::GetDirection(
 	//	TransInfo.Position, Vector3(60.0f, 15.0f));
@@ -56,6 +51,8 @@ void Bullet::Render()
 			Buffer[i], 13
 		);
 	}
+	TransInfo.Position += TransInfo.Direction;
+
 }
 
 void Bullet::Release()

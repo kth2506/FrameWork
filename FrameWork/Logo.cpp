@@ -7,6 +7,8 @@
 #include "Bullet.h"
 #include "ObjectFactory.h"
 #include "CursorManager.h"
+#include "ProtoType.h"
+
 
 Logo::Logo() : Scene() {  }
 Logo::~Logo() {  }

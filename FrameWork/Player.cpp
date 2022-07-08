@@ -10,18 +10,23 @@ Player::Player() : pBullet(nullptr){  }
 Player::Player(Transform _Info) : Object(_Info){}
 Player::~Player() {  }
 
-void Player::Initialize()
+Object* Player::Initialize(string _Key)
 {
-	strKey = "Player";
+	strKey = _Key;
+	attackspeed = 0.0f;
+	as = 1.0f;
 
-	Buffer[0] = (char*)"¿À";
-	Buffer[1] = (char*)"¤µ";
+	Buffer[0] = (char*)"  ¡ü  ";
+	Buffer[1] = (char*)"£¼¡Ü£¾";
+	Buffer[2] = (char*)"  ¡ý  ";
 	
 
 	TransInfo.Position = Vector3(20.0f, 15.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
-	TransInfo.Scale = Vector3(2.0f, 2.0f);
+	TransInfo.Scale = Vector3(6.0f, 3.0f);
 	Color = 15;
+
+	return this;
 }
 
 int Player::Update()
@@ -41,17 +46,26 @@ int Player::Update()
 
 	if (dwKey & KEY_RIGHT)
 		TransInfo.Position.x += 1;
+	if (dwKey & KEY_CTRL)
+		as += 0.1f;
+		
+	attackspeed += as;
 
 	if (dwKey & KEY_SPACE)
 	{
-		ObjectManager::GetInstance()->AddObject("Bullet");
+		if (attackspeed >= 10)
+		{
+			attackspeed = 0.0f;
+			ObjectManager::GetInstance()->AddObject("Bullet");
+
+		}
 	}
 	return 0;
 }
 
 void Player::Render()
 {
-	for (int i = 0; i < MAX_SIZE; ++i)
+	for (int i = 0; i < 3; ++i)
 	{
 
 		CursorManager::GetInstance()->WriteBuffer(

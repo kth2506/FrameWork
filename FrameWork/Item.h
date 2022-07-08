@@ -1,7 +1,7 @@
 #pragma once
 #include "Object.h"
 
-class Background : public Object
+class Item : public Object
 {
 public:
 	virtual Object* Initialize(string _Key) override;
@@ -10,12 +10,12 @@ public:
 	virtual void Release() override;
 
 public:
-	virtual Object* Clone() override { return new Background(*this); }
+	virtual Object* Clone() override { return new Item(*this); }
 
 public:
-	Background();
-	Background(Transform _Info);
+	Item();
+	Item(Transform _Info);
 
-	virtual ~Background();
+	virtual ~Item();
 };
 

@@ -27,7 +27,7 @@ public:
 	}
 
 
-	static float GetDistance(Vector3 _Current)
+	static float GetCursorDistance(Vector3 _Current)
 	{
 		Vector3 _Target = CursorManager::GetInstance()->GetVector();
 		float Width = _Target.x - _Current.x;
@@ -37,7 +37,7 @@ public:
 		return sqrt((Width * Width) + (Height * Height));
 	}
 
-	static Vector3 GetDirection(Vector3 _Current)
+	static Vector3 GetCursorDirection(Vector3 _Current)
 	{
 		Vector3 _Target = CursorManager::GetInstance()->GetVector();
 

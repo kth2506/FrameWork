@@ -4,6 +4,7 @@
 #include "Headers.h"
 #include "Constant.h"
 #include "CursorManager.h"
+#include "ProtoType.h"
 
 
 MainUpdate::MainUpdate(){}
@@ -11,6 +12,7 @@ MainUpdate::~MainUpdate() { Release(); }
 
 void MainUpdate::Initialize()
 {
+	ProtoType::GetInstance()->Initialize();
 	CursorManager::GetInstance()->CreateBuffer((float)Console_Width, (float)Console_Height);
 	SceneManager::GetInstance()->SetScene(SCENEID::LOGO);
 

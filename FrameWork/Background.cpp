@@ -4,8 +4,9 @@ Background::Background(){}
 Background::Background(Transform _Info){}
 Background::~Background(){}
 
-void Background::Initialize()
+Object* Background::Initialize(string _Key)
 {
+	return nullptr;
 }
 
 int Background::Update()
