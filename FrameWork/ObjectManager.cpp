@@ -2,7 +2,7 @@
 #include "CollisionManager.h"
 #include "ObjectPool.h"
 #include "ObjectFactory.h"
-
+#include "ProtoType.h"
 #include "Bullet.h"
 #include "Object.h"
 #include "Player.h"
@@ -21,7 +21,7 @@ void ObjectManager::AddObject(string _Key)
 	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
 
 	if (pObject == nullptr)
-		pObject = ObjectFactory<Bullet>::CreateObject();
+		pObject = ProtoType::GetInstance()->ProtoTypeObject(_Key)->Clone();
 
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
 

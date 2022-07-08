@@ -20,6 +20,13 @@ void Stage::Initialize()
 {
 	Check = 0;
 
+	ObjectManager::GetInstance()->AddObject("Player");
+	for (int i = 0; i < 5; ++i)
+	{
+		ObjectManager::GetInstance()->AddObject("Enemy");
+		list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
+		pEnemyList->front()->SetPosition(10.0f + i, 2.0f + i);
+	}
 	pUI = new ScrollBox;
 	pUI->Initialize();
 
@@ -29,6 +36,8 @@ void Stage::Update()
 {
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
+	list<Object*>* pPlayerList = ObjectManager::GetInstance()->GetObjectList("Player");
+	//pPlayer = pPlayerList->front();
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -44,10 +53,22 @@ void Stage::Update()
 
 	if (dwKey & KEY_ESCAPE)
 	{
-		exit(0);
+		if (Check == 0)
+		{
+			if (pPlayerList->size())
+			{
+				ObjectPool::GetInstance()->CatchObject(pPlayerList->back());
+				pPlayerList->pop_back();
+			}
+			Check = 1;
+		}
+		else if( Check == 1)
+		{
+			ObjectManager::GetInstance()->AddObject("Player");
+			Check = 0;
+		}
 	}
 
-	pPlayer->Update();
 	ObjectManager::GetInstance()->Update();
 
 
@@ -64,18 +85,20 @@ void Stage::Update()
 			}
 		}
 
-		if (pPlayer != nullptr)
+		if (pPlayerList != nullptr)
 		{
 			if (pEnemyList != nullptr)
 			{
 				for (list<Object*>::iterator Enemyiter = pEnemyList->begin();
-					Enemyiter != pEnemyList->end(); ++Enemyiter)
+					Enemyiter != pEnemyList->end();)
 				{
-					/*if (CollisionManager::RectCollision(pPlayer, *Enemyiter))
-					{
-						Enemyiter
-						continue;
-					}*/
+					//if (CollisionManager::RectCollision(pPlayer, *Enemyiter))
+					//{
+					//	ObjectPool::GetInstance()->CatchObject(pPlayerList->back());
+					//
+					//
+					//	continue;
+					//}
 
 
 					if (pBulletList != nullptr)
@@ -93,28 +116,25 @@ void Stage::Update()
 						}
 					}
 
-					//if ((*Enemyiter)->GetHp() <= 0)
-					//	Enemyiter = ObjectManager::GetInstance()->ThrowObject(Enemyiter, (*Enemyiter));
-					//else
-					//	++Enemyiter;
+					if ((*Enemyiter)->GetHp() <= 0)
+						Enemyiter = ObjectManager::GetInstance()->ThrowObject(Enemyiter, (*Enemyiter));
+					else
+						++Enemyiter;
 				}
 			}
 		}
 	}
 
-	if (Check)
-		pUI->Update();
 
 }
 
 void Stage::Render()
 {
-	pPlayer->Render();
 
 	ObjectManager::GetInstance()->Render();
 
-	if (Check)
-	pUI->Render();
+	//if (Check)
+	//pUI->Render();
 
 }
 
@@ -128,5 +148,5 @@ void Stage::Release()
 
 void Stage::Enable_UI()
 {
-	Check = !Check;
+	//Check = !Check;
 }

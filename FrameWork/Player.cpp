@@ -57,7 +57,6 @@ int Player::Update()
 		{
 			attackspeed = 0.0f;
 			ObjectManager::GetInstance()->AddObject("Bullet");
-
 		}
 	}
 	return 0;
@@ -67,7 +66,6 @@ void Player::Render()
 {
 	for (int i = 0; i < 3; ++i)
 	{
-
 		CursorManager::GetInstance()->WriteBuffer(
 			TransInfo.Position.x , 
 			TransInfo.Position.y + i, 

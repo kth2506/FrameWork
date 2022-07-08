@@ -18,12 +18,9 @@ Object* Bullet::Initialize(string _Key)
 	Buffer[0] = (char*)"¢´";
 	Buffer[1] = (char*)"";
 
-	Object* pPlayer = new Player;
-	pPlayer->GetPosition();	
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 1.0f);
-	TransInfo.Direction = MathManager::GetCursorDirection(TransInfo.Position);
 
 	return this;
 }
@@ -31,6 +28,7 @@ Object* Bullet::Initialize(string _Key)
 int Bullet::Update()
 {
 	
+	TransInfo.Direction = MathManager::GetCursorDirection(TransInfo.Position);
 
 	//TransInfo.Direction = MathManager::GetDirection(
 	//	TransInfo.Position, Vector3(60.0f, 15.0f));

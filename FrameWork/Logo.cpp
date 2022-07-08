@@ -19,7 +19,6 @@ void Logo::Initialize()
 	str = "Logo";
 	
 	
-	ObjectManager::GetInstance()->AddObject("Player");
 	
 }
 
