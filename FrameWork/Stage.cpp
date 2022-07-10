@@ -21,12 +21,13 @@ void Stage::Initialize()
 	Check = 0;
 
 	ObjectManager::GetInstance()->AddObject("Player");
-	for (int i = 0; i < 5; ++i)
-	{
-		ObjectManager::GetInstance()->AddObject("Enemy");
-		list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
-		pEnemyList->front()->SetPosition(10.0f + i, 2.0f + i);
-	}
+	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front()->Clone();
+	//for (int i = 0; i < 5; ++i)
+	//{
+	//	ObjectManager::GetInstance()->AddObject("Enemy");
+	//	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
+	//	pEnemyList->front()->SetPosition(10.0f + i, 2.0f + i);
+	//}
 	pUI = new ScrollBox;
 	pUI->Initialize();
 
@@ -38,6 +39,7 @@ void Stage::Update()
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
 	list<Object*>* pPlayerList = ObjectManager::GetInstance()->GetObjectList("Player");
 	//pPlayer = pPlayerList->front();
+	pPlayer->Update();
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -132,6 +134,7 @@ void Stage::Render()
 {
 
 	ObjectManager::GetInstance()->Render();
+	pPlayer->Render();
 
 	//if (Check)
 	//pUI->Render();

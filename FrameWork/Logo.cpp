@@ -17,9 +17,6 @@ Logo::~Logo() {  }
 void Logo::Initialize()
 {
 	str = "Logo";
-	
-	
-	
 }
 
 void Logo::Update()
