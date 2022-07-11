@@ -8,24 +8,33 @@
 #include "ObjectFactory.h"
 #include "CursorManager.h"
 #include "ProtoType.h"
+#include "Intro.h"
 
 
-Logo::Logo() : Scene() {  }
-Logo::~Logo() {  }
+Logo::Logo() : Scene() , pIntro() {  }
+Logo::~Logo() { Release(); }
 
 
 void Logo::Initialize()
 {
 	str = "Logo";
+
+	pIntro = new Intro;
+	pIntro->Initialize();
 }
 
 void Logo::Update()
 {
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
-	if (dwKey & KEY_ENTER)
-		SceneManager::GetInstance()->SetScene(MENU);
+	if (pIntro)
+		pIntro->Update();
 
+	if (dwKey & KEY_ENTER)
+	{
+		::Safe_Delete(pIntro);
+		SceneManager::GetInstance()->SetScene(MENU);
+	}
 	if (dwKey & KEY_ESCAPE)
 	{
 		exit(0);
@@ -34,9 +43,8 @@ void Logo::Update()
 
 void Logo::Render()
 {
-	CursorManager::GetInstance()->WriteBuffer(
-		60, 15,(char*)"Logo", 15
-	);
+	if (pIntro)
+		pIntro->Render();
 }
 
 void Logo::Release()

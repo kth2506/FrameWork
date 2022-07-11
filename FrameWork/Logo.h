@@ -1,8 +1,11 @@
 #pragma once
 #include "Scene.h"
 
+class UserInterface;
 class Logo : public Scene
 {
+private:
+	UserInterface* pIntro;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

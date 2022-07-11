@@ -24,9 +24,14 @@ void Stage::Initialize()
 	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front()->Clone();
 	for (int i = 0; i < 5; ++i)
 	{
+		
+
 		ObjectManager::GetInstance()->AddObject("Enemy");
-		list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
-		pEnemyList->front()->SetPosition(10.0f + i, 2.0f + i);
+		srand(DWORD(GetTickCount64() * (i + 1)));
+		Object* pEnemy = ObjectManager::GetInstance()->GetObjectList("Enemy")->front();
+		pEnemy->SetPosition(float(rand() % 170), float(rand() % 35) + pEnemy->GetScale().y * 2);
+
+
 	}
 	pUI = new ScrollBox;
 	pUI->Initialize();
@@ -35,8 +40,8 @@ void Stage::Initialize()
 
 void Stage::Update()
 {
-	CursorManager::GetInstance()->WriteBuffer(1.0f, 43.0f, CursorManager::GetInstance()->GetVector().x);
-	CursorManager::GetInstance()->WriteBuffer(6.0f, 43.0f, CursorManager::GetInstance()->GetVector().y);
+	CursorManager::GetInstance()->WriteBuffer(1.0f, 43.0f, (int)CursorManager::GetInstance()->GetVector().x);
+	CursorManager::GetInstance()->WriteBuffer(6.0f, 43.0f, (int)CursorManager::GetInstance()->GetVector().y);
 
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
