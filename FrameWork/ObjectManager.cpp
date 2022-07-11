@@ -7,6 +7,7 @@
 #include "Object.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "MathManager.h"
 ObjectManager* ObjectManager::Instance = nullptr;
 
 ObjectManager::ObjectManager()
@@ -25,6 +26,13 @@ void ObjectManager::AddObject(string _Key)
 
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
 
+	//if (_Key == "Bullet")
+	//{
+	//	list<Object*>* TempList;
+	//	TempList = GetObjectList("Player");
+	//	pObject->SetPosition(TempList->front()->GetPosition());
+	//	pObject->SetDirection(MathManager::GetCursorDirection(pObject->GetPosition()));
+	//}
 	if (iter == EnableList->end())
 	{
 		list<Object*> TempList;

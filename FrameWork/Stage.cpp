@@ -21,10 +21,10 @@ void Stage::Initialize()
 	Check = 0;
 
 	ObjectManager::GetInstance()->AddObject("Player");
-	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front()->Clone();
+	//pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front()->Clone();
 	//for (int i = 0; i < 5; ++i)
 	//{
-	//	ObjectManager::GetInstance()->AddObject("Enemy");
+		ObjectManager::GetInstance()->AddObject("Enemy");
 	//	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
 	//	pEnemyList->front()->SetPosition(10.0f + i, 2.0f + i);
 	//}
@@ -39,7 +39,7 @@ void Stage::Update()
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
 	list<Object*>* pPlayerList = ObjectManager::GetInstance()->GetObjectList("Player");
 	//pPlayer = pPlayerList->front();
-	pPlayer->Update();
+	//pPlayer->Update();
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
@@ -78,12 +78,18 @@ void Stage::Update()
 		if (pBulletList != nullptr)
 		{
 			for (list<Object*>::iterator iter = pBulletList->begin();
-				iter != pBulletList->end(); )
+				iter != pBulletList->end();)
 			{
-				if ((*iter)->GetPosition().x >= 120.0f)
-					iter = pBulletList->erase(iter);
+				if ((*iter)->GetPosition().x >= 120.0f || (*iter)->GetPosition().x < 0.0f ||
+					(*iter)->GetPosition().y >= 30.0f || (*iter)->GetPosition().y < 0.0f)
+				{
+
+					ObjectPool::GetInstance()->CatchObject(pBulletList->back());
+					pBulletList->pop_back();
+				}
 				else
 					++iter;
+				
 			}
 		}
 
@@ -134,7 +140,7 @@ void Stage::Render()
 {
 
 	ObjectManager::GetInstance()->Render();
-	pPlayer->Render();
+	//pPlayer->Render();
 
 	//if (Check)
 	//pUI->Render();

@@ -4,12 +4,13 @@
 #include "Player.h"
 #include "ObjectManager.h"
 #include "MathManager.h"
+#include "NormalBullet.h"
 
 Bullet::Bullet(){}
 
 Bullet::Bullet(Transform _Info) : Object(_Info){}
 
-Bullet::~Bullet() {  }
+Bullet::~Bullet() { Release(); }
 
 Object* Bullet::Initialize(string _Key)
 {
@@ -22,13 +23,15 @@ Object* Bullet::Initialize(string _Key)
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 1.0f);
 
+	if (pBridge)
+		pBridge->Initialize();
 	return this;
 }
 
 int Bullet::Update()
 {
 	
-	TransInfo.Direction = MathManager::GetCursorDirection(TransInfo.Position);
+	//TransInfo.Direction = MathManager::GetCursorDirection(TransInfo.Position);
 
 	//TransInfo.Direction = MathManager::GetDirection(
 	//	TransInfo.Position, Vector3(60.0f, 15.0f));
@@ -36,24 +39,21 @@ int Bullet::Update()
 	//TransInfo.Position += TransInfo.Direction;
 	
 
+	if (pBridge)
+		pBridge->Update(TransInfo);
 	return 0;
 }
 
 void Bullet::Render()
 {
-	for (int i = 0; i < 1; ++i)
-	{
-		CursorManager::GetInstance()->WriteBuffer(
-			TransInfo.Position.x - TransInfo.Scale.x * 0.5f,
-			TransInfo.Position.y - TransInfo.Scale.y * 0.5f + i,
-			Buffer[i], 13
-		);
-	}
-	TransInfo.Position += TransInfo.Direction;
 
+	if (pBridge)
+		pBridge->Render();
 }
 
 void Bullet::Release()
 {
+	delete pBridge;
+	pBridge = nullptr;
 
 }

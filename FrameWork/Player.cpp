@@ -46,6 +46,7 @@ int Player::Update()
 
 	if (dwKey & KEY_RIGHT)
 		TransInfo.Position.x += 1;
+
 	if (dwKey & KEY_CTRL)
 		as += 0.1f;
 		

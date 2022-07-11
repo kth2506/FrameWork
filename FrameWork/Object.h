@@ -1,6 +1,7 @@
 #pragma once
 #include "Headers.h"
 
+class Bridge;
 class Object
 {
 protected:
@@ -9,6 +10,8 @@ protected:
 	char* Buffer[3];
 	int Color = 15;
 	int Hp;
+
+	Bridge* pBridge;
 public:
 	virtual Object* Initialize(string _Key)PURE;
 	virtual int Update()PURE;

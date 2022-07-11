@@ -1,4 +1,4 @@
-// ** FrameWork ver13.0 07.08
+// ** FrameWork ver14.0 07.11
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "Headers.h"
