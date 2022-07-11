@@ -13,7 +13,6 @@ void NormalBullet::Initialize()
 
 int NormalBullet::Update(Transform& Info)
 {
-	Info.Direction = MathManager::GetCursorDirection(Info.Position);
 	Info.Position += Info.Direction;
 
 	return 0;
@@ -21,14 +20,10 @@ int NormalBullet::Update(Transform& Info)
 
 void NormalBullet::Render()
 {
-	for (int i = 0; i < 1; ++i)
-	{
-		CursorManager::GetInstance()->WriteBuffer(
-			pObject->GetPosition().x,
-			pObject->GetPosition().y + i,
-			(char*)"¢´", 13
-		);
-	}
+	CursorManager::GetInstance()->WriteBuffer(
+		pObject->GetPosition().x,
+		pObject->GetPosition().y,
+		(char*)"¢´", 13);
 
 }
 

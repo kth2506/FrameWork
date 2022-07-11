@@ -30,14 +30,6 @@ Object* Bullet::Initialize(string _Key)
 
 int Bullet::Update()
 {
-	
-	//TransInfo.Direction = MathManager::GetCursorDirection(TransInfo.Position);
-
-	//TransInfo.Direction = MathManager::GetDirection(
-	//	TransInfo.Position, Vector3(60.0f, 15.0f));
-	//
-	//TransInfo.Position += TransInfo.Direction;
-	
 
 	if (pBridge)
 		pBridge->Update(TransInfo);

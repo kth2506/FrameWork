@@ -152,6 +152,7 @@
     <ClCompile Include="MainUpdate.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="NormalBullet.cpp" />
+    <ClCompile Include="NormalEnemy.cpp" />
     <ClCompile Include="ObjectFactory.h" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="CursorManager.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyBridge.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Explain.h" />
     <ClInclude Include="Headers.h" />
@@ -186,6 +188,7 @@
     <ClInclude Include="MathManager.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="NormalBullet.h" />
+    <ClInclude Include="NormalEnemy.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectPool.h" />

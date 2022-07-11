@@ -1,6 +1,7 @@
 ﻿#include "Enemy.h"
 #include "CursorManager.h"
 #include "ProtoType.h"
+#include "NormalEnemy.h"
 
 Enemy::Enemy() {}
 Enemy::Enemy(Transform _Info) : Object(_Info){}
@@ -19,14 +20,17 @@ Object* Enemy::Initialize(string _Key)
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 2.0f);
 
-	
+	if (pBridge)
+		pBridge->Initialize();
+
 	return this;
 
 }
 
 int Enemy::Update()
 {
-
+	if (pBridge)
+		pBridge->Update(TransInfo);
 	return 0;
 }
 

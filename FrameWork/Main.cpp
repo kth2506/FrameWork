@@ -11,7 +11,7 @@ int main(void)
 
 	system("title 김태환 - 게임");
 	
-	system("mode con cols=120 lines=30");
+	system("mode con cols=180 lines=45");
 	
 	MainUpdate Main;
 	Main.Initialize();

@@ -36,6 +36,7 @@ public:
 	void SetDirection(float _x, float _y) { TransInfo.Direction = Vector3(_x, _y); }
 	void SetDirection(Vector3 _Direction) { TransInfo.Direction = _Direction; }
 
+	void SetBridge(Bridge* _Bridge) { pBridge = _Bridge; }
 
 public:
 	Object();

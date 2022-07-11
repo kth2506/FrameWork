@@ -103,6 +103,12 @@
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\NormalBullet">
       <UniqueIdentifier>{8ff82454-fea5-477d-9d1e-a3dff6c9e6db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge">
+      <UniqueIdentifier>{cdd44ada-7a91-446b-bd9f-c7bd5a2e3cd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\NormalEnemy">
+      <UniqueIdentifier>{7510dcb8-8725-4a7b-a531-2d21a34e7575}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -176,6 +182,9 @@
     </ClCompile>
     <ClCompile Include="NormalBullet.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalEnemy.cpp">
+      <Filter>소스 파일\02. Object\Enemy\NormalEnemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -274,6 +283,12 @@
     </ClInclude>
     <ClInclude Include="NormalBullet.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBridge.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalEnemy.h">
+      <Filter>소스 파일\02. Object\Enemy\NormalEnemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

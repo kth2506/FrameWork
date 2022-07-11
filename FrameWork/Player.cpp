@@ -1,10 +1,10 @@
 #include "Player.h"
+#include "Bullet.h"
 #include "InputManager.h"
 #include "CursorManager.h"
-#include "Bullet.h"
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
-
+#include "NormalBullet.h"
 Player::Player() : pBullet(nullptr){  }
 
 Player::Player(Transform _Info) : Object(_Info){}
@@ -54,10 +54,11 @@ int Player::Update()
 
 	if (dwKey & KEY_SPACE)
 	{
-		if (attackspeed >= 10)
+		if (attackspeed >= 5.0f)
 		{
 			attackspeed = 0.0f;
-			ObjectManager::GetInstance()->AddObject("Bullet");
+			Bridge* pBridge = new NormalBullet;
+			ObjectManager::GetInstance()->AddBullet("Bullet", pBridge);
 		}
 	}
 	return 0;
@@ -66,14 +67,11 @@ int Player::Update()
 void Player::Render()
 {
 	for (int i = 0; i < 3; ++i)
-	{
 		CursorManager::GetInstance()->WriteBuffer(
-			TransInfo.Position.x , 
-			TransInfo.Position.y + i, 
+			TransInfo.Position.x - TransInfo.Scale.x * 0.5f, 
+			TransInfo.Position.y - TransInfo.Scale.y * 0.5f + i,
 			Buffer[i], Color
 		);
-	}
-	
 }
 
 void Player::Release()

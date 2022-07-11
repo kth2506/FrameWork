@@ -1,10 +1,10 @@
 #pragma once
 #include "Bridge.h"
 
-class BulletBridge : public Bridge
+class EnemyBridge : public Bridge
 {
 protected:
-	// ** Bullet 의 데이터만 넣음.
+	// ** Enemy 의 데이터만 넣음.
 
 public:
 	virtual void Initialize()PURE;
@@ -13,6 +13,6 @@ public:
 	virtual void Release()PURE;
 
 public:
-	BulletBridge() {};
-	virtual ~BulletBridge() {};
+	EnemyBridge() {};
+	virtual ~EnemyBridge() {};
 };

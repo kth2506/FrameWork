@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "MathManager.h"
+#include "Bridge.h"
 ObjectManager* ObjectManager::Instance = nullptr;
 
 ObjectManager::ObjectManager()
@@ -16,23 +17,24 @@ ObjectManager::ObjectManager()
 }
 ObjectManager::~ObjectManager(){}
 
-
-void ObjectManager::AddObject(string _Key)
+void ObjectManager::AddBullet(string _Key, Bridge* _Bridge)
 {
 	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
+
 
 	if (pObject == nullptr)
 		pObject = ProtoType::GetInstance()->ProtoTypeObject(_Key)->Clone();
 
+	
+	_Bridge->Initialize();
+	_Bridge->SetObject(pObject);
+	
+	pObject->SetBridge(_Bridge);
+	pObject->SetPosition(GetObjectList("Player")->front()->GetPosition());
+	pObject->SetDirection(MathManager::GetCursorDirection(pObject->GetPosition()));
+
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
 
-	//if (_Key == "Bullet")
-	//{
-	//	list<Object*>* TempList;
-	//	TempList = GetObjectList("Player");
-	//	pObject->SetPosition(TempList->front()->GetPosition());
-	//	pObject->SetDirection(MathManager::GetCursorDirection(pObject->GetPosition()));
-	//}
 	if (iter == EnableList->end())
 	{
 		list<Object*> TempList;
@@ -42,6 +44,29 @@ void ObjectManager::AddObject(string _Key)
 	else
 		iter->second.push_back(pObject);
 }
+
+void ObjectManager::AddObject(string _Key)
+{
+	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
+
+
+	if (pObject == nullptr)
+		pObject = ProtoType::GetInstance()->ProtoTypeObject(_Key)->Clone();
+
+
+
+	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
+
+	if (iter == EnableList->end())
+	{
+		list<Object*> TempList;
+		TempList.push_back(pObject);
+		EnableList->insert(make_pair(pObject->GetKey(), TempList));
+	}
+	else
+		iter->second.push_back(pObject);
+}
+
 
 
 list<Object*>* ObjectManager::GetObjectList(string _strKey)
