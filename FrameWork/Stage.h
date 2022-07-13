@@ -8,8 +8,9 @@ class Stage : public Scene
 private:
 	Object* pPlayer;
 	UserInterface* pUI;
+	UserInterface* pTime;
 	int Check;
-
+	int count;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

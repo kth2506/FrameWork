@@ -11,28 +11,29 @@
 #include "Intro.h"
 
 
-Logo::Logo() : Scene() , pIntro() {  }
+Logo::Logo() : Scene() , pIntro() , count(0){  }
 Logo::~Logo() { Release(); }
 
 
 void Logo::Initialize()
 {
 	str = "Logo";
-
+	count = 0;
 	pIntro = new Intro;
 	pIntro->Initialize();
 }
 
 void Logo::Update()
 {
+	count++;
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (pIntro)
 		pIntro->Update();
 
-	if (dwKey & KEY_ENTER)
+	if ((dwKey & KEY_ENTER) && count > 80)
 	{
-		::Safe_Delete(pIntro);
+		//::Safe_Delete(pIntro);
 		SceneManager::GetInstance()->SetScene(MENU);
 	}
 	if (dwKey & KEY_ESCAPE)

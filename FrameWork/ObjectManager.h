@@ -18,6 +18,7 @@ public:
 private:
 	map<string, list<Object*>>* EnableList;
 public:
+	void AddEnemy(string _Key, Bridge* _Bridge);
 	void AddBullet(string _Key, Bridge* _Bridge);
 	void AddObject(string _Key);
 	list<Object*>* GetObjectList(string _strKey);

@@ -54,7 +54,7 @@ int Player::Update()
 
 	if (dwKey & KEY_SPACE)
 	{
-		if (attackspeed >= 5.0f)
+		if (attackspeed >= 10.0f)
 		{
 			attackspeed = 0.0f;
 			Bridge* pBridge = new NormalBullet;

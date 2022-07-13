@@ -12,9 +12,15 @@ POINT CursorManager::GetPoint()
 {
 	GetCursorPos(&point); // 마우스 위치를 받아온다
 	ScreenToClient(GetConsoleWindow(), &point); // 해당 클라이언트 기준으로 좌표를 변환한다
-	point.x /= 8;
-	point.y /= 16;
+		
+	// ** 집환경
+	//point.x /= 8;
+	//point.y /= 16;
 	
+	// ** 학원환경 (1920 * 1080)
+	point.x /= 8;
+	point.y /= 18;
+
 	return point;
 }
 
@@ -79,6 +85,28 @@ void CursorManager::WriteBuffer(float _x, float _y, int _Value, int _Color)
 	char Buffer[4];
 	_itoa(_Value, Buffer, 10);
 
+	char* pBuffer = new char[strlen(Buffer)];
+	strcpy(pBuffer, Buffer);
+	// 버퍼에 쓰기
+	WriteFile(hBuffer[BufferIndex], pBuffer, (DWORD)strlen(pBuffer), &dw, NULL);
+
+}
+
+void CursorManager::WriteBuffer(float _x, float _y, float _Value, int _Color)
+{
+
+	DWORD dw;
+
+	COORD CursorPosition = { SHORT(_x), SHORT(_y) };
+
+	// 좌표 이동
+	SetConsoleCursorPosition(hBuffer[BufferIndex], CursorPosition);
+
+	// 텍스트 색 변경
+	SetColor(_Color);
+
+	char Buffer[8];
+	sprintf(Buffer, "%.3f", _Value);
 	char* pBuffer = new char[strlen(Buffer)];
 	strcpy(pBuffer, Buffer);
 	// 버퍼에 쓰기

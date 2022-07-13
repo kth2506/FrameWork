@@ -2,22 +2,32 @@
 #include "SceneManager.h"
 #include "InputManager.h"
 #include "CursorManager.h"
+#include "MenuInterface.h"
 
-Menu::Menu() {  }
+Menu::Menu() :count(0)  {}
 Menu::~Menu() {  }
 
 void Menu::Initialize()
 {
+	str = "Menu";
+	count = 0;
+	pMenu = new MenuInterface;
+	pMenu->Initialize();
 }
 
 void Menu::Update()
 {
-
+	count++;
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
-	if (dwKey & KEY_ENTER)
-		SceneManager::GetInstance()->SetScene(STAGE);
+	if (pMenu)
+		pMenu->Update();
 
+	if ((dwKey & KEY_ENTER )&& count > 10)
+	{
+		::Safe_Delete(pMenu);
+		SceneManager::GetInstance()->SetScene(STAGE);
+	}
 	if (dwKey & KEY_ESCAPE)
 	{
 		exit(0);
@@ -26,9 +36,10 @@ void Menu::Update()
 
 void Menu::Render()
 {
-	CursorManager::GetInstance()->WriteBuffer(
-		60, 15, (char*)"Menu", 15
-	);
+
+	if (pMenu)
+		pMenu->Render();
+	
 }
 
 void Menu::Release()

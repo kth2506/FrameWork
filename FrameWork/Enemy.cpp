@@ -13,7 +13,7 @@ Object* Enemy::Initialize(string _Key)
 	
 	Buffer[0] = (char*)"호";
 	Buffer[1] = (char*)"ㅅ";
-	Hp = 10;
+	Hp = 1;
 
 
 	TransInfo.Position = Vector3(10.0f, 10.0f);
@@ -36,16 +36,12 @@ int Enemy::Update()
 
 void Enemy::Render()
 {
-	for (int i = 0; i < MAX_SIZE; ++i)
-	{
-		CursorManager::GetInstance()->WriteBuffer(
-			TransInfo.Position.x ,
-			TransInfo.Position.y + i,
-			Buffer[i], 15
-		);
-	}
+	if (pBridge)
+		pBridge->Render();
 }
 
 void Enemy::Release()
 {
+	delete pBridge;
+	pBridge = nullptr;
 }

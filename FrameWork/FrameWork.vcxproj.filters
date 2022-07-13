@@ -13,32 +13,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\99.Manager">
-      <UniqueIdentifier>{151fced3-0a3f-4ad6-9cd4-3c3754d6fc7b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="헤더 파일\include">
       <UniqueIdentifier>{e282932c-667d-4e76-8ac0-b0eee01b9439}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\99.Manager\InputManager">
-      <UniqueIdentifier>{6307cbfd-21c6-4420-a40e-85f4a79f34d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\01.Scene">
-      <UniqueIdentifier>{f9794f6b-9574-43d3-8121-f1eb7a21653d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\99.Manager\SceneManager">
-      <UniqueIdentifier>{d0f81e0e-aeaa-4b43-8f40-86cc3fd77b0e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\00.MainUpdate">
-      <UniqueIdentifier>{ef1281ea-3595-48ae-88b9-7604c9443e2b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\01.Scene\Logo">
-      <UniqueIdentifier>{b4f603cf-2202-45e3-8b1c-aac2ab07f605}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\01.Scene\Menu">
-      <UniqueIdentifier>{b174b2c2-cd2a-45fc-881d-703241f6acf6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\01.Scene\Stage">
-      <UniqueIdentifier>{645693e8-ae16-4686-a9ea-6c9bf12490dd}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\02. Object">
       <UniqueIdentifier>{91378875-1c8b-4e7d-aa31-39c2ad26554e}</UniqueIdentifier>
@@ -49,20 +25,8 @@
     <Filter Include="소스 파일\02. Object\Enemy">
       <UniqueIdentifier>{536b1cd0-8a03-47da-8f09-9f804838f01f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\99.Manager\ObjectManager">
-      <UniqueIdentifier>{8709de70-4df4-44f5-8ffd-03b8e14f1d7f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\99.Manager\CursorManager">
-      <UniqueIdentifier>{22d1a4ae-e0a9-4f82-bdb0-fd02c5956888}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\02. Object\Bullet">
       <UniqueIdentifier>{3775cbee-66f6-4c1a-86af-41765e3c02d7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\99.Manager\CollisionManager">
-      <UniqueIdentifier>{141d45d6-7dc4-4c28-86e4-48669ed45b8b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\99.Manager\ObjectFactory">
-      <UniqueIdentifier>{ecb4e8cd-d365-4dc5-bcd6-d863521fcf52}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\02. Object\Background">
       <UniqueIdentifier>{a0bae808-23dd-4989-b14e-dc675f5920c3}</UniqueIdentifier>
@@ -75,9 +39,6 @@
     </Filter>
     <Filter Include="소스 파일\03. UserInterface\ScrollBox">
       <UniqueIdentifier>{ecbec45f-876d-48c5-aa3f-0db829b1a32f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\99.Manager\MathManager">
-      <UniqueIdentifier>{f79dcb53-884e-469a-807a-c29e1e7b7638}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\98. Pattern">
       <UniqueIdentifier>{0e3f9417-8363-4e3c-8aca-a0aee20fed52}</UniqueIdentifier>
@@ -106,8 +67,53 @@
     <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge">
       <UniqueIdentifier>{cdd44ada-7a91-446b-bd9f-c7bd5a2e3cd2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\02. Object\Enemy\NormalEnemy">
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\NormalEnemy">
       <UniqueIdentifier>{7510dcb8-8725-4a7b-a531-2d21a34e7575}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. UserInterface\MenuInterface">
+      <UniqueIdentifier>{25f6448d-d064-465e-bd3b-bc7d1d6f5fea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager">
+      <UniqueIdentifier>{151fced3-0a3f-4ad6-9cd4-3c3754d6fc7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\InputManager">
+      <UniqueIdentifier>{6307cbfd-21c6-4420-a40e-85f4a79f34d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\SceneManager">
+      <UniqueIdentifier>{d0f81e0e-aeaa-4b43-8f40-86cc3fd77b0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\ObjectManager">
+      <UniqueIdentifier>{8709de70-4df4-44f5-8ffd-03b8e14f1d7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\CursorManager">
+      <UniqueIdentifier>{22d1a4ae-e0a9-4f82-bdb0-fd02c5956888}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\CollisionManager">
+      <UniqueIdentifier>{141d45d6-7dc4-4c28-86e4-48669ed45b8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\ObjectFactory">
+      <UniqueIdentifier>{ecb4e8cd-d365-4dc5-bcd6-d863521fcf52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\MathManager">
+      <UniqueIdentifier>{f79dcb53-884e-469a-807a-c29e1e7b7638}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. MainUpdate">
+      <UniqueIdentifier>{ef1281ea-3595-48ae-88b9-7604c9443e2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene">
+      <UniqueIdentifier>{f9794f6b-9574-43d3-8121-f1eb7a21653d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene\Logo">
+      <UniqueIdentifier>{b4f603cf-2202-45e3-8b1c-aac2ab07f605}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene\Menu">
+      <UniqueIdentifier>{b174b2c2-cd2a-45fc-881d-703241f6acf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene\Stage">
+      <UniqueIdentifier>{645693e8-ae16-4686-a9ea-6c9bf12490dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. UserInterface\Time">
+      <UniqueIdentifier>{1b389634-bbca-494c-98c6-1aa3d204b40d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -115,25 +121,25 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="MainUpdate.cpp">
-      <Filter>소스 파일\00.MainUpdate</Filter>
+      <Filter>소스 파일\00. MainUpdate</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
-      <Filter>소스 파일\99.Manager\SceneManager</Filter>
+      <Filter>소스 파일\99. Manager\SceneManager</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
-      <Filter>소스 파일\99.Manager\InputManager</Filter>
+      <Filter>소스 파일\99. Manager\InputManager</Filter>
     </ClCompile>
     <ClCompile Include="Logo.cpp">
-      <Filter>소스 파일\01.Scene\Logo</Filter>
+      <Filter>소스 파일\01. Scene\Logo</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
-      <Filter>소스 파일\01.Scene\Menu</Filter>
+      <Filter>소스 파일\01. Scene\Menu</Filter>
     </ClCompile>
     <ClCompile Include="Stage.cpp">
-      <Filter>소스 파일\01.Scene\Stage</Filter>
+      <Filter>소스 파일\01. Scene\Stage</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>소스 파일\01.Scene</Filter>
+      <Filter>소스 파일\01. Scene</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>소스 파일\02. Object</Filter>
@@ -145,13 +151,13 @@
       <Filter>소스 파일\02. Object\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="ObjectManager.cpp">
-      <Filter>소스 파일\99.Manager\ObjectManager</Filter>
+      <Filter>소스 파일\99. Manager\ObjectManager</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>소스 파일\02. Object\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="ObjectFactory.h">
-      <Filter>소스 파일\99.Manager\ObjectFactory</Filter>
+      <Filter>소스 파일\99. Manager\ObjectFactory</Filter>
     </ClCompile>
     <ClCompile Include="Background.cpp">
       <Filter>소스 파일\02. Object\Background</Filter>
@@ -166,7 +172,7 @@
       <Filter>소스 파일\03. UserInterface\ScrollBox</Filter>
     </ClCompile>
     <ClCompile Include="CursorManager.cpp">
-      <Filter>소스 파일\99.Manager\CursorManager</Filter>
+      <Filter>소스 파일\99. Manager\CursorManager</Filter>
     </ClCompile>
     <ClCompile Include="Intro.cpp">
       <Filter>소스 파일\03. UserInterface\Intro</Filter>
@@ -184,7 +190,13 @@
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
     </ClCompile>
     <ClCompile Include="NormalEnemy.cpp">
-      <Filter>소스 파일\02. Object\Enemy\NormalEnemy</Filter>
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\NormalEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuInterface.cpp">
+      <Filter>소스 파일\03. UserInterface\MenuInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>소스 파일\03. UserInterface\Time</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -192,10 +204,10 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="MainUpdate.h">
-      <Filter>소스 파일\00.MainUpdate</Filter>
+      <Filter>소스 파일\00. MainUpdate</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
-      <Filter>소스 파일\99.Manager\SceneManager</Filter>
+      <Filter>소스 파일\99. Manager\SceneManager</Filter>
     </ClInclude>
     <ClInclude Include="Enum.h">
       <Filter>헤더 파일\include</Filter>
@@ -204,19 +216,19 @@
       <Filter>헤더 파일\include</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
-      <Filter>소스 파일\99.Manager\InputManager</Filter>
+      <Filter>소스 파일\99. Manager\InputManager</Filter>
     </ClInclude>
     <ClInclude Include="Logo.h">
-      <Filter>소스 파일\01.Scene\Logo</Filter>
+      <Filter>소스 파일\01. Scene\Logo</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
-      <Filter>소스 파일\01.Scene\Menu</Filter>
+      <Filter>소스 파일\01. Scene\Menu</Filter>
     </ClInclude>
     <ClInclude Include="Stage.h">
-      <Filter>소스 파일\01.Scene\Stage</Filter>
+      <Filter>소스 파일\01. Scene\Stage</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>소스 파일\01.Scene</Filter>
+      <Filter>소스 파일\01. Scene</Filter>
     </ClInclude>
     <ClInclude Include="Define.h">
       <Filter>헤더 파일\include</Filter>
@@ -234,13 +246,13 @@
       <Filter>헤더 파일\include</Filter>
     </ClInclude>
     <ClInclude Include="CursorManager.h">
-      <Filter>소스 파일\99.Manager\CursorManager</Filter>
+      <Filter>소스 파일\99. Manager\CursorManager</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>소스 파일\02. Object\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
-      <Filter>소스 파일\99.Manager\CollisionManager</Filter>
+      <Filter>소스 파일\99. Manager\CollisionManager</Filter>
     </ClInclude>
     <ClInclude Include="Background.h">
       <Filter>소스 파일\02. Object\Background</Filter>
@@ -255,10 +267,10 @@
       <Filter>소스 파일\03. UserInterface\ScrollBox</Filter>
     </ClInclude>
     <ClInclude Include="MathManager.h">
-      <Filter>소스 파일\99.Manager\MathManager</Filter>
+      <Filter>소스 파일\99. Manager\MathManager</Filter>
     </ClInclude>
     <ClInclude Include="ObjectManager.h">
-      <Filter>소스 파일\99.Manager\ObjectManager</Filter>
+      <Filter>소스 파일\99. Manager\ObjectManager</Filter>
     </ClInclude>
     <ClInclude Include="Explain.h">
       <Filter>헤더 파일\include</Filter>
@@ -288,7 +300,13 @@
       <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
     </ClInclude>
     <ClInclude Include="NormalEnemy.h">
-      <Filter>소스 파일\02. Object\Enemy\NormalEnemy</Filter>
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\NormalEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuInterface.h">
+      <Filter>소스 파일\03. UserInterface\MenuInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>소스 파일\03. UserInterface\Time</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

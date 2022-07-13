@@ -1,8 +1,12 @@
 #pragma once
 #include "Scene.h"
 
+class UserInterface;
 class Menu : public Scene
 {
+private:
+	UserInterface* pMenu;
+	int count;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;

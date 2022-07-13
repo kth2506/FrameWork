@@ -5,6 +5,7 @@ class UserInterface;
 class Logo : public Scene
 {
 private:
+	int count;
 	UserInterface* pIntro;
 public:
 	virtual void Initialize()override;

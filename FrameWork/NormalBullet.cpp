@@ -13,18 +13,32 @@ void NormalBullet::Initialize()
 
 int NormalBullet::Update(Transform& Info)
 {
-	Info.Position += Info.Direction;
+	if (Info.Direction.y > 0)
+	{
+		Info.Position.x += Info.Direction.x / (Info.Direction.y * 1);
+		Info.Position.y += Info.Direction.y / (Info.Direction.y * 1);
+	}
+	else
+	{
+		Info.Position.x -= Info.Direction.x / (Info.Direction.y * 1);
+		Info.Position.y -= Info.Direction.y / (Info.Direction.y * 1);
+	}
 
+	
 	return 0;
 }
 
 void NormalBullet::Render()
 {
+	//CursorManager::GetInstance()->WriteBuffer(
+	//	pObject->GetPosition().x,
+	//	pObject->GetPosition().y,
+	//	(char*)"¢´", 13);
+
 	CursorManager::GetInstance()->WriteBuffer(
 		pObject->GetPosition().x,
 		pObject->GetPosition().y,
-		(char*)"¢´", 13);
-
+		(float)pObject->GetDirection().y);
 }
 
 void NormalBullet::Release()

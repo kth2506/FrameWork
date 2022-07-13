@@ -23,9 +23,19 @@ public:
 
 		float Distance = sqrt((Width * Width) + (Height * Height));
 		
-		return Vector3(Width / Distance, Height / Distance);
+		return Vector3(Width / Distance, Height / (Distance * 2));
 	}
 
+	static Vector3 GetDirection(float _Current_x, float _Current_y , Vector3 _Target)
+	{
+
+		float Width = _Target.x - _Current_x;
+		float Height = _Target.y - _Current_y;
+
+		float Distance = sqrt((Width * Width) + (Height * Height));
+
+		return Vector3(Width / Distance, Height / (Distance * 2));
+	}
 
 	static float GetCursorDistance(Vector3 _Current)
 	{

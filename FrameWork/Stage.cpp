@@ -12,29 +12,22 @@
 #include "ObjectFactory.h"
 #include "ObjectPool.h"
 #include "ProtoType.h"
-
-Stage::Stage() : Check(0){  }
+#include "NormalEnemy.h"
+#include "Time.h"
+Stage::Stage() : Check(0) , count(0){  }
 Stage::~Stage() { Release(); }
 
 void Stage::Initialize()
 {
 	Check = 0;
+	count = 0;
 
 	ObjectManager::GetInstance()->AddObject("Player");
-	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front()->Clone();
-	for (int i = 0; i < 5; ++i)
-	{
-		
-
-		ObjectManager::GetInstance()->AddObject("Enemy");
-		srand(DWORD(GetTickCount64() * (i + 1)));
-		Object* pEnemy = ObjectManager::GetInstance()->GetObjectList("Enemy")->front();
-		pEnemy->SetPosition(float(rand() % 170), float(rand() % 35) + pEnemy->GetScale().y * 2);
-
-
-	}
+	
 	pUI = new ScrollBox;
 	pUI->Initialize();
+	pTime = new Time;
+	pTime->Initialize();
 
 }
 
@@ -47,8 +40,14 @@ void Stage::Update()
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
 	list<Object*>* pPlayerList = ObjectManager::GetInstance()->GetObjectList("Player");
 	//pPlayer = pPlayerList->front();
-	pPlayer->Update();
 
+	count++;
+
+	//if (count % 14 == 0)
+	//{
+	//	Bridge* pBridge = new NormalEnemy;
+	//	ObjectManager::GetInstance()->AddEnemy("Enemy", pBridge);
+	//}
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_TAB)
@@ -68,6 +67,7 @@ void Stage::Update()
 	ObjectManager::GetInstance()->Update();
 	if (Check)
 		pUI->Render();
+	pTime->Update();
 
 	{
 		if (pBulletList != nullptr)
@@ -78,7 +78,8 @@ void Stage::Update()
 				if (((*iter)->GetPosition().x >= Console_Width || (*iter)->GetPosition().x < 0.0f ||
 					(*iter)->GetPosition().y >= Console_Height || (*iter)->GetPosition().y < 0.0f) && pBulletList->size())
 				{
-					iter = pBulletList->erase(iter);
+					iter = ObjectManager::GetInstance()->ThrowObject(iter, (*iter));
+
 				}
 				else
 					++iter;
@@ -125,8 +126,8 @@ void Stage::Render()
 {
 
 	ObjectManager::GetInstance()->Render();
-	pPlayer->Render();
 
+	pTime->Render();
 
 }
 
