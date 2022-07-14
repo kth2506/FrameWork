@@ -1,7 +1,8 @@
 ﻿#include "Enemy.h"
 #include "CursorManager.h"
 #include "ProtoType.h"
-#include "NormalEnemy.h"
+#include "NormalBullet.h"
+//#include "NormalEnemy.h"
 
 Enemy::Enemy() {}
 Enemy::Enemy(Transform _Info) : Object(_Info){}

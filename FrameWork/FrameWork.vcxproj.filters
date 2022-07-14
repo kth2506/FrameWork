@@ -115,6 +115,18 @@
     <Filter Include="소스 파일\03. UserInterface\Time">
       <UniqueIdentifier>{1b389634-bbca-494c-98c6-1aa3d204b40d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Item\ItemBridge">
+      <UniqueIdentifier>{032a6355-090a-4a04-902a-ea7b953e0f86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Item\ItemBridge\ItemPower">
+      <UniqueIdentifier>{01e4a561-f8a0-4bcb-afc0-9458a582bb8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Item\ItemBridge\ItemSpeed">
+      <UniqueIdentifier>{3d85da25-c52b-4539-89b7-25aa76edee56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\StageManager">
+      <UniqueIdentifier>{6f557fd4-427f-48f0-a36f-3e26724398fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -197,6 +209,15 @@
     </ClCompile>
     <ClCompile Include="Time.cpp">
       <Filter>소스 파일\03. UserInterface\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemPower.cpp">
+      <Filter>소스 파일\02. Object\Item\ItemBridge\ItemPower</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemSpeed.cpp">
+      <Filter>소스 파일\02. Object\Item\ItemBridge\ItemSpeed</Filter>
+    </ClCompile>
+    <ClCompile Include="StageManager.cpp">
+      <Filter>소스 파일\99. Manager\StageManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -307,6 +328,18 @@
     </ClInclude>
     <ClInclude Include="Time.h">
       <Filter>소스 파일\03. UserInterface\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemBridge.h">
+      <Filter>소스 파일\02. Object\Item\ItemBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemPower.h">
+      <Filter>소스 파일\02. Object\Item\ItemBridge\ItemPower</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemSpeed.h">
+      <Filter>소스 파일\02. Object\Item\ItemBridge\ItemSpeed</Filter>
+    </ClInclude>
+    <ClInclude Include="StageManager.h">
+      <Filter>소스 파일\99. Manager\StageManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

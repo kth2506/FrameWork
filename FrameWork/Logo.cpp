@@ -33,7 +33,7 @@ void Logo::Update()
 
 	if ((dwKey & KEY_ENTER) && count > 80)
 	{
-		//::Safe_Delete(pIntro);
+		::Safe_Delete(pIntro);
 		SceneManager::GetInstance()->SetScene(MENU);
 	}
 	if (dwKey & KEY_ESCAPE)

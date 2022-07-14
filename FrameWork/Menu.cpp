@@ -4,7 +4,7 @@
 #include "CursorManager.h"
 #include "MenuInterface.h"
 
-Menu::Menu() :count(0)  {}
+Menu::Menu() :count(0)  ,pMenu(){}
 Menu::~Menu() {  }
 
 void Menu::Initialize()

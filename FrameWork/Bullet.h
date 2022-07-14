@@ -11,7 +11,7 @@ public:
 	virtual void Render() override;
 	virtual void Release() override;
 	virtual Object* Clone() {return new Bullet(*this);}
-	
+
 public:
 	Bullet();
 	Bullet(Transform _Info);

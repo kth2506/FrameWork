@@ -11,6 +11,7 @@ NormalEnemy::~NormalEnemy(){}
 
 void NormalEnemy::Initialize()
 {
+	Hp = 10;
 }
 
 int NormalEnemy::Update(Transform& Info)
@@ -26,7 +27,7 @@ int NormalEnemy::Update(Transform& Info)
 void NormalEnemy::Render()
 {
 
-	for (int i = 0; i < MAX_SIZE; ++i)
+	for (int i = 0; i < 1; ++i)
 	{
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x,

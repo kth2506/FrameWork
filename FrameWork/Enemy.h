@@ -9,6 +9,7 @@ public:
 	virtual void Render() override;
 	virtual void Release()override;
 
+
 public:
 	virtual Object* Clone() override{return new Enemy(*this);}
 

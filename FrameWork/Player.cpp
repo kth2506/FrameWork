@@ -13,7 +13,7 @@ Player::~Player() {  }
 Object* Player::Initialize(string _Key)
 {
 	strKey = _Key;
-	attackspeed = 0.0f;
+	attackSpeed = 0.0f;
 	as = 1.0f;
 
 	Buffer[0] = (char*)"  ¡ü  ";
@@ -50,14 +50,14 @@ int Player::Update()
 	if (dwKey & KEY_CTRL)
 		as += 0.1f;
 		
-	attackspeed += as;
+	attackSpeed += as;
 
 	if (dwKey & KEY_SPACE)
 	{
-		if (attackspeed >= 10.0f)
+		if (attackSpeed >= 10.0f)
 		{
-			attackspeed = 0.0f;
-			Bridge* pBridge = new NormalBullet;
+			attackSpeed = 0.0f;
+			pBridge = new NormalBullet;
 			ObjectManager::GetInstance()->AddBullet("Bullet", pBridge);
 		}
 	}

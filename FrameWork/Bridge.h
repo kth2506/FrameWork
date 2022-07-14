@@ -5,6 +5,8 @@ class Object;
 class Bridge
 {
 protected:
+	int Damage;
+	int Type;
 	Object* pObject;
 public:
 	virtual void Initialize()PURE;	
@@ -13,6 +15,8 @@ public:
 	virtual void Release()PURE;
 public:
 	void SetObject(Object* _Object) {pObject = _Object;}
+	int GetDamage() { return Damage; }
+	int GetType() { return Type; }
 public:
 	Bridge() : pObject(nullptr) {};
 	virtual ~Bridge() {};

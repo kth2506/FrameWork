@@ -2,6 +2,7 @@
 #include "Headers.h"
 
 class Bridge;
+class ItemBridge;
 class Object
 {
 protected:
@@ -10,7 +11,8 @@ protected:
 	char* Buffer[3];
 	int Color = 15;
 	int Hp;
-
+	float as;
+	float attackSpeed;
 	Bridge* pBridge;
 public:
 	virtual Object* Initialize(string _Key)PURE;
@@ -37,6 +39,8 @@ public:
 	void SetDirection(Vector3 _Direction) { TransInfo.Direction = _Direction; }
 
 	void SetBridge(Bridge* _Bridge) { pBridge = _Bridge; }
+	Bridge* GetBridge() { return pBridge; }
+	void IncreseAttackSpeed() { as += 0.1f; }
 
 public:
 	Object();

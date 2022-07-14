@@ -45,6 +45,33 @@ void ObjectManager::AddEnemy(string _Key, Bridge* _Bridge)
 		iter->second.push_back(pObject);
 }
 
+void ObjectManager::AddItem(string _Key, Bridge* _Bridge, list<Object*>::iterator _Iter)
+{
+	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
+
+
+	if (pObject == nullptr)
+		pObject = ProtoType::GetInstance()->ProtoTypeObject(_Key)->Clone();
+
+
+	_Bridge->Initialize();
+	_Bridge->SetObject(pObject);
+
+	pObject->SetBridge(_Bridge);
+	pObject->SetPosition((*_Iter)->GetPosition());
+
+	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
+
+	if (iter == EnableList->end())
+	{
+		list<Object*> TempList;
+		TempList.push_back(pObject);
+		EnableList->insert(make_pair(pObject->GetKey(), TempList));
+	}
+	else
+		iter->second.push_back(pObject);
+}
+
 void ObjectManager::AddBullet(string _Key, Bridge* _Bridge)
 {
 	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
@@ -80,8 +107,6 @@ void ObjectManager::AddObject(string _Key)
 
 	if (pObject == nullptr)
 		pObject = ProtoType::GetInstance()->ProtoTypeObject(_Key)->Clone();
-
-
 
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
 

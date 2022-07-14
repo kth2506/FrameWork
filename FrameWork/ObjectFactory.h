@@ -26,7 +26,7 @@ public:
 	static Object* CreateObject(float _x, float _y, Bridge* _Bridge)
 	{
 		Object* pObject = new T;
-		pObject->Initialize("Bullet");
+		pObject->Initialize();
 		pObject->SetPosition(_x, _y);
 
 		_Bridge->Initialize();
@@ -39,7 +39,7 @@ public:
 	static Object* CreateObject(Vector3 _Position)
 	{
 		Object* pObject = new T;
-		pObject->Initialize("Bullet");
+		pObject->Initialize();
 		pObject->SetPosition(_Position);
 
 		return pObject;
@@ -49,7 +49,7 @@ public:
 	static Object* CreateObject(Vector3 _Position, Bridge* _Bridge)
 	{
 		Object* pObject = new T;
-		pObject->Initialize("Bullet");
+		pObject->Initialize();
 		pObject->SetPosition(_Position);
 
 		_Bridge->Initialize();
