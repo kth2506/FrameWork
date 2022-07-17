@@ -15,7 +15,7 @@ Object* Player::Initialize(string _Key)
 	strKey = _Key;
 	attackSpeed = 0.0f;
 	as = 1.0f;
-
+	Power = 1;
 	Buffer[0] = (char*)"  ¡ü  ";
 	Buffer[1] = (char*)"£¼¡Ü£¾";
 	Buffer[2] = (char*)"  ¡ý  ";
@@ -56,9 +56,12 @@ int Player::Update()
 	{
 		if (attackSpeed >= 10.0f)
 		{
-			attackSpeed = 0.0f;
-			pBridge = new NormalBullet;
-			ObjectManager::GetInstance()->AddBullet("Bullet", pBridge);
+			for (int i = 0; i < Power; ++i)
+			{
+				pBridge = new NormalBullet;
+				ObjectManager::GetInstance()->AddBullet("Bullet", pBridge);
+			}
+				attackSpeed = 0.0f;
 		}
 	}
 	return 0;

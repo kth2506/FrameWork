@@ -141,13 +141,18 @@ void StageManager::Update()
 					if (CollisionManager::RectCollision(*Itemiter, pPlayerList->front()))
 					{
 						int a = (*Itemiter)->GetBridge()->GetType();
-						if (a == 1)
+						switch (a)
 						{
+						case 1:
 							pPlayer->IncreseAttackSpeed();
+							break;
+						case 2:
+							pPlayer->IncresePower();
+							break;
+						default:
+							break;
 						}
 
-						else if (a == 2)
-							Check = 0;
 						Itemiter = ObjectManager::GetInstance()->ThrowObject(Itemiter, (*Itemiter));
 					}
 					else
