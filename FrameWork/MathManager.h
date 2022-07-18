@@ -58,6 +58,5 @@ public:
 
 		return Vector3(Width / Distance, Height / Distance);
 	}
-
 };
 

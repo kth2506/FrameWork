@@ -14,12 +14,12 @@ POINT CursorManager::GetPoint()
 	ScreenToClient(GetConsoleWindow(), &point); // 해당 클라이언트 기준으로 좌표를 변환한다
 		
 	// ** 집환경
-	point.x /= 8;
-	point.y /= 16;
-	
-	// ** 학원환경 (1920 * 1080)
 	//point.x /= 8;
-	//point.y /= 18;
+	//point.y /= 16;
+	
+	// ** 학원환경 
+	point.x /= 8;
+	point.y /= 18;
 
 	return point;
 }

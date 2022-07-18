@@ -16,9 +16,6 @@ Object* Bullet::Initialize(string _Key)
 {
 	strKey = _Key;
 
-	Buffer[0] = (char*)"¢´";
-	Buffer[1] = (char*)"";
-
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 1.0f);
@@ -38,7 +35,6 @@ int Bullet::Update()
 
 void Bullet::Render()
 {
-
 	if (pBridge)
 		pBridge->Render();
 }

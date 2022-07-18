@@ -7,3 +7,16 @@ enum SCENEID
 	STAGE,
 	EXIT,
 };
+
+enum ITEMID
+{
+	POWERUP,
+	SPEEDUP,
+};
+
+enum BULLETID
+{
+	NORMALBULLET,
+	NORMALBULLET2,
+
+};

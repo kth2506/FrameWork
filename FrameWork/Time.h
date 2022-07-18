@@ -4,6 +4,7 @@
 class Time : public UserInterface
 {
 private:
+	map<int, vector<char*>> MS;
 	int count;
 	int Minutes;
 	int Second;

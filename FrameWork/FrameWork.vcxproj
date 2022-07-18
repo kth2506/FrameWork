@@ -155,6 +155,7 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuInterface.cpp" />
     <ClCompile Include="NormalBullet.cpp" />
+    <ClCompile Include="NormalBullet2.cpp" />
     <ClCompile Include="NormalEnemy.cpp" />
     <ClCompile Include="ObjectFactory.h" />
     <ClCompile Include="ObjectManager.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuInterface.h" />
     <ClInclude Include="NormalBullet.h" />
+    <ClInclude Include="NormalBullet2.h" />
     <ClInclude Include="NormalEnemy.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Object.h" />

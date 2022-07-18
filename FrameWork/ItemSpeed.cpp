@@ -7,7 +7,7 @@ ItemSpeed::~ItemSpeed() {}
 
 void ItemSpeed::Initialize()
 {
-	Type = 2;
+	Type = SPEEDUP;
 }
 
 int ItemSpeed::Update(Transform& Info)
@@ -17,14 +17,11 @@ int ItemSpeed::Update(Transform& Info)
 
 void ItemSpeed::Render()
 {
-	for (int i = 0; i < 1; ++i)
-	{
-		CursorManager::GetInstance()->WriteBuffer(
-			pObject->GetPosition().x,
-			pObject->GetPosition().y,
-			(char*)"¨ß", 15
-		);
-	}
+	CursorManager::GetInstance()->WriteBuffer(
+		pObject->GetPosition().x,
+		pObject->GetPosition().y,
+		(char*)"¨ß", 5
+	);
 }
 
 void ItemSpeed::Release()

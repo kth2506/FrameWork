@@ -11,7 +11,9 @@ const DWORD KEY_ALT = 128;
 const DWORD KEY_TAB = 256;
 const DWORD KEY_ESCAPE = 512;
 
-const SHORT Console_Width = 180;
-const SHORT Console_Height = 45;
+
+const float Console_Width = 180.0f;
+const float Console_Height = 45.0f;
 const int BUFFER_OVER = 1;
 const int MAX_SIZE = 2;
+const int MAX_POWER = 2;

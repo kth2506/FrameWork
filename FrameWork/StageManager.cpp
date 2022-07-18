@@ -41,25 +41,17 @@ void StageManager::Update()
 	count++;
 	pPlayer = pPlayerList->front();
 
-	if (count % 14 == 0)
+	if (count == 18)
 	{
 		Bridge* pBridge = new NormalEnemy;
 		ObjectManager::GetInstance()->AddEnemy("Enemy", pBridge);
 	}
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
-	if (dwKey & KEY_TAB)
-	{
-		if (pBulletList->size())
-		{
-			ObjectPool::GetInstance()->CatchObject(pBulletList->back());
-			pBulletList->pop_back();
-		}
-	}
 
 	if (dwKey & KEY_ESCAPE)
 	{
-		Enable_UI();
+		exit(0);
 	}
 
 	ObjectManager::GetInstance()->Update();
@@ -99,25 +91,24 @@ void StageManager::Update()
 						{
 							if (CollisionManager::RectCollision(*Bulletiter, *Enemyiter))
 							{
+								(*Enemyiter)->GetBridge()->SetHp((*Bulletiter)->GetBridge()->GetDamage());
 								Bulletiter = ObjectManager::GetInstance()->ThrowObject(Bulletiter, (*Bulletiter));
-								
-								(*Enemyiter)->SetHp();
 							}
 							else
 								++Bulletiter;
 						}
 					}
 
-					if ((*Enemyiter)->GetHp() <= 0)
+					if ((*Enemyiter)->GetBridge()->GetHp() <= 0)
 					{
 						srand((unsigned int)time(NULL));
 						int num = rand() % 10;
-						if (num < 3)
+						if (num == 5)
 						{
 							Bridge* pBridge = new ItemPower;
 							ObjectManager::GetInstance()->AddItem("Item", pBridge, Enemyiter);
 						}
-						else if (num == 4)
+						else if (num < 4)
 						{
 							Bridge* pBridge = new ItemSpeed;
 							ObjectManager::GetInstance()->AddItem("Item", pBridge, Enemyiter);
@@ -140,13 +131,13 @@ void StageManager::Update()
 				{
 					if (CollisionManager::RectCollision(*Itemiter, pPlayerList->front()))
 					{
-						int a = (*Itemiter)->GetBridge()->GetType();
-						switch (a)
+
+						switch ((*Itemiter)->GetBridge()->GetType())
 						{
-						case 1:
+						case SPEEDUP:
 							pPlayer->IncreseAttackSpeed();
 							break;
-						case 2:
+						case POWERUP:
 							pPlayer->IncresePower();
 							break;
 						default:

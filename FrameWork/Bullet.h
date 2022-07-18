@@ -2,8 +2,6 @@
 #include "Object.h"
 class Bullet : public Object
 {
-private:
-	Object* pEnemy;
 public:
 
 	virtual Object* Initialize(string _Key) override;

@@ -30,7 +30,7 @@ void ObjectManager::AddEnemy(string _Key, Bridge* _Bridge)
 	_Bridge->SetObject(pObject);
 
 	pObject->SetBridge(_Bridge);
-	pObject->SetPosition(float(rand() % 170), float(rand() % 30));
+	pObject->SetPosition(float(rand() % 180), float((rand() % 30) +7));
 	pObject->SetDirection(MathManager::GetCursorDirection(pObject->GetPosition()));
 
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);

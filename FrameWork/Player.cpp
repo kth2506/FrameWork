@@ -5,6 +5,7 @@
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
 #include "NormalBullet.h"
+#include "NormalBullet2.h"
 Player::Player() : pBullet(nullptr){  }
 
 Player::Player(Transform _Info) : Object(_Info){}
@@ -59,9 +60,10 @@ int Player::Update()
 			for (int i = 0; i < Power; ++i)
 			{
 				pBridge = new NormalBullet;
+				pBridge->SetPower(i);
 				ObjectManager::GetInstance()->AddBullet("Bullet", pBridge);
 			}
-				attackSpeed = 0.0f;
+			attackSpeed = 0.0f;
 		}
 	}
 	return 0;
@@ -73,7 +75,7 @@ void Player::Render()
 		CursorManager::GetInstance()->WriteBuffer(
 			TransInfo.Position.x - TransInfo.Scale.x * 0.5f, 
 			TransInfo.Position.y - TransInfo.Scale.y * 0.5f + i,
-			Buffer[i], Color
+			Buffer[i], 11
 		);
 }
 
