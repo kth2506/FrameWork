@@ -41,7 +41,7 @@ void StageManager::Update()
 	count++;
 	pPlayer = pPlayerList->front();
 
-	if (count == 18)
+	if (count % 18== 0)
 	{
 		Bridge* pBridge = new NormalEnemy;
 		ObjectManager::GetInstance()->AddEnemy("Enemy", pBridge);
