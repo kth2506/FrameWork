@@ -1,4 +1,4 @@
-// ** FrameWork ver 07.18
+// ** FrameWork ver 07.18 (BridgeManager)
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "Headers.h"

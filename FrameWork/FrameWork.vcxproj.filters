@@ -133,6 +133,9 @@
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\NormalBullet3">
       <UniqueIdentifier>{1e7aace1-a70d-419e-a745-3b4a9d3e39dc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Manager\BridgeManager">
+      <UniqueIdentifier>{ec69a9d8-7293-4b61-8c0e-71b5430ba8f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -227,6 +230,9 @@
     </ClCompile>
     <ClCompile Include="NormalBullet2.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet2</Filter>
+    </ClCompile>
+    <ClCompile Include="BridgeManager.cpp">
+      <Filter>소스 파일\99. Manager\BridgeManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -352,6 +358,9 @@
     </ClInclude>
     <ClInclude Include="NormalBullet2.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet2</Filter>
+    </ClInclude>
+    <ClInclude Include="BridgeManager.h">
+      <Filter>소스 파일\99. Manager\BridgeManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
