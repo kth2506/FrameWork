@@ -17,13 +17,13 @@ ObjectManager::ObjectManager()
 }
 ObjectManager::~ObjectManager(){}
 
-void ObjectManager::AddEnemy(string _Key, Bridge* _Bridge)
+void ObjectManager::AddEnemy(Bridge* _Bridge)
 {
-	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
+	Object* pObject = ObjectPool::GetInstance()->ThrowObject("Enemy");
 
 
 	if (pObject == nullptr)
-		pObject = ProtoType::GetInstance()->ProtoTypeObject(_Key)->Clone();
+		pObject = ProtoType::GetInstance()->ProtoTypeObject("Enemy")->Clone();
 
 
 	_Bridge->Initialize();
@@ -33,7 +33,7 @@ void ObjectManager::AddEnemy(string _Key, Bridge* _Bridge)
 	pObject->SetPosition(float(rand() % 180), float((rand() % 30) +7));
 	pObject->SetDirection(MathManager::GetCursorDirection(pObject->GetPosition()));
 
-	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
+	map<string, list<Object*>>::iterator iter = EnableList->find("Enemy");
 
 	if (iter == EnableList->end())
 	{
@@ -45,13 +45,13 @@ void ObjectManager::AddEnemy(string _Key, Bridge* _Bridge)
 		iter->second.push_back(pObject);
 }
 
-void ObjectManager::AddItem(string _Key, Bridge* _Bridge, list<Object*>::iterator _Iter)
+void ObjectManager::AddItem(Bridge* _Bridge, list<Object*>::iterator _Iter)
 {
-	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
+	Object* pObject = ObjectPool::GetInstance()->ThrowObject("Item");
 
 
 	if (pObject == nullptr)
-		pObject = ProtoType::GetInstance()->ProtoTypeObject(_Key)->Clone();
+		pObject = ProtoType::GetInstance()->ProtoTypeObject("Item")->Clone();
 
 
 	_Bridge->Initialize();
@@ -60,7 +60,7 @@ void ObjectManager::AddItem(string _Key, Bridge* _Bridge, list<Object*>::iterato
 	pObject->SetBridge(_Bridge);
 	pObject->SetPosition((*_Iter)->GetPosition());
 
-	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
+	map<string, list<Object*>>::iterator iter = EnableList->find("Item");
 
 	if (iter == EnableList->end())
 	{
@@ -72,13 +72,13 @@ void ObjectManager::AddItem(string _Key, Bridge* _Bridge, list<Object*>::iterato
 		iter->second.push_back(pObject);
 }
 
-void ObjectManager::AddBullet(string _Key, Bridge* _Bridge)
+void ObjectManager::AddBullet(Bridge* _Bridge)
 {
-	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
+	Object* pObject = ObjectPool::GetInstance()->ThrowObject("Bullet");
 
 
 	if (pObject == nullptr)
-		pObject = ProtoType::GetInstance()->ProtoTypeObject(_Key)->Clone();
+		pObject = ProtoType::GetInstance()->ProtoTypeObject("Bullet")->Clone();
 
 	
 	_Bridge->Initialize();
@@ -88,7 +88,33 @@ void ObjectManager::AddBullet(string _Key, Bridge* _Bridge)
 	pObject->SetPosition(GetObjectList("Player")->front()->GetPosition());
 	pObject->SetDirection(MathManager::GetCursorDirection(pObject->GetPosition()));
 
-	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
+	map<string, list<Object*>>::iterator iter = EnableList->find("Bullet");
+
+	if (iter == EnableList->end())
+	{
+		list<Object*> TempList;
+		TempList.push_back(pObject);
+		EnableList->insert(make_pair(pObject->GetKey(), TempList));
+	}
+	else
+		iter->second.push_back(pObject);
+}
+
+void ObjectManager::AddPlayer(Bridge* _Bridge)
+{
+	Object* pObject = ObjectPool::GetInstance()->ThrowObject("Player");
+
+
+	if (pObject == nullptr)
+		pObject = ProtoType::GetInstance()->ProtoTypeObject("Player")->Clone();
+
+
+	_Bridge->Initialize();
+	_Bridge->SetObject(pObject);
+
+	pObject->SetBridge(_Bridge);
+
+	map<string, list<Object*>>::iterator iter = EnableList->find("Player");
 
 	if (iter == EnableList->end())
 	{

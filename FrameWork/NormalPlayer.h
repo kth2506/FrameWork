@@ -1,16 +1,17 @@
 #pragma once
-#include "ItemBridge.h"
+#include "PlayerBridge.h"
 
-class ItemSpeed : public ItemBridge
+
+class NormalPlayer : public PlayerBridge
 {
 public:
 	virtual void Initialize()override;
 	virtual int Update(Transform& Info)override;
 	virtual void Render()override;
 	virtual void Release()override;
+
 public:
-public:
-	ItemSpeed();
-	virtual ~ItemSpeed();
+	NormalPlayer();
+	virtual ~NormalPlayer();
 };
 

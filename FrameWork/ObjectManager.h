@@ -18,9 +18,10 @@ public:
 private:
 	map<string, list<Object*>>* EnableList;
 public:
-	void AddEnemy(string _Key, Bridge* _Bridge);
-	void AddItem(string _Key, Bridge* _Bridge, list<Object*>::iterator _Iter);
-	void AddBullet(string _Key, Bridge* _Bridge);
+	void AddEnemy(Bridge* _Bridge);
+	void AddItem(Bridge* _Bridge, list<Object*>::iterator _Iter);
+	void AddBullet(Bridge* _Bridge);
+	void AddPlayer(Bridge* _Bridge);
 	void AddObject(string _Key);
 	list<Object*>* GetObjectList(string _strKey);
 	list<Object*>::iterator ThrowObject(list<Object*>::iterator _Where, Object* _Object);

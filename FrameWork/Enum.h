@@ -5,6 +5,7 @@ enum SCENEID
 	LOGO,
 	MENU,
 	STAGE,
+	ENDING,
 	EXIT,
 };
 
@@ -12,6 +13,7 @@ enum ITEMID
 {
 	POWERUP,
 	SPEEDUP,
+	CHANGE,
 };
 
 enum BULLETID

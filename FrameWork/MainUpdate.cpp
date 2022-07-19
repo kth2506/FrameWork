@@ -1,7 +1,7 @@
+#include "Headers.h"
 #include "MainUpdate.h"
 #include "SceneManager.h"
 #include "InputManager.h"
-#include "Headers.h"
 #include "Constant.h"
 #include "CursorManager.h"
 #include "ProtoType.h"
@@ -14,7 +14,7 @@ void MainUpdate::Initialize()
 {
 	ProtoType::GetInstance()->Initialize();
 	CursorManager::GetInstance()->CreateBuffer((float)Console_Width, (float)Console_Height);
-	SceneManager::GetInstance()->SetScene(SCENEID::STAGE);
+	SceneManager::GetInstance()->SetScene(STAGE);
 
 }
 

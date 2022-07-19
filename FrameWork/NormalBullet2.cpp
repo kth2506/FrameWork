@@ -12,7 +12,8 @@ NormalBullet2::~NormalBullet2() {}
 void NormalBullet2::Initialize()
 {
 	// Bullet 의 데이터 초기화
-	Damage = 10;
+	Damage = 20;
+	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 
 }
 
@@ -29,7 +30,7 @@ void NormalBullet2::Render()
 	CursorManager::GetInstance()->WriteBuffer(
 		pObject->GetPosition().x,
 		pObject->GetPosition().y,
-		(char*)"¤¤", 13);
+		(char*)"¤¤", 2);
 }
 
 void NormalBullet2::Release()

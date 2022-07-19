@@ -86,19 +86,10 @@ void Time::Initialize()
 	MS.insert(make_pair(7,  Seven));
 	MS.insert(make_pair(8,  Eight));
 	MS.insert(make_pair(9,  Nine));
-	/*TransInfo.Position = Vector3(float(120 / 2), 10.0f);
-	TransInfo.Rotation = Vector3(0.0f, 0.0f);
-	TransInfo.Scale = Vector3(34.0f, 17.0f);*/
 }
 
 int Time::Update()
 {
-
-	
-	
-	
-	//CursorManager::GetInstance()->WriteBuffer(90.0f, 2.0f, Minutes);
-	//CursorManager::GetInstance()->WriteBuffer(93.0f, 2.0f, Second);
 	count++;
 	if (count % 14 == 0)
 	{
@@ -111,30 +102,24 @@ int Time::Update()
 		Second = 9;
 	}
 
-	if (Second < 10 && Minutes < 10)
-	{
-		for (int i = 0; i < 5; ++i)
-		{
-			CursorManager::
-				GetInstance()->WriteBuffer(80.0f, 2.0f + i, MS.find(Minutes)->second[i] , 3);
-	
-			CursorManager::
-				GetInstance()->WriteBuffer(91.0f, 2.0f + i, MS.find(Second)->second[i] , 3);
-		}
-	}
 	return 0;
 }
 
 void Time::Render()
 {
 
-	//for (int i = 0; i < (int)TextureList.size(); ++i)
-	//{
-	//	CursorManager::GetInstance()->WriteBuffer(
-	//		TransInfo.Position.x ,
-	//		TransInfo.Position.y  + i,
-	//		TextureList[i]);
-	//}
+	if (Second < 10 && Minutes < 10)
+	{
+		for (int i = 0; i < 5; ++i)
+		{
+			CursorManager::
+				GetInstance()->WriteBuffer(80.0f, 1.0f + i, MS.find(Minutes)->second[i], 3);
+			CursorManager::
+				GetInstance()->WriteBuffer(91.0f, 1.0f + i, MS.find(Second)->second[i], 3);
+		}
+	}
+	CursorManager::GetInstance()->WriteBuffer(0.0f, 7.0f,
+		(char*)"------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
 
 }

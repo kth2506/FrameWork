@@ -23,7 +23,7 @@ void Menu::Update()
 	if (pMenu)
 		pMenu->Update();
 
-	if ((dwKey & KEY_ENTER )&& count > 10)
+	if ((dwKey & KEY_ENTER ) && count > 10)
 	{
 		::Safe_Delete(pMenu);
 		SceneManager::GetInstance()->SetScene(STAGE);

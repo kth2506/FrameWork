@@ -12,11 +12,12 @@ NormalEnemy::~NormalEnemy(){}
 void NormalEnemy::Initialize()
 {
 	Hp = 30;
+	Damage = 5;
 }
 
 int NormalEnemy::Update(Transform& Info)
 {
-	Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
+	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 
 	Info.Direction = MathManager::GetDirection(Info.Position, pPlayer->GetPosition());
 	Info.Position += Info.Direction * 0.5f;
@@ -26,15 +27,12 @@ int NormalEnemy::Update(Transform& Info)
 
 void NormalEnemy::Render()
 {
+	CursorManager::GetInstance()->WriteBuffer(
+		pObject->GetPosition().x,
+		pObject->GetPosition().y,
+		(char*)"¢Ì¢Ì", 12
+	);
 
-	for (int i = 0; i < 1; ++i)
-	{
-		CursorManager::GetInstance()->WriteBuffer(
-			pObject->GetPosition().x,
-			pObject->GetPosition().y,
-			(char*)"¢Ì¢Ì", 12
-		);
-	}
 }
 
 void NormalEnemy::Release()

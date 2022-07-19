@@ -16,21 +16,8 @@ void Intro::Initialize()
 	TextureList.emplace_back((char*)"....##...##.....##....##.....##..##..##..####.##.....##....##....##.............##");
 	TextureList.emplace_back((char*)"....##....##...##.....##.....##..##..##...###.##.....##....##....##.......##....##");
 	TextureList.emplace_back((char*)"..######...#####......##.....##.####.##....##..#######.....##....########..######.");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
+	
+	for(int i = 0 ; i < 16; ++i)
 	TextureList.emplace_back((char*)"");
 	TextureList.emplace_back((char*)"				Press To Enter");
 	TextureList.emplace_back((char*)"");
@@ -61,7 +48,7 @@ void Intro::Render()
 		CursorManager::GetInstance()->WriteBuffer(
 			TransInfo.Position.x,
 			TransInfo.Position.y + i,
-			TextureList[i]);
+			TextureList[i] , 12);
 		if(count == (int)TextureList.size() * 3 + 2)
 		count -= 10;
 	}

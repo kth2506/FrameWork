@@ -124,17 +124,23 @@
     <Filter Include="소스 파일\02. Object\Item\ItemBridge\ItemSpeed">
       <UniqueIdentifier>{3d85da25-c52b-4539-89b7-25aa76edee56}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\99. Manager\StageManager">
-      <UniqueIdentifier>{6f557fd4-427f-48f0-a36f-3e26724398fe}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\NormalBullet2">
       <UniqueIdentifier>{28346651-b68b-4cce-9585-e08b38d76b96}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\NormalBullet3">
       <UniqueIdentifier>{1e7aace1-a70d-419e-a745-3b4a9d3e39dc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\99. Manager\BridgeManager">
-      <UniqueIdentifier>{ec69a9d8-7293-4b61-8c0e-71b5430ba8f8}</UniqueIdentifier>
+    <Filter Include="소스 파일\02. Object\Player\PlayerBridge">
+      <UniqueIdentifier>{bc4a4796-773a-44a8-9800-06119446890a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Player\PlayerBridge\NormalPlayer">
+      <UniqueIdentifier>{09191a16-778d-4f0f-9b8c-5e45063ec1e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Item\ItemBridge\ItemChange">
+      <UniqueIdentifier>{730e7386-e144-4c46-93fb-1fe17719d548}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Scene\Ending">
+      <UniqueIdentifier>{67793f06-3c77-4047-9b1d-5f683615b19b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -225,14 +231,17 @@
     <ClCompile Include="ItemSpeed.cpp">
       <Filter>소스 파일\02. Object\Item\ItemBridge\ItemSpeed</Filter>
     </ClCompile>
-    <ClCompile Include="StageManager.cpp">
-      <Filter>소스 파일\99. Manager\StageManager</Filter>
-    </ClCompile>
     <ClCompile Include="NormalBullet2.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet2</Filter>
     </ClCompile>
-    <ClCompile Include="BridgeManager.cpp">
-      <Filter>소스 파일\99. Manager\BridgeManager</Filter>
+    <ClCompile Include="NormalPlayer.cpp">
+      <Filter>소스 파일\02. Object\Player\PlayerBridge\NormalPlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemChange.cpp">
+      <Filter>소스 파일\02. Object\Item\ItemBridge\ItemChange</Filter>
+    </ClCompile>
+    <ClCompile Include="Ending.cpp">
+      <Filter>소스 파일\01. Scene\Ending</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -353,14 +362,20 @@
     <ClInclude Include="ItemSpeed.h">
       <Filter>소스 파일\02. Object\Item\ItemBridge\ItemSpeed</Filter>
     </ClInclude>
-    <ClInclude Include="StageManager.h">
-      <Filter>소스 파일\99. Manager\StageManager</Filter>
-    </ClInclude>
     <ClInclude Include="NormalBullet2.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet2</Filter>
     </ClInclude>
-    <ClInclude Include="BridgeManager.h">
-      <Filter>소스 파일\99. Manager\BridgeManager</Filter>
+    <ClInclude Include="PlayerBridge.h">
+      <Filter>소스 파일\02. Object\Player\PlayerBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalPlayer.h">
+      <Filter>소스 파일\02. Object\Player\PlayerBridge\NormalPlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemChange.h">
+      <Filter>소스 파일\02. Object\Item\ItemBridge\ItemChange</Filter>
+    </ClInclude>
+    <ClInclude Include="Ending.h">
+      <Filter>소스 파일\01. Scene\Ending</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

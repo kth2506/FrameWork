@@ -8,11 +8,7 @@ class Object
 protected:
 	Transform TransInfo;
 	string strKey;
-	char* Buffer[3];
-	int Color = 15;
-	int Power;
-	float as;
-	float attackSpeed;
+	int Color;
 	Bridge* pBridge;
 public:
 	virtual Object* Initialize(string _Key)PURE;
@@ -38,10 +34,7 @@ public:
 
 	void SetBridge(Bridge* _Bridge) { pBridge = _Bridge; }
 	Bridge* GetBridge() { return pBridge; }
-	void IncreseAttackSpeed() { as += 0.3f; }
-	void IncresePower() { Power++; }
 
-	int GetPower() { return Power; }
 public:
 	Object();
 	Object(Transform _Info);

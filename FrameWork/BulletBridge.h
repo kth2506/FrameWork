@@ -13,7 +13,6 @@ public:
 	virtual void Render()PURE;
 	virtual void Release()PURE;
 public:
-public:
 	BulletBridge() {};
 	virtual ~BulletBridge() {};
 };

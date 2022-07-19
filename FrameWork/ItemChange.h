@@ -1,7 +1,7 @@
 #pragma once
 #include "ItemBridge.h"
 
-class ItemSpeed : public ItemBridge
+class ItemChange : public ItemBridge
 {
 public:
 	virtual void Initialize()override;
@@ -9,8 +9,7 @@ public:
 	virtual void Render()override;
 	virtual void Release()override;
 public:
-public:
-	ItemSpeed();
-	virtual ~ItemSpeed();
+	ItemChange();
+	virtual ~ItemChange();
 };
 

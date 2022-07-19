@@ -140,14 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
-    <ClCompile Include="BridgeManager.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Cloud.cpp" />
     <ClCompile Include="CursorManager.cpp" />
+    <ClCompile Include="Ending.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Intro.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemChange.cpp" />
     <ClCompile Include="ItemPower.cpp" />
     <ClCompile Include="ItemSpeed.cpp" />
     <ClCompile Include="Logo.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="NormalBullet.cpp" />
     <ClCompile Include="NormalBullet2.cpp" />
     <ClCompile Include="NormalEnemy.cpp" />
+    <ClCompile Include="NormalPlayer.cpp" />
     <ClCompile Include="ObjectFactory.h" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -168,14 +170,12 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ScrollBox.cpp" />
     <ClCompile Include="Stage.cpp" />
-    <ClCompile Include="StageManager.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="UserInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="Bridge.h" />
-    <ClInclude Include="BridgeManager.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletBridge.h" />
     <ClInclude Include="Cloud.h" />
@@ -183,6 +183,7 @@
     <ClInclude Include="Constant.h" />
     <ClInclude Include="CursorManager.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Ending.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyBridge.h" />
     <ClInclude Include="Enum.h" />
@@ -192,6 +193,7 @@
     <ClInclude Include="Intro.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemBridge.h" />
+    <ClInclude Include="ItemChange.h" />
     <ClInclude Include="ItemPower.h" />
     <ClInclude Include="ItemSpeed.h" />
     <ClInclude Include="Logo.h" />
@@ -202,16 +204,17 @@
     <ClInclude Include="NormalBullet.h" />
     <ClInclude Include="NormalBullet2.h" />
     <ClInclude Include="NormalEnemy.h" />
+    <ClInclude Include="NormalPlayer.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerBridge.h" />
     <ClInclude Include="ProtoType.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="ScrollBox.h" />
     <ClInclude Include="Stage.h" />
-    <ClInclude Include="StageManager.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="UserInterface.h" />

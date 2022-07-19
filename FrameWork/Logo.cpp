@@ -1,19 +1,10 @@
 #include "Logo.h"
+#include "Intro.h"
 #include "SceneManager.h"
 #include "InputManager.h"
-#include "ObjectManager.h"
-#include "Player.h"
-#include "Enemy.h"
-#include "Bullet.h"
-#include "ObjectFactory.h"
-#include "CursorManager.h"
-#include "ProtoType.h"
-#include "Intro.h"
-
 
 Logo::Logo() : Scene() , pIntro() , count(0){  }
 Logo::~Logo() { Release(); }
-
 
 void Logo::Initialize()
 {
@@ -33,7 +24,6 @@ void Logo::Update()
 
 	if ((dwKey & KEY_ENTER) && count > 80)
 	{
-		::Safe_Delete(pIntro);
 		SceneManager::GetInstance()->SetScene(MENU);
 	}
 	if (dwKey & KEY_ESCAPE)
