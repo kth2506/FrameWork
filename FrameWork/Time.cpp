@@ -17,11 +17,11 @@ void Time::Initialize()
 	count = 0;
 	
 	vector<char*> Zero;
-	Zero.push_back((char*)"   _|   ");
-	Zero.push_back((char*)" _|  _| ");
-	Zero.push_back((char*)" _|  _| ");
-	Zero.push_back((char*)" _|  _| ");
-	Zero.push_back((char*)"   _|   ");
+	Zero.push_back((char*)"   _|_|   ");
+	Zero.push_back((char*)" _|    _| ");
+	Zero.push_back((char*)" _|    _| ");
+	Zero.push_back((char*)" _|    _| ");
+	Zero.push_back((char*)"   _|_|   ");
 	vector<char*> One;
 	One.push_back((char*)"   _|  ");
 	One.push_back((char*)" _|_|  ");
@@ -113,9 +113,9 @@ void Time::Render()
 		for (int i = 0; i < 5; ++i)
 		{
 			CursorManager::
-				GetInstance()->WriteBuffer(80.0f, 1.0f + i, MS.find(Minutes)->second[i], 3);
+				GetInstance()->WriteBuffer(78.0f, 1.0f + i, MS.find(Minutes)->second[i], 3);
 			CursorManager::
-				GetInstance()->WriteBuffer(91.0f, 1.0f + i, MS.find(Second)->second[i], 3);
+				GetInstance()->WriteBuffer(89.0f, 1.0f + i, MS.find(Second)->second[i], 3);
 		}
 	}
 	CursorManager::GetInstance()->WriteBuffer(0.0f, 7.0f,

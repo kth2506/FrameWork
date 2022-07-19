@@ -142,6 +142,9 @@
     <Filter Include="소스 파일\01. Scene\Ending">
       <UniqueIdentifier>{67793f06-3c77-4047-9b1d-5f683615b19b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. UserInterface\Outtro">
+      <UniqueIdentifier>{42e2f259-3cff-4a22-bb82-de94fc3e3d09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -242,6 +245,9 @@
     </ClCompile>
     <ClCompile Include="Ending.cpp">
       <Filter>소스 파일\01. Scene\Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="Outtro.cpp">
+      <Filter>소스 파일\03. UserInterface\Outtro</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -376,6 +382,9 @@
     </ClInclude>
     <ClInclude Include="Ending.h">
       <Filter>소스 파일\01. Scene\Ending</Filter>
+    </ClInclude>
+    <ClInclude Include="Outtro.h">
+      <Filter>소스 파일\03. UserInterface\Outtro</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

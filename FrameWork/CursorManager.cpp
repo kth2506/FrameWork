@@ -24,7 +24,7 @@ POINT CursorManager::GetPoint()
 
 void CursorManager::CreateBuffer(const int& _Width, const int& _Height)
 {
-	
+
 	CONSOLE_CURSOR_INFO Cursor; // 커서  설정
 
 	Cursor.bVisible = FALSE;	// 커서 안보이게함
@@ -80,7 +80,7 @@ void CursorManager::WriteBuffer(float _x, float _y, int _Value, int _Color)
 	// 텍스트 색 변경
 	SetColor(_Color);
 
-	char Buffer[4];
+	char Buffer[8];
 	_itoa(_Value, Buffer, 10);
 
 	char* pBuffer = new char[strlen(Buffer)];
@@ -140,7 +140,7 @@ void CursorManager::WriteBuffer(Vector3 _Position, int _Value, int _Color)
 
 	// 텍스트 색 변경
 	SetColor(_Color);
-	char Buffer[4];
+	char Buffer[8];
 	_itoa(_Value, Buffer, 10);
 
 	char* pBuffer = new char[strlen(Buffer)];

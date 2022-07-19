@@ -164,6 +164,7 @@
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectPool.cpp" />
+    <ClCompile Include="Outtro.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProtoType.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -208,6 +209,7 @@
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectPool.h" />
+    <ClInclude Include="Outtro.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerBridge.h" />
     <ClInclude Include="ProtoType.h" />

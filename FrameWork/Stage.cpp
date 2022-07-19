@@ -16,13 +16,14 @@
 #include "NormalBullet.h"
 #include "NormalPlayer.h"
 #include "SceneManager.h"
+#include "Outtro.h"
 Stage::Stage() {  }
 Stage::~Stage() { Release(); }
 
 void Stage::Initialize()
 {
 
-	Check = 0;
+	Check = 1;
 	count = 0;
 	Bridge* bPlayer = new NormalPlayer;
 	ObjectManager::GetInstance()->AddPlayer(bPlayer);
@@ -38,7 +39,6 @@ void Stage::Update()
 	CursorManager::GetInstance()->WriteBuffer(1.0f, 43.0f, (int)CursorManager::GetInstance()->GetVector().x);
 	CursorManager::GetInstance()->WriteBuffer(6.0f, 43.0f, (int)CursorManager::GetInstance()->GetVector().y);
 	
-	pTime->Update();
 
 	// 이동반경
 	{
@@ -58,19 +58,25 @@ void Stage::Update()
 	list<Object*>* pItemList = ObjectManager::GetInstance()->GetObjectList("Item");
 
 	count++;
-	if (count % 18 == 0)
-	{
-		Bridge* bEnemy = new NormalEnemy;
-		ObjectManager::GetInstance()->AddEnemy(bEnemy);
-	}
+	
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
+	if (Check)
+	{
+		if (count % 18 == 0)
+		{
+			Bridge* bEnemy = new NormalEnemy;
+			ObjectManager::GetInstance()->AddEnemy(bEnemy);
+		}
+		pTime->Update();
+		ObjectManager::GetInstance()->Update();
+	}
 	if (dwKey & KEY_ESCAPE)
 	{
 		exit(0);
 	}
-
-	ObjectManager::GetInstance()->Update();
+	if (dwKey & KEY_TAB)
+		Enable_UI();
 
 
 	// 충돌시
@@ -199,7 +205,12 @@ void Stage::Update()
 			}
 			if (pPlayer->GetBridge()->GetHp() <= 0)
 			{
-				SceneManager::GetInstance()->SetScene(ENDING);
+				Check = 0;
+				UserInterface* pOuttro = new Outtro;
+				pOuttro->Initialize();
+
+				//
+				//SceneManager::GetInstance()->SetScene(ENDING);
 			}
 		}
 	}
@@ -207,8 +218,8 @@ void Stage::Update()
 
 void Stage::Render()
 {
+	
 	ObjectManager::GetInstance()->Render();
-
 	pTime->Render();
 
 }
