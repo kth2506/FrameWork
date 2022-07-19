@@ -145,6 +145,9 @@
     <Filter Include="소스 파일\03. UserInterface\Outtro">
       <UniqueIdentifier>{42e2f259-3cff-4a22-bb82-de94fc3e3d09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Player\PlayerBridge\NewFilter1">
+      <UniqueIdentifier>{3e1fb182-d9f3-4e25-ae55-9b4034861d42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
