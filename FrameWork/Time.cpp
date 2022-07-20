@@ -13,7 +13,7 @@ void Time::Initialize()
 	strKey = "Time";
 
 	Minutes = 9;
-	Second2 = 0;
+	Second2 = 5;
 	Second = 9;
 	count = 0;
 	
