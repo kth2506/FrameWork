@@ -1,7 +1,7 @@
 #include "Intro.h"
 #include "CursorManager.h"
 
-Intro::Intro() : count(0) , check(true){}
+Intro::Intro() : check(true){}
 Intro::Intro(Transform _Info){}
 Intro::~Intro(){}
 
@@ -41,7 +41,6 @@ int Intro::Update()
 
 void Intro::Render()
 {
-	//(int)TextureList.size();
 	
 	for (int i = 0; i < int(count / 3); ++i)
 	{

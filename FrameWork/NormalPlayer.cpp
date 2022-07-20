@@ -12,7 +12,7 @@ NormalPlayer::~NormalPlayer(){}
 
 void NormalPlayer::Initialize()
 {
-	Hp = 30;
+	Hp = 10;
 	Damage = 0;
 	attackSpeed = 0.0f;
 	as = 1.0f;
@@ -50,9 +50,9 @@ int NormalPlayer::Update(Transform& Info)
 	}
 
 	CursorManager::GetInstance()->WriteBuffer(
-		Info.Position.x - Info.Scale.x * 0.5f + 2,
+		Info.Position.x - Info.Scale.x * 0.5f,
 		Info.Position.y - Info.Scale.y * 0.5f,
-		(char*)"¡ü", 11
+		(char*)"  ¡ü  ", 11
 	);
 	CursorManager::GetInstance()->WriteBuffer(
 		Info.Position.x - Info.Scale.x * 0.5f,
@@ -60,9 +60,9 @@ int NormalPlayer::Update(Transform& Info)
 		(char*)"£¼¡Ü£¾", 11
 	);
 	CursorManager::GetInstance()->WriteBuffer(
-		Info.Position.x - Info.Scale.x * 0.5f + 2,
+		Info.Position.x - Info.Scale.x * 0.5f,
 		Info.Position.y - Info.Scale.y * 0.5f + 2,
-		(char*)"¡ý", 11
+		(char*)"  ¡ý  ", 11
 	);
 	return 0;
 }

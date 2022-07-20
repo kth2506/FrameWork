@@ -6,6 +6,7 @@ class UserInterface
 protected:
 	Transform TransInfo;
 	string strKey;
+	int count;
 
 	vector<char*> TextureList;
 public:

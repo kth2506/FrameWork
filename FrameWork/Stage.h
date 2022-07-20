@@ -7,7 +7,9 @@ class Stage : public Scene
 {
 private:
 	UserInterface* pTime;
-	int Check;
+	UserInterface* pOuttro;
+	UserInterface* pHpBar;
+	bool Check;
 	int count;
 	Object* pPlayer;
 public:

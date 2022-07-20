@@ -4,7 +4,6 @@
 class Intro : public UserInterface
 {
 private:
-	int count;
 	bool check;
 public:
 	virtual void Initialize() override;

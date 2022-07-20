@@ -3,6 +3,8 @@
 
 class NormalBullet2 : public BulletBridge
 {
+private:
+	bool Check;
 public:
 
 	virtual void Initialize()override;

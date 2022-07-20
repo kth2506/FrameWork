@@ -84,8 +84,10 @@ void ObjectManager::AddBullet(Bridge* _Bridge)
 	_Bridge->Initialize();
 	_Bridge->SetObject(pObject);
 	
+	Object* pPlayer = GetObjectList("Player")->front();
 	pObject->SetBridge(_Bridge);
-	pObject->SetPosition(GetObjectList("Player")->front()->GetPosition());
+	pObject->SetPosition(pPlayer->GetPosition().x - pPlayer->GetScale().x * 0.5f,
+		pPlayer->GetPosition().y - pPlayer->GetScale().y * 0.5f );
 	pObject->SetDirection(MathManager::GetCursorDirection(pObject->GetPosition()));
 
 	map<string, list<Object*>>::iterator iter = EnableList->find("Bullet");

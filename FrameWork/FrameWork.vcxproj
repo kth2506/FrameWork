@@ -145,6 +145,7 @@
     <ClCompile Include="CursorManager.cpp" />
     <ClCompile Include="Ending.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="HpBar.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Intro.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Explain.h" />
     <ClInclude Include="Headers.h" />
+    <ClInclude Include="HpBar.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Intro.h" />
     <ClInclude Include="Item.h" />

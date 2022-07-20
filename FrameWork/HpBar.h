@@ -1,13 +1,12 @@
 #pragma once
 #include "UserInterface.h"
 
-class Time : public UserInterface
+class Object;
+class HpBar : public UserInterface
 {
 private:
-	map<int, vector<char*>> MS;
-	int Minutes;
-	int Second2;
-	int Second;
+	Object* pPlayer;
+	int hp;
 public:
 	virtual void Initialize() override;
 	virtual int Update()override;
@@ -15,8 +14,10 @@ public:
 	virtual void Release()override;
 
 public:
-	Time();
-	Time(Transform _Info);
-	virtual ~Time();
+	int SetHp(int _Value) { hp = _Value; }
+public:
+	HpBar();
+	HpBar(Transform _Info);
+	virtual ~HpBar();
 };
 

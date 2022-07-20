@@ -12,7 +12,7 @@ NormalEnemy::~NormalEnemy(){}
 void NormalEnemy::Initialize()
 {
 	Hp = 30;
-	Damage = 5;
+	Damage = 1;
 }
 
 int NormalEnemy::Update(Transform& Info)

@@ -27,8 +27,6 @@ int Player::Update()
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
-	if (pBridge)
-		pBridge->Update(TransInfo);
 	
 	if (dwKey & KEY_UP)
 		TransInfo.Position.y -= 1;
@@ -42,6 +40,8 @@ int Player::Update()
 	if (dwKey & KEY_RIGHT)
 		TransInfo.Position.x += 1;
 
+	if (pBridge)
+		pBridge->Update(TransInfo);
 	return 0;
 }
 

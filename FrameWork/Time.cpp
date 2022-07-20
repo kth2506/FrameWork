@@ -3,7 +3,7 @@
 #include "Time.h"
 #include "CursorManager.h"
 #include "InputManager.h"
-Time::Time() : Minutes(0), Second(0) , count(0) {}
+Time::Time() : Minutes(0), Second(0){}
 Time::Time(Transform _Info) {}
 Time::~Time() {}
 
@@ -12,8 +12,9 @@ void Time::Initialize()
 
 	strKey = "Time";
 
-	Minutes = 10;
-	Second = 0;
+	Minutes = 9;
+	Second2 = 0;
+	Second = 9;
 	count = 0;
 	
 	vector<char*> Zero;
@@ -98,8 +99,13 @@ int Time::Update()
 
 	if (Second == -1)
 	{
-		Minutes--;
+		Second2--;
 		Second = 9;
+	}
+	if (Second2 == -1)
+	{
+		Minutes--;
+		Second2 = 5;
 	}
 
 	return 0;
@@ -108,18 +114,17 @@ int Time::Update()
 void Time::Render()
 {
 
-	if (Second < 10 && Minutes < 10)
+	for (int i = 0; i < 5; ++i)
 	{
-		for (int i = 0; i < 5; ++i)
-		{
-			CursorManager::
-				GetInstance()->WriteBuffer(78.0f, 1.0f + i, MS.find(Minutes)->second[i], 3);
-			CursorManager::
-				GetInstance()->WriteBuffer(89.0f, 1.0f + i, MS.find(Second)->second[i], 3);
-		}
+		CursorManager::GetInstance()->WriteBuffer(
+			Console_Width / 2 - 25.0f, 1.0f + i, MS.find(Minutes)->second[i], 3);
+		CursorManager::GetInstance()->WriteBuffer(
+			Console_Width / 2 - 10.0f, 1.0f + i, MS.find(Second2)->second[i], 3);
+		CursorManager::GetInstance()->WriteBuffer(
+			Console_Width / 2 + 0.0f, 1.0f + i, MS.find(Second)->second[i], 3);
 	}
 	CursorManager::GetInstance()->WriteBuffer(0.0f, 7.0f,
-		(char*)"------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+		(char*)"--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
 
 }

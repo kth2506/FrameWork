@@ -17,12 +17,13 @@
 #include "NormalPlayer.h"
 #include "SceneManager.h"
 #include "Outtro.h"
+#include "HpBar.h"
+
 Stage::Stage() {  }
 Stage::~Stage() { Release(); }
 
 void Stage::Initialize()
 {
-
 	Check = 1;
 	count = 0;
 	Bridge* bPlayer = new NormalPlayer;
@@ -32,6 +33,10 @@ void Stage::Initialize()
 
 	pTime = new Time;
 	pTime->Initialize();
+	pHpBar = new HpBar;
+	pHpBar->Initialize();
+	pOuttro = new Outtro;
+	pOuttro->Initialize();
 }
 
 void Stage::Update()
@@ -39,18 +44,7 @@ void Stage::Update()
 	CursorManager::GetInstance()->WriteBuffer(1.0f, 43.0f, (int)CursorManager::GetInstance()->GetVector().x);
 	CursorManager::GetInstance()->WriteBuffer(6.0f, 43.0f, (int)CursorManager::GetInstance()->GetVector().y);
 	
-
 	// 이동반경
-	{
-		if (pPlayer->GetPosition().x < 10)
-			pPlayer->SetPosition(10, pPlayer->GetPosition().y);
-		if (pPlayer->GetPosition().x > 170)
-			pPlayer->SetPosition(170, pPlayer->GetPosition().y);
-		if (pPlayer->GetPosition().y < 11)
-			pPlayer->SetPosition(pPlayer->GetPosition().x, 11);
-		if (pPlayer->GetPosition().y > 43)
-			pPlayer->SetPosition(pPlayer->GetPosition().x, 43);
-	}
 
 
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
@@ -61,16 +55,12 @@ void Stage::Update()
 	
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
-	if (Check)
+	if (count % 18 == 0)
 	{
-		if (count % 18 == 0)
-		{
-			Bridge* bEnemy = new NormalEnemy;
-			ObjectManager::GetInstance()->AddEnemy(bEnemy);
-		}
-		pTime->Update();
-		ObjectManager::GetInstance()->Update();
+		Bridge* bEnemy = new NormalEnemy;
+		ObjectManager::GetInstance()->AddEnemy(bEnemy);
 	}
+
 	if (dwKey & KEY_ESCAPE)
 	{
 		exit(0);
@@ -78,7 +68,19 @@ void Stage::Update()
 	if (dwKey & KEY_TAB)
 		Enable_UI();
 
-
+	pHpBar->Update();
+	pTime->Update();
+	ObjectManager::GetInstance()->Update();
+	{
+		if (pPlayer->GetPosition().x < 10)
+			pPlayer->SetPosition(pPlayer->GetPosition().x + 1.0f, pPlayer->GetPosition().y);
+		if (pPlayer->GetPosition().x > Console_Width - 10.0f)
+			pPlayer->SetPosition(pPlayer->GetPosition().x - 1.0f, pPlayer->GetPosition().y);
+		if (pPlayer->GetPosition().y < 10)
+			pPlayer->SetPosition(pPlayer->GetPosition().x, pPlayer->GetPosition().y + 1.0f);
+		if (pPlayer->GetPosition().y > Console_Height - 3.0f)
+			pPlayer->SetPosition(pPlayer->GetPosition().x, pPlayer->GetPosition().y - 1.0f);
+	}
 	// 충돌시
 	{
 			// Bullet 이동반경
@@ -87,8 +89,8 @@ void Stage::Update()
 			for (list<Object*>::iterator iter = pBulletList->begin();
 				iter != pBulletList->end(); )
 			{
-				if (((*iter)->GetPosition().x >= Console_Width || (*iter)->GetPosition().x < 0.0f ||
-					(*iter)->GetPosition().y >= Console_Height || (*iter)->GetPosition().y < 8.0f) && pBulletList->size())
+				if (((*iter)->GetPosition().x >= Console_Width - 2.0f || (*iter)->GetPosition().x < 0.0f ||
+					(*iter)->GetPosition().y >= Console_Height - 2.0f|| (*iter)->GetPosition().y < 8.0f) && pBulletList->size())
 				{
 					iter = ObjectManager::GetInstance()->ThrowObject(iter, (*iter));
 				}
@@ -205,20 +207,19 @@ void Stage::Update()
 			}
 			if (pPlayer->GetBridge()->GetHp() <= 0)
 			{
-				Check = 0;
-				UserInterface* pOuttro = new Outtro;
-				pOuttro->Initialize();
-
+				Check = false;
+				
 				//
 				//SceneManager::GetInstance()->SetScene(ENDING);
 			}
 		}
 	}
+
 }
 
 void Stage::Render()
 {
-	
+	pHpBar->Render();
 	ObjectManager::GetInstance()->Render();
 	pTime->Render();
 

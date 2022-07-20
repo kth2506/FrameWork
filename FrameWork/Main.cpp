@@ -1,4 +1,4 @@
-// ** FrameWork ver 07.19
+// ** FrameWork ver 07.20
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "Headers.h"
@@ -11,7 +11,7 @@ int main(void)
 
 	system("title 김태환 - 게임");
 	
-	system("mode con cols=180 lines=45");
+	system("mode con cols=200 lines=50");
 	MainUpdate Main;
 	Main.Initialize();
 	
