@@ -34,11 +34,11 @@ void CursorManager::CreateBuffer(const int& _Width, const int& _Height)
 
 	SMALL_RECT rect = { 0, 0 , (SHORT)_Width , (SHORT)_Height	};
 
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (LIGHTCYAN << 4));
 	for (int i = 0; i < 2; ++i)
 	{
 		// ** 버퍼 생성
 		hBuffer[i] = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
-
 		// ** 버퍼 사이즈 설정
 		SetConsoleScreenBufferSize(hBuffer[i], Size);
 
@@ -48,7 +48,6 @@ void CursorManager::CreateBuffer(const int& _Width, const int& _Height)
 		// ** 커서 세팅
 		SetConsoleCursorInfo(hBuffer[i], &Cursor);
 	}
-
 }
 
 void CursorManager::WriteBuffer(float _x, float _y, char* _str, int _Color)

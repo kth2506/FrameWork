@@ -1,24 +1,28 @@
+#pragma once
+
 #include "Stage.h"
+#include "Bullet.h"
+#include "Player.h"
+#include "Enemy.h"
 #include "CursorManager.h"
-#include "ObjectManager.h"
-#include "NormalEnemy.h"
+#include "CollisionManager.h"
+#include "InputManager.h"
+#include "SceneManager.h"
 #include "ItemPower.h"
 #include "ItemSpeed.h"
 #include "ItemChange.h"
-#include "Player.h"
-#include "Enemy.h"
-#include "Bullet.h"
-#include "InputManager.h"
-#include "ScrollBox.h"
-#include "Time.h"
-#include "ObjectPool.h"
-#include "CollisionManager.h"
-#include "NormalBullet.h"
+#include "ItemBoom.h"
+#include "NormalEnemy.h"
 #include "NormalPlayer.h"
-#include "SceneManager.h"
+#include "ObjectManager.h"
+#include "ObjectPool.h"
+#include "BulletBoom.h"
+#include "Time.h"
+#include "ScrollBox.h"
 #include "Outtro.h"
 #include "HpBar.h"
-
+#include "EnemyBoss.h"
+#include "Warning.h"
 Stage::Stage() {  }
 Stage::~Stage() { Release(); }
 
@@ -37,6 +41,8 @@ void Stage::Initialize()
 	pHpBar->Initialize();
 	pOuttro = new Outtro;
 	pOuttro->Initialize();
+	pWarning = new Warning;
+	pWarning->Initialize();
 }
 
 void Stage::Update()
@@ -44,7 +50,6 @@ void Stage::Update()
 	CursorManager::GetInstance()->WriteBuffer(1.0f, 43.0f, (int)CursorManager::GetInstance()->GetVector().x);
 	CursorManager::GetInstance()->WriteBuffer(6.0f, 43.0f, (int)CursorManager::GetInstance()->GetVector().y);
 	
-	// 이동반경
 
 
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
@@ -55,12 +60,16 @@ void Stage::Update()
 	
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
-	if (count % 18 == 0)
+	//if (count % 18 == 0)
+	//{
+	//	Bridge* bEnemy = new NormalEnemy;
+	//	ObjectManager::GetInstance()->AddEnemy(bEnemy);
+	//}
+	if (count % (14 * 60) == 0)
 	{
-		Bridge* bEnemy = new NormalEnemy;
-		ObjectManager::GetInstance()->AddEnemy(bEnemy);
+		Bridge* bEnemy = new EnemyBoss;
+		ObjectManager::GetInstance()->AddEnemyBoss(bEnemy);
 	}
-
 	if (dwKey & KEY_ESCAPE)
 	{
 		exit(0);
@@ -70,7 +79,10 @@ void Stage::Update()
 
 	pHpBar->Update();
 	pTime->Update();
+	pWarning->Update();
 	ObjectManager::GetInstance()->Update();
+
+	// 이동반경
 	{
 		if (pPlayer->GetPosition().x < 10)
 			pPlayer->SetPosition(pPlayer->GetPosition().x + 1.0f, pPlayer->GetPosition().y);
@@ -112,21 +124,37 @@ void Stage::Update()
 						for (list<Object*>::iterator Bulletiter = pBulletList->begin();
 							Bulletiter != pBulletList->end(); )
 						{
-							if (CollisionManager::RectCollision(*Bulletiter, *Enemyiter))
+							if (((BulletBridge*)(*Bulletiter)->GetBridge())->GetType() == BULLETBOOM)
 							{
-								int damage = (*Bulletiter)->GetBridge()->GetDamage() + pPlayer->GetBridge()->GetDamage();
-								(*Enemyiter)->GetBridge()->SetHp(damage);
-								Bulletiter = ObjectManager::GetInstance()->ThrowObject(Bulletiter, (*Bulletiter));
+								if (CollisionManager::CircleCollision(*Bulletiter, *Enemyiter))
+								{
+									(*Enemyiter)->GetBridge()->SetHp((*Bulletiter)->GetBridge()->GetDamage()
+										+ pPlayer->GetBridge()->GetDamage());
+
+									Bulletiter = ObjectManager::GetInstance()->ThrowObject(Bulletiter, (*Bulletiter));
+								}
+								else
+									++Bulletiter;
 							}
 							else
-								++Bulletiter;
+							{
+								if (CollisionManager::RectCollision(*Bulletiter, *Enemyiter))
+								{
+									(*Enemyiter)->GetBridge()->SetHp((*Bulletiter)->GetBridge()->GetDamage()
+										+ pPlayer->GetBridge()->GetDamage());
+
+									Bulletiter = ObjectManager::GetInstance()->ThrowObject(Bulletiter, (*Bulletiter));
+								}
+								else
+									++Bulletiter;
+							}
 						}
 					}
 
 					if ((*Enemyiter)->GetBridge()->GetHp() <= 0)
 					{
 						srand((unsigned int)time(NULL));
-						int num = rand() % 10;
+						int num = rand() % 20;
 						Bridge* bItem;
 						switch (num)
 						{
@@ -135,13 +163,21 @@ void Stage::Update()
 							ObjectManager::GetInstance()->AddItem(bItem, Enemyiter);
 							break;
 						case 2:
+						case 3:
+						case 4:
+						case 5:
+						case 6:
 							bItem = new ItemSpeed;
 							ObjectManager::GetInstance()->AddItem(bItem, Enemyiter);
 							break;
-						case 3:
+						case 7:
 							bItem = new ItemChange;
 							ObjectManager::GetInstance()->AddItem(bItem, Enemyiter);
 							break;
+						case 8:
+						case 9:
+							bItem = new ItemBoom;
+							ObjectManager::GetInstance()->AddItem(bItem, Enemyiter);
 						default:
 							break;
 						}
@@ -174,6 +210,9 @@ void Stage::Update()
 							break;
 						case CHANGE:
 							((PlayerBridge*)pPlayer->GetBridge())->ChangeBullet();
+							break;
+						case BOOM:
+							((PlayerBridge*)pPlayer->GetBridge())->IncreseBoom();
 							break;
 						default:
 							break;
@@ -222,7 +261,7 @@ void Stage::Render()
 	pHpBar->Render();
 	ObjectManager::GetInstance()->Render();
 	pTime->Render();
-
+	pWarning->Render();
 }
 
 void Stage::Enable_UI()

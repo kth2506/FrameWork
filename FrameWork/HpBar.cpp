@@ -37,17 +37,17 @@ void HpBar::Render()
 		{
 			if (j < hp)
 				CursorManager::GetInstance()->WriteBuffer(
-					4 + j * 2, 2 + i,
+					4.0f + j * 2, 2.0f + i,
 					TextureList[i], LIGHTRED + LIGHTRED * 16);
 			else
 				CursorManager::GetInstance()->WriteBuffer(
-					4 + j * 2, 2 + i,
+					4.0f+ j * 2, 2.0f + i,
 					TextureList[i], RED + RED * 16);
 		}
 	}
 
 	CursorManager::GetInstance()->WriteBuffer(
-		4, 2 - 1,
+		4.0f, 1.0f,
 		(char*)" HP  ", WHITE + LIGHTGRAY * 16);
 }
 

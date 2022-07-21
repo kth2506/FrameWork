@@ -20,7 +20,7 @@ Object* Item::Initialize(string _Key)
 int Item::Update()
 {
 	if (pBridge)
-		pBridge->Update(TransInfo);
+		return pBridge->Update(TransInfo);
 	return 0;
 }
 

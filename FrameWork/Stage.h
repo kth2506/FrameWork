@@ -9,6 +9,8 @@ private:
 	UserInterface* pTime;
 	UserInterface* pOuttro;
 	UserInterface* pHpBar;
+	UserInterface* pWarning;
+
 	bool Check;
 	int count;
 	Object* pPlayer;

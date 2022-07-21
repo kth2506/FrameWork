@@ -9,10 +9,16 @@ ItemChange::~ItemChange(){}
 void ItemChange::Initialize()
 {
 	Type = CHANGE;
+	Count = 0;
+
 }
 
 int ItemChange::Update(Transform& Info)
 {
+
+	++Count;
+	if (Count > 100)
+		return BUFFER_OVER;
 	return 0;
 }
 

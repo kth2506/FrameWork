@@ -4,7 +4,7 @@
 #include "Player.h"
 #include "ObjectManager.h"
 #include "MathManager.h"
-#include "NormalBullet.h"
+#include "BulletNormal.h"
 
 Bullet::Bullet(){}
 
@@ -29,7 +29,7 @@ int Bullet::Update()
 {
 
 	if (pBridge)
-		pBridge->Update(TransInfo);
+		return pBridge->Update(TransInfo);
 	return 0;
 }
 

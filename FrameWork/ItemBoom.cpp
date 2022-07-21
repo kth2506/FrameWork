@@ -1,18 +1,17 @@
-#include "ItemPower.h"
+#include "ItemBoom.h"
 #include "CursorManager.h"
 #include "Object.h"
-ItemPower::ItemPower(){}
-ItemPower::~ItemPower(){}
+ItemBoom::ItemBoom() {}
+ItemBoom::~ItemBoom() {}
 
 
-void ItemPower::Initialize()
+void ItemBoom::Initialize()
 {
-	Type = POWERUP;
+	Type = BOOM;
 	Count = 0;
-
 }
 
-int ItemPower::Update(Transform& Info)
+int ItemBoom::Update(Transform& Info)
 {
 
 	++Count;
@@ -21,18 +20,17 @@ int ItemPower::Update(Transform& Info)
 	return 0;
 }
 
-void ItemPower::Render()
+void ItemBoom::Render()
 {
-	
+
 	CursorManager::GetInstance()->WriteBuffer(
 		pObject->GetPosition().x,
 		pObject->GetPosition().y,
-		(char*)"¨Ü", 9
+		(char*)"¨Î", LIGHTCYAN
 	);
-	
 }
 
-void ItemPower::Release()
+void ItemBoom::Release()
 {
 }
 

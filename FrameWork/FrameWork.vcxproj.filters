@@ -61,9 +61,6 @@
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge">
       <UniqueIdentifier>{a1f3e73c-8d3b-4e0c-aff3-8c968c3befb5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\NormalBullet">
-      <UniqueIdentifier>{8ff82454-fea5-477d-9d1e-a3dff6c9e6db}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge">
       <UniqueIdentifier>{cdd44ada-7a91-446b-bd9f-c7bd5a2e3cd2}</UniqueIdentifier>
     </Filter>
@@ -124,12 +121,6 @@
     <Filter Include="소스 파일\02. Object\Item\ItemBridge\ItemSpeed">
       <UniqueIdentifier>{3d85da25-c52b-4539-89b7-25aa76edee56}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\NormalBullet2">
-      <UniqueIdentifier>{28346651-b68b-4cce-9585-e08b38d76b96}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\NormalBullet3">
-      <UniqueIdentifier>{1e7aace1-a70d-419e-a745-3b4a9d3e39dc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\02. Object\Player\PlayerBridge">
       <UniqueIdentifier>{bc4a4796-773a-44a8-9800-06119446890a}</UniqueIdentifier>
     </Filter>
@@ -147,6 +138,24 @@
     </Filter>
     <Filter Include="소스 파일\03. UserInterface\HpBar">
       <UniqueIdentifier>{3bd10f0e-a600-4067-8ab6-feba74806b38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Item\ItemBridge\ItemBoom">
+      <UniqueIdentifier>{9470512c-f267-454d-a39e-31c4d516430e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\BulletNormal2">
+      <UniqueIdentifier>{28346651-b68b-4cce-9585-e08b38d76b96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\BulletNormal">
+      <UniqueIdentifier>{8ff82454-fea5-477d-9d1e-a3dff6c9e6db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\BulletBoom">
+      <UniqueIdentifier>{1e7aace1-a70d-419e-a745-3b4a9d3e39dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\EnemyBoss">
+      <UniqueIdentifier>{553b14ec-be74-4ee3-be53-0858f9ba868f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. UserInterface\Warning">
+      <UniqueIdentifier>{7472b1ec-234c-416d-9402-907ecdb0cd23}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -219,8 +228,8 @@
     <ClCompile Include="ProtoType.cpp">
       <Filter>소스 파일\98. Pattern\ProtoType</Filter>
     </ClCompile>
-    <ClCompile Include="NormalBullet.cpp">
-      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    <ClCompile Include="BulletNormal.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletNormal</Filter>
     </ClCompile>
     <ClCompile Include="NormalEnemy.cpp">
       <Filter>소스 파일\02. Object\Enemy\EnemyBridge\NormalEnemy</Filter>
@@ -237,8 +246,8 @@
     <ClCompile Include="ItemSpeed.cpp">
       <Filter>소스 파일\02. Object\Item\ItemBridge\ItemSpeed</Filter>
     </ClCompile>
-    <ClCompile Include="NormalBullet2.cpp">
-      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet2</Filter>
+    <ClCompile Include="BulletNormal2.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletNormal2</Filter>
     </ClCompile>
     <ClCompile Include="NormalPlayer.cpp">
       <Filter>소스 파일\02. Object\Player\PlayerBridge\NormalPlayer</Filter>
@@ -254,6 +263,18 @@
     </ClCompile>
     <ClCompile Include="HpBar.cpp">
       <Filter>소스 파일\03. UserInterface\HpBar</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemBoom.cpp">
+      <Filter>소스 파일\02. Object\Item\ItemBridge\ItemBoom</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletBoom.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletBoom</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBoss.cpp">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\EnemyBoss</Filter>
+    </ClCompile>
+    <ClCompile Include="Warning.cpp">
+      <Filter>소스 파일\03. UserInterface\Warning</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -350,8 +371,8 @@
     <ClInclude Include="BulletBridge.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge</Filter>
     </ClInclude>
-    <ClInclude Include="NormalBullet.h">
-      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    <ClInclude Include="BulletNormal.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletNormal</Filter>
     </ClInclude>
     <ClInclude Include="EnemyBridge.h">
       <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
@@ -374,8 +395,8 @@
     <ClInclude Include="ItemSpeed.h">
       <Filter>소스 파일\02. Object\Item\ItemBridge\ItemSpeed</Filter>
     </ClInclude>
-    <ClInclude Include="NormalBullet2.h">
-      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet2</Filter>
+    <ClInclude Include="BulletNormal2.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletNormal2</Filter>
     </ClInclude>
     <ClInclude Include="PlayerBridge.h">
       <Filter>소스 파일\02. Object\Player\PlayerBridge</Filter>
@@ -394,6 +415,18 @@
     </ClInclude>
     <ClInclude Include="HpBar.h">
       <Filter>소스 파일\03. UserInterface\HpBar</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemBoom.h">
+      <Filter>소스 파일\02. Object\Item\ItemBridge\ItemBoom</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletBoom.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletBoom</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBoss.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\EnemyBoss</Filter>
+    </ClInclude>
+    <ClInclude Include="Warning.h">
+      <Filter>소스 파일\03. UserInterface\Warning</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

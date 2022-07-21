@@ -14,6 +14,7 @@ const DWORD KEY_ESCAPE = 512;
 
 const float Console_Width = 200.0f;
 const float Console_Height = 50.0f;
+const int BULLETMAX = 3;
 const int BUFFER_OVER = 1;
 const int MAX_SIZE = 2;
 const int MAX_POWER = 2;

@@ -1,29 +1,29 @@
-#include "NormalBullet.h"
+#include "BulletNormal.h"
 #include "CursorManager.h"
 #include "MathManager.h"
 #include "Object.h"
 #include "Player.h"
 #include "ObjectManager.h"
 
-NormalBullet::NormalBullet(){}
-NormalBullet::~NormalBullet(){}
+BulletNormal::BulletNormal(){}
+BulletNormal::~BulletNormal(){}
 
 
-void NormalBullet::Initialize()
+void BulletNormal::Initialize()
 {
 	// Bullet 의 데이터 초기화
 	Damage = 10;
 	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 }
 
-int NormalBullet::Update(Transform& Info)
+int BulletNormal::Update(Transform& Info)
 {
 	Info.Position += Info.Direction;
 	
 	return 0;
 }
 
-void NormalBullet::Render()
+void BulletNormal::Render()
 {
 	CursorManager::GetInstance()->WriteBuffer(
 		pObject->GetPosition().x,
@@ -31,6 +31,6 @@ void NormalBullet::Render()
 		(char*)"¤", 13);
 }
 
-void NormalBullet::Release()
+void BulletNormal::Release()
 {
 }

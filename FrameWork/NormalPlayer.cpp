@@ -1,8 +1,11 @@
+#pragma once
+
 #include "NormalPlayer.h"
 #include "InputManager.h"
 #include "CursorManager.h"
-#include "NormalBullet.h"
-#include "NormalBullet2.h"
+#include "BulletNormal.h"
+#include "BulletNormal2.h"
+#include "BulletBoom.h"
 #include "Player.h"
 #include "ObjectManager.h"
 
@@ -15,16 +18,15 @@ void NormalPlayer::Initialize()
 	Hp = 10;
 	Damage = 0;
 	attackSpeed = 0.0f;
+	BoomCount = 10000;
 	as = 1.0f;
+	
 }
 
 int NormalPlayer::Update(Transform& Info)
 {
 
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
-
-	if (dwKey & KEY_CTRL)
-		as += 0.1f;
 
 	attackSpeed += as;
 	if (dwKey & KEY_SPACE)
@@ -34,20 +36,29 @@ int NormalPlayer::Update(Transform& Info)
 			Bridge* bBullet;
 			switch (Bulletid)
 			{
-			case NORMALBULLET:
-				bBullet = new NormalBullet;
+			case BULLETNORMAL:
+				bBullet = new BulletNormal;
 				ObjectManager::GetInstance()->AddBullet(bBullet);
 				break;
-			case NORMALBULLET2:
-				bBullet = new NormalBullet2;
+			case BULLETNORMAL2:
+				bBullet = new BulletNormal2;
 				ObjectManager::GetInstance()->AddBullet(bBullet);
-				break;
-			default:
 				break;
 			}
+
 			attackSpeed = 0.0f;
 		}
 	}
+
+	if ((dwKey & KEY_CTRL) && BoomCount)
+	{
+		Bridge* bBullet;
+		bBullet = new BulletBoom;
+		ObjectManager::GetInstance()->AddBullet(bBullet);
+		--BoomCount;
+	}
+
+
 
 	CursorManager::GetInstance()->WriteBuffer(
 		Info.Position.x - Info.Scale.x * 0.5f,

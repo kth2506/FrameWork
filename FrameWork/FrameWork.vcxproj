@@ -141,14 +141,17 @@
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletBoom.cpp" />
     <ClCompile Include="Cloud.cpp" />
     <ClCompile Include="CursorManager.cpp" />
     <ClCompile Include="Ending.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyBoss.cpp" />
     <ClCompile Include="HpBar.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Intro.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemBoom.cpp" />
     <ClCompile Include="ItemChange.cpp" />
     <ClCompile Include="ItemPower.cpp" />
     <ClCompile Include="ItemSpeed.cpp" />
@@ -157,8 +160,8 @@
     <ClCompile Include="MainUpdate.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuInterface.cpp" />
-    <ClCompile Include="NormalBullet.cpp" />
-    <ClCompile Include="NormalBullet2.cpp" />
+    <ClCompile Include="BulletNormal.cpp" />
+    <ClCompile Include="BulletNormal2.cpp" />
     <ClCompile Include="NormalEnemy.cpp" />
     <ClCompile Include="NormalPlayer.cpp" />
     <ClCompile Include="ObjectFactory.h" />
@@ -174,12 +177,14 @@
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="UserInterface.cpp" />
+    <ClCompile Include="Warning.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="Bridge.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletBridge.h" />
+    <ClInclude Include="BulletBoom.h" />
     <ClInclude Include="Cloud.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Constant.h" />
@@ -187,6 +192,7 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="Ending.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyBoss.h" />
     <ClInclude Include="EnemyBridge.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Explain.h" />
@@ -195,6 +201,7 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Intro.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemBoom.h" />
     <ClInclude Include="ItemBridge.h" />
     <ClInclude Include="ItemChange.h" />
     <ClInclude Include="ItemPower.h" />
@@ -204,8 +211,8 @@
     <ClInclude Include="MathManager.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuInterface.h" />
-    <ClInclude Include="NormalBullet.h" />
-    <ClInclude Include="NormalBullet2.h" />
+    <ClInclude Include="BulletNormal.h" />
+    <ClInclude Include="BulletNormal2.h" />
     <ClInclude Include="NormalEnemy.h" />
     <ClInclude Include="NormalPlayer.h" />
     <ClInclude Include="ObjectManager.h" />
@@ -222,6 +229,7 @@
     <ClInclude Include="Struct.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="UserInterface.h" />
+    <ClInclude Include="Warning.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

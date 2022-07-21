@@ -117,11 +117,11 @@ void Time::Render()
 	for (int i = 0; i < 5; ++i)
 	{
 		CursorManager::GetInstance()->WriteBuffer(
-			Console_Width / 2 - 25.0f, 1.0f + i, MS.find(Minutes)->second[i], 3);
+			Console_Width / 2 - 25.0f, 1.0f + i, MS.find(Minutes)->second[i], LIGHTBLUE | LIGHTCYAN << 4);
 		CursorManager::GetInstance()->WriteBuffer(
-			Console_Width / 2 - 10.0f, 1.0f + i, MS.find(Second2)->second[i], 3);
+			Console_Width / 2 - 10.0f, 1.0f + i, MS.find(Second2)->second[i], LIGHTBLUE | LIGHTCYAN << 4);
 		CursorManager::GetInstance()->WriteBuffer(
-			Console_Width / 2 + 0.0f, 1.0f + i, MS.find(Second)->second[i], 3);
+			Console_Width / 2 + 0.0f, 1.0f + i, MS.find(Second)->second[i], LIGHTBLUE | LIGHTCYAN << 4);
 	}
 	CursorManager::GetInstance()->WriteBuffer(0.0f, 7.0f,
 		(char*)"--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");

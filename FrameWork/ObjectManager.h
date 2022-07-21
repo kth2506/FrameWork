@@ -19,6 +19,7 @@ private:
 	map<string, list<Object*>>* EnableList;
 public:
 	void AddEnemy(Bridge* _Bridge);
+	void AddEnemyBoss(Bridge* _Bridge);
 	void AddItem(Bridge* _Bridge, list<Object*>::iterator _Iter);
 	void AddBullet(Bridge* _Bridge);
 	void AddPlayer(Bridge* _Bridge);

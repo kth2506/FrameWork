@@ -8,10 +8,15 @@ ItemSpeed::~ItemSpeed() {}
 void ItemSpeed::Initialize()
 {
 	Type = SPEEDUP;
+	Count = 0;
 }
 
 int ItemSpeed::Update(Transform& Info)
 {
+	++Count;
+	if (Count > 100)
+		return BUFFER_OVER;
+
 	return 0;
 }
 

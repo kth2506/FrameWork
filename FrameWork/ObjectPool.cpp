@@ -1,7 +1,7 @@
 #include "ObjectPool.h"
 #include "Object.h"
 #include "CursorManager.h"
-
+#include "ObjectManager.h"
 ObjectPool* ObjectPool::Instance = nullptr;
 map<string, list<Object*>> ObjectPool::EnableList;
 
@@ -55,20 +55,21 @@ void ObjectPool::Update()
 			{
 			case BUFFER_OVER:
 			{
-				map<string, list<Object*>>::iterator Disableiter = DisableList.find((*iter2)->GetKey());
-
-				if (Disableiter == DisableList.end())
-				{
-					list<Object*> TempList;
-					TempList.push_back((*iter2));
-					DisableList.insert(make_pair((*iter2)->GetKey(), TempList));
-				}
-				else
-					Disableiter->second.push_back((*iter2));
-
-				(*iter).second.erase(iter2);
+				iter2 = ObjectManager::GetInstance()->ThrowObject(iter2, (*iter2));
+				//map<string, list<Object*>>::iterator Disableiter = DisableList.find((*iter2)->GetKey());
+				//
+				//if (Disableiter == DisableList.end())
+				//{
+				//	list<Object*> TempList;
+				//	TempList.push_back((*iter2));
+				//	DisableList.insert(make_pair((*iter2)->GetKey(), TempList));
+				//}
+				//else
+				//	Disableiter->second.push_back((*iter2));
+				//
+				//(*iter).second.erase(iter2);
 			}
-
+			break;
 			default:
 				++iter2;
 			}
