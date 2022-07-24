@@ -15,9 +15,9 @@ POINT CursorManager::GetPoint()
 		
 	// ** 집환경
 	point.x /= 8;
-	//point.y /= 16;
+	point.y /= 16;
 	// ** 학원환경 
-	point.y /= 18;
+	//point.y /= 18;
 
 	return point;
 }
@@ -34,7 +34,6 @@ void CursorManager::CreateBuffer(const int& _Width, const int& _Height)
 
 	SMALL_RECT rect = { 0, 0 , (SHORT)_Width , (SHORT)_Height	};
 
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (LIGHTCYAN << 4));
 	for (int i = 0; i < 2; ++i)
 	{
 		// ** 버퍼 생성
