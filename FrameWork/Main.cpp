@@ -1,4 +1,4 @@
-// ** FrameWork ver 07.21
+// ** FrameWork ver 08.04
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "Headers.h"
@@ -9,7 +9,7 @@
 int main(void)
 {
 
-	system("title ±Ë≈¬»Ø - ∞‘¿”");
+	system("title ±Ë≈¬»Ø - 10Minutes Till Dawn");
 	
 	system("mode con cols=200 lines=50");
 	MainUpdate Main;

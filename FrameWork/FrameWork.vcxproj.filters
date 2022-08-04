@@ -157,6 +157,18 @@
     <Filter Include="소스 파일\03. UserInterface\Warning">
       <UniqueIdentifier>{7472b1ec-234c-416d-9402-907ecdb0cd23}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. UserInterface\Level">
+      <UniqueIdentifier>{aeb1a75f-2f80-4e27-8da8-765cf4d48d9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\BulletBoom2">
+      <UniqueIdentifier>{a3b05e15-180a-46b6-9e0f-908422ca9240}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Item\ItemBridge\ItemPotion">
+      <UniqueIdentifier>{56db14cb-ae75-48ef-a5d2-0e70ef66857e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\UserInterfaceManager">
+      <UniqueIdentifier>{0e5a6b8e-5342-4094-99c4-7d8b87ae7770}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -275,6 +287,18 @@
     </ClCompile>
     <ClCompile Include="Warning.cpp">
       <Filter>소스 파일\03. UserInterface\Warning</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>소스 파일\03. UserInterface\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletBoom2.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletBoom2</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemPotion.cpp">
+      <Filter>소스 파일\02. Object\Item\ItemBridge\ItemPotion</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInterfaceManager.cpp">
+      <Filter>소스 파일\99. Manager\UserInterfaceManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -427,6 +451,18 @@
     </ClInclude>
     <ClInclude Include="Warning.h">
       <Filter>소스 파일\03. UserInterface\Warning</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>소스 파일\03. UserInterface\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletBoom2.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletBoom2</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemPotion.h">
+      <Filter>소스 파일\02. Object\Item\ItemBridge\ItemPotion</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInterfaceManager.h">
+      <Filter>소스 파일\99. Manager\UserInterfaceManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

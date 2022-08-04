@@ -16,16 +16,26 @@ void Intro::Initialize()
 	TextureList.emplace_back((char*)"....##...##.....##....##.....##..##..##..####.##.....##....##....##.............##");
 	TextureList.emplace_back((char*)"....##....##...##.....##.....##..##..##...###.##.....##....##....##.......##....##");
 	TextureList.emplace_back((char*)"..######...#####......##.....##.####.##....##..#######.....##....########..######.");
+
+	TextureList.emplace_back((char*)"");
+	TextureList.emplace_back((char*)"");
+	TextureList.emplace_back((char*)"");
+	TextureList.emplace_back((char*)"   .########.####.##.......##..........########.....###....##......##.##....##");
+	TextureList.emplace_back((char*)"   ....##.....##..##.......##..........##.....##...##.##...##..##..##.###...##");
+	TextureList.emplace_back((char*)"   ....##.....##..##.......##..........##.....##..##...##..##..##..##.####..##");
+	TextureList.emplace_back((char*)"   ....##.....##..##.......##..........##.....##.##.....##.##..##..##.##.##.##");
+	TextureList.emplace_back((char*)"   ....##.....##..##.......##..........##.....##.#########.##..##..##.##..####");
+	TextureList.emplace_back((char*)"   ....##.....##..##.......##..........##.....##.##.....##.##..##..##.##...###");
+	TextureList.emplace_back((char*)"   ....##....####.########.########....########..##.....##..###..###..##....##");
 	
-	for(int i = 0 ; i < 16; ++i)
+	for(int i = 0 ; i < 13; ++i)
 	TextureList.emplace_back((char*)"");
 	TextureList.emplace_back((char*)"				Press To Enter");
 	TextureList.emplace_back((char*)"");
-	TextureList.emplace_back((char*)"");
 
 
 
-	TransInfo.Position = Vector3(float(180 / 2) - 41, 5.0f);
+	TransInfo.Position = Vector3(float(200 / 2) - 41, 5.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(14.0f, 6.0f);
 }

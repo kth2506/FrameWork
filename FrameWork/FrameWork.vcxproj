@@ -142,6 +142,7 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletBoom.cpp" />
+    <ClCompile Include="BulletBoom2.cpp" />
     <ClCompile Include="Cloud.cpp" />
     <ClCompile Include="CursorManager.cpp" />
     <ClCompile Include="Ending.cpp" />
@@ -153,8 +154,10 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemBoom.cpp" />
     <ClCompile Include="ItemChange.cpp" />
+    <ClCompile Include="ItemPotion.cpp" />
     <ClCompile Include="ItemPower.cpp" />
     <ClCompile Include="ItemSpeed.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainUpdate.cpp" />
@@ -177,12 +180,14 @@
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="UserInterface.cpp" />
+    <ClCompile Include="UserInterfaceManager.cpp" />
     <ClCompile Include="Warning.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="Bridge.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletBoom2.h" />
     <ClInclude Include="BulletBridge.h" />
     <ClInclude Include="BulletBoom.h" />
     <ClInclude Include="Cloud.h" />
@@ -204,8 +209,10 @@
     <ClInclude Include="ItemBoom.h" />
     <ClInclude Include="ItemBridge.h" />
     <ClInclude Include="ItemChange.h" />
+    <ClInclude Include="ItemPotion.h" />
     <ClInclude Include="ItemPower.h" />
     <ClInclude Include="ItemSpeed.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="MainUpdate.h" />
     <ClInclude Include="MathManager.h" />
@@ -229,6 +236,7 @@
     <ClInclude Include="Struct.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="UserInterface.h" />
+    <ClInclude Include="UserInterfaceManager.h" />
     <ClInclude Include="Warning.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -33,7 +33,6 @@ void CursorManager::CreateBuffer(const int& _Width, const int& _Height)
 	COORD Size = { (SHORT)_Width, (SHORT)_Height };
 
 	SMALL_RECT rect = { 0, 0 , (SHORT)_Width , (SHORT)_Height	};
-
 	for (int i = 0; i < 2; ++i)
 	{
 		// ** 버퍼 생성

@@ -48,7 +48,7 @@ void HpBar::Render()
 
 	CursorManager::GetInstance()->WriteBuffer(
 		4.0f, 1.0f,
-		(char*)" HP  ", WHITE + LIGHTGRAY * 16);
+		(char*)" HP  ", RED + LIGHTGRAY * 16);
 }
 
 void HpBar::Release()

@@ -10,24 +10,29 @@ protected:
 	float attackSpeed;
 	int BoomCount;
 	BULLETID Bulletid = BULLETNORMAL;
+	int Level;
+	int Exp;
 public:
 	virtual void Initialize()PURE;
 	virtual int Update(Transform& Info)PURE;
 	virtual void Render()PURE;
 	virtual void Release()PURE;
 public:
-	void IncresePower(int _Value) { Damage += _Value; }
-	void IncreseAttackSpeed() { as += 0.3f; }
-	void IncreseBoom() { ++BoomCount;  }
+	void IncreasePower(int _Value) { Damage += _Value; }
+	void IncreaseAttackSpeed() { as += 0.3f; }
+	void IncreaseBoom() { ++BoomCount;  }
+	void IncreaseHp() { ++Hp;  }
+	void IncreaseExp() { Exp +=2; }
+	int GetLevel() { return Level; }
+	int GetExp() { return Exp; }
+	void SetLevel() { Level++; }
+	void SetExp() { Exp = 0; }
 	void ChangeBullet()
 	{
 		int num = 0;
 
-		while (num == Bulletid)
-		{
-			srand((unsigned int)time(NULL));
-			num = rand() % BULLETMAX;
-		}
+		srand((unsigned int)time(NULL));
+		num = rand() % 2;
 
 		switch (num)
 		{
@@ -37,9 +42,6 @@ public:
 		case BULLETNORMAL2:
 			Bulletid = BULLETNORMAL2;
 			break;
-		//case BULLETBOOM:
-		//	Bulletid = BULLETBOOM;
-		//	break;
 		}
 	};
 	

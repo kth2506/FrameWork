@@ -1,18 +1,16 @@
 #pragma once
-#include "BulletBridge.h"
+#include "ItemBridge.h"
 
-class BulletBoom : public BulletBridge
+class ItemPotion : public ItemBridge
 {
-private:
-	int Count;
 public:
-
 	virtual void Initialize()override;
 	virtual int Update(Transform& Info)override;
 	virtual void Render()override;
 	virtual void Release()override;
 public:
-	BulletBoom();
-	virtual ~BulletBoom();
+public:
+	ItemPotion();
+	virtual ~ItemPotion();
 };
 

@@ -28,6 +28,7 @@ int Player::Update()
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	
+	
 	if (dwKey & KEY_UP)
 		TransInfo.Position.y -= 1;
 
@@ -39,7 +40,16 @@ int Player::Update()
 
 	if (dwKey & KEY_RIGHT)
 		TransInfo.Position.x += 1;
-
+	{
+		if (TransInfo.Position.x < 10)
+			TransInfo.Position.x = 10;
+		if (TransInfo.Position.x > Console_Width - 10.0f)
+			TransInfo.Position.x = Console_Width - 10.0f;
+		if (TransInfo.Position.y < 10)
+			TransInfo.Position.y = 10;
+		if (TransInfo.Position.y > Console_Height - 5.0f)
+			TransInfo.Position.y = Console_Height - 5.0f;
+	}
 	if (pBridge)
 		pBridge->Update(TransInfo);
 	return 0;

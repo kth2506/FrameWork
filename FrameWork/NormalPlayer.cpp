@@ -20,6 +20,9 @@ void NormalPlayer::Initialize()
 	attackSpeed = 0.0f;
 	BoomCount = 10000;
 	as = 1.0f;
+	Level = 1;
+	Exp = 0;
+
 	
 }
 
@@ -50,8 +53,9 @@ int NormalPlayer::Update(Transform& Info)
 		}
 	}
 
-	if ((dwKey & KEY_CTRL) && BoomCount)
+	if ((dwKey & KEY_CTRL) && BoomCount && ( attackSpeed >= 10.0f))
 	{
+		attackSpeed = 0.0f;
 		Bridge* bBullet;
 		bBullet = new BulletBoom;
 		ObjectManager::GetInstance()->AddBullet(bBullet);
@@ -63,17 +67,17 @@ int NormalPlayer::Update(Transform& Info)
 	CursorManager::GetInstance()->WriteBuffer(
 		Info.Position.x - Info.Scale.x * 0.5f,
 		Info.Position.y - Info.Scale.y * 0.5f,
-		(char*)"  ¡ü  ", 11
+		(char*)"  ¡ü  ", 10
 	);
 	CursorManager::GetInstance()->WriteBuffer(
 		Info.Position.x - Info.Scale.x * 0.5f,
 		Info.Position.y - Info.Scale.y * 0.5f + 1,
-		(char*)"£¼¡Ü£¾", 11
+		(char*)"£¼¡Ü£¾", 10
 	);
 	CursorManager::GetInstance()->WriteBuffer(
 		Info.Position.x - Info.Scale.x * 0.5f,
 		Info.Position.y - Info.Scale.y * 0.5f + 2,
-		(char*)"  ¡ý  ", 11
+		(char*)"  ¡ý  ", 10
 	);
 	return 0;
 }

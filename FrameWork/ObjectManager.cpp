@@ -127,6 +127,35 @@ void ObjectManager::AddBullet(Bridge* _Bridge)
 		iter->second.push_back(pObject);
 }
 
+void ObjectManager::AddBullet(Bridge* _Bridge, Vector3 _Position)
+{
+	Object* pObject = ObjectPool::GetInstance()->ThrowObject("Bullet");
+
+
+	if (pObject == nullptr)
+		pObject = ProtoType::GetInstance()->ProtoTypeObject("Bullet")->Clone();
+
+
+	_Bridge->Initialize();
+	_Bridge->SetObject(pObject);
+
+	Object* pPlayer = GetObjectList("Player")->front();
+	pObject->SetBridge(_Bridge);
+	pObject->SetPosition(_Position);
+	pObject->SetDirection(MathManager::GetCursorDirection(pObject->GetPosition()));
+
+	map<string, list<Object*>>::iterator iter = EnableList->find("Bullet");
+
+	if (iter == EnableList->end())
+	{
+		list<Object*> TempList;
+		TempList.push_back(pObject);
+		EnableList->insert(make_pair(pObject->GetKey(), TempList));
+	}
+	else
+		iter->second.push_back(pObject);
+}
+
 void ObjectManager::AddPlayer(Bridge* _Bridge)
 {
 	Object* pObject = ObjectPool::GetInstance()->ThrowObject("Player");

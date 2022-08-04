@@ -117,16 +117,19 @@ void Time::Render()
 	for (int i = 0; i < 5; ++i)
 	{
 		CursorManager::GetInstance()->WriteBuffer(
-			Console_Width / 2 - 25.0f, 1.0f + i, MS.find(Minutes)->second[i], LIGHTBLUE | LIGHTCYAN << 4);
+			Console_Width - 37.0f, 1.0f + i, MS.find(Minutes)->second[i], LIGHTBLUE);
 		CursorManager::GetInstance()->WriteBuffer(
-			Console_Width / 2 - 10.0f, 1.0f + i, MS.find(Second2)->second[i], LIGHTBLUE | LIGHTCYAN << 4);
+			Console_Width - 22.0f, 1.0f + i, MS.find(Second2)->second[i], LIGHTBLUE);
 		CursorManager::GetInstance()->WriteBuffer(
-			Console_Width / 2 + 0.0f, 1.0f + i, MS.find(Second)->second[i], LIGHTBLUE | LIGHTCYAN << 4);
+			Console_Width - 13.0f, 1.0f + i, MS.find(Second)->second[i], LIGHTBLUE);
 	}
 	CursorManager::GetInstance()->WriteBuffer(0.0f, 7.0f,
 		(char*)"--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+	CursorManager::GetInstance()->WriteBuffer(
+		Console_Width - 25.0f, 2.0f, (char*)" ", LIGHTBLUE << 4);
 
-
+	CursorManager::GetInstance()->WriteBuffer(
+		Console_Width - 25.0f, 4.0f, (char*)" ", LIGHTBLUE << 4);
 }
 
 void Time::Release()

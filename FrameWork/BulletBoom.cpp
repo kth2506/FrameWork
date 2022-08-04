@@ -6,7 +6,7 @@
 #include "Object.h"
 #include "Player.h"
 #include "ObjectManager.h"
-
+#include "BulletBoom2.h"
 
 BulletBoom::BulletBoom() {}
 BulletBoom::~BulletBoom() {}
@@ -19,19 +19,17 @@ void BulletBoom::Initialize()
 	Damage = 50;
 	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 	Count = 0;
-	List.push_back((char*)"『");
-	List.push_back((char*)"『『『");
-	List.push_back((char*)"『『『『『");
-	List.push_back((char*)"『『『『『『『");
-	List.push_back((char*)"『『『『『");
-	List.push_back((char*)"『『『");
-	List.push_back((char*)"『");
 }
 
 int BulletBoom::Update(Transform& Info)
 {
-	//if (Count > 50)
-	//	return BUFFER_OVER;
+	if (Count >= 20)
+	{
+		Bridge* bBullet;
+		bBullet = new BulletBoom2;
+		ObjectManager::GetInstance()->AddBullet(bBullet, Info.Position);
+		return BUFFER_OVER;
+	}
 	if (Count < 20)
 	Info.Position += Info.Direction * 2.0f;
 
@@ -42,73 +40,32 @@ int BulletBoom::Update(Transform& Info)
 
 void BulletBoom::Render()
 {
-	if (Count > 20)
-		Boom();
-	else if (Count < 20)
+	switch (Count % 3)
 	{
-		switch (Count % 3)
-		{
-		case 0:
-			CursorManager::GetInstance()->WriteBuffer(
-				pObject->GetPosition().x,
-				pObject->GetPosition().y,
-				(char*)"『", 2);
-			break;
-		case 1:
-			CursorManager::GetInstance()->WriteBuffer(
-				pObject->GetPosition().x,
-				pObject->GetPosition().y,
-				(char*)"【", 2);
-			break;
-		case 2:
-			CursorManager::GetInstance()->WriteBuffer(
-				pObject->GetPosition().x,
-				pObject->GetPosition().y,
-				(char*)"』", 2);
-			break;
-		default:
-			break;
-		}
+	case 0:
+		CursorManager::GetInstance()->WriteBuffer(
+			pObject->GetPosition().x,
+			pObject->GetPosition().y,
+			(char*)"『", 2);
+		break;
+	case 1:
+		CursorManager::GetInstance()->WriteBuffer(
+			pObject->GetPosition().x,
+			pObject->GetPosition().y,
+			(char*)"【", 2);
+		break;
+	case 2:
+		CursorManager::GetInstance()->WriteBuffer(
+			pObject->GetPosition().x,
+			pObject->GetPosition().y,
+			(char*)"』", 2);
+		break;
+	default:
+		break;
 	}
-	
-
 }
 
 void BulletBoom::Release()
 {
 }
 
-
-void BulletBoom::Boom()
-{
-	pObject->SetScale(9.0f, 7.0f);
-
-	CursorManager::GetInstance()->WriteBuffer(
-			pObject->GetPosition().x,
-			pObject->GetPosition().y - 3,
-			List[0], 2);
-	CursorManager::GetInstance()->WriteBuffer(
-		pObject->GetPosition().x - 2,
-		pObject->GetPosition().y - 2,
-		List[1], 2);
-	CursorManager::GetInstance()->WriteBuffer(
-		pObject->GetPosition().x - 4,
-		pObject->GetPosition().y - 1,
-		List[2], 2);
-	CursorManager::GetInstance()->WriteBuffer(
-		pObject->GetPosition().x - 6,
-		pObject->GetPosition().y,
-		List[3], 2);
-	CursorManager::GetInstance()->WriteBuffer(
-		pObject->GetPosition().x - 4,
-		pObject->GetPosition().y + 1,
-		List[4], 2);
-	CursorManager::GetInstance()->WriteBuffer(
-		pObject->GetPosition().x - 2,
-		pObject->GetPosition().y + 2,
-		List[5], 2);
-	CursorManager::GetInstance()->WriteBuffer(
-		pObject->GetPosition().x,
-		pObject->GetPosition().y + 3,
-		List[6], 2);
-}
