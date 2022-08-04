@@ -16,8 +16,8 @@ void HpBar::Initialize()
 	hp = 0;
 	strKey = "HpBar";
 	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
-	TextureList.emplace_back((char*)"  ");
-	TextureList.emplace_back((char*)"  ");
+	TextureList.emplace_back((char*)"    ");
+	TextureList.emplace_back((char*)"    ");
 
 	TransInfo.Position = Vector3(4.0f, 2.0f);
 }
@@ -33,15 +33,15 @@ void HpBar::Render()
 {
 	for (int i = 0; i < 2; ++i)
 	{
-		for (int j = 0; j < 10; ++j)
+		for (int j = 0; j < 5; ++j)
 		{
 			if (j < hp)
 				CursorManager::GetInstance()->WriteBuffer(
-					4.0f + j * 2, 2.0f + i,
+					4.0f + j * 4, 2.0f + i,
 					TextureList[i], LIGHTRED + LIGHTRED * 16);
 			else
 				CursorManager::GetInstance()->WriteBuffer(
-					4.0f+ j * 2, 2.0f + i,
+					4.0f+ j * 4, 2.0f + i,
 					TextureList[i], RED + RED * 16);
 		}
 	}

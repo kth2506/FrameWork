@@ -10,6 +10,7 @@ private:
 	UserInterface* pHpBar;
 	UserInterface* pWarning;
 	UserInterface* pLevel;
+	UserInterface* pBulletUI;
 private:
 	static UserInterfaceManager* Instance;
 public:

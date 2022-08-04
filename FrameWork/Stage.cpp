@@ -68,7 +68,7 @@ void Stage::Update()
 		count++;
 
 
-		if (count % 18 == 0)
+		if (count % 25 == 0)
 		{
 			Bridge* bEnemy = new NormalEnemy;
 			ObjectManager::GetInstance()->AddEnemy(bEnemy);
@@ -152,12 +152,7 @@ void Stage::Update()
 							int num = rand() % 10;							
 							((PlayerBridge*)pPlayer->GetBridge())->IncreaseExp();
 
-							if (((PlayerBridge*)pPlayer->GetBridge())->GetExp() > 60)
-							{
-								((PlayerBridge*)pPlayer->GetBridge())->SetLevel();
-								((PlayerBridge*)pPlayer->GetBridge())->SetExp();
-								Enable_UI();
-							}
+							
 
 							Bridge* bItem;
 							switch (num)
@@ -175,9 +170,6 @@ void Stage::Update()
 								ObjectManager::GetInstance()->AddItem(bItem, Enemyiter);
 								break;
 							case 7:
-								bItem = new ItemChange;
-								ObjectManager::GetInstance()->AddItem(bItem, Enemyiter);
-								break;
 							case 8:
 								bItem = new ItemSpeed;
 								ObjectManager::GetInstance()->AddItem(bItem, Enemyiter);
@@ -216,10 +208,12 @@ void Stage::Update()
 								((PlayerBridge*)pPlayer->GetBridge())->IncreasePower(5);
 								break;
 							case CHANGE:
-								((PlayerBridge*)pPlayer->GetBridge())->ChangeBullet();
 								break;
-							case BOOM:
-								((PlayerBridge*)pPlayer->GetBridge())->IncreaseBoom();
+							case BOOM:	
+								Bridge* bBullet;
+								bBullet = new BulletBoom2;
+								ObjectManager::GetInstance()->AddBullet(bBullet, pPlayer->GetPosition());
+
 								break;
 							case POTION:
 								pPlayer->GetBridge()->SetHp(-1);
@@ -254,7 +248,7 @@ void Stage::Update()
 							++Enemyiter;
 					}
 				}
-				if (pPlayer->GetBridge()->GetHp() <= 0)
+				if (pPlayer->GetBridge()->GetHp() < 0)
 				{
 					Check = false;
 					
@@ -270,7 +264,16 @@ void Stage::Update()
 	{
 		pMenuInterface->Update();
 		if (dwKey & KEY_ENTER)
+		{
 			Enable_UI();
+		}
+	}
+
+	if (((PlayerBridge*)pPlayer->GetBridge())->GetExp() > 60)
+	{
+		((PlayerBridge*)pPlayer->GetBridge())->SetLevel();
+		((PlayerBridge*)pPlayer->GetBridge())->SetExp();
+		Enable_UI();
 	}
 }
 
@@ -278,6 +281,9 @@ void Stage::Render()
 {
 		ObjectManager::GetInstance()->Render();
 		UserInterfaceManager::GetInstance()->Render();
+	if (!Check)
+		pMenuInterface->Render();
+
 }
 
 void Stage::Enable_UI()

@@ -2,22 +2,20 @@
 #include "UserInterface.h"
 
 class Object;
-class MenuInterface : public UserInterface
+class BulletUI : public UserInterface
 {
 private:
-	DWORD dwKey;
-	int Select;
-	int Color;
+	int BoomCount;
+	float AttackSpeed;
 	Object* pPlayer;
 public:
 	virtual void Initialize() override;
 	virtual int Update()override;
 	virtual void Render()override;
 	virtual void Release()override;
-
 public:
-	MenuInterface();
-	MenuInterface(Transform _Info);
-	virtual ~MenuInterface();
+	BulletUI();
+	BulletUI(Transform _Info);
+	virtual ~BulletUI();
 };
 

@@ -8,17 +8,17 @@
 #include "BulletBoom.h"
 #include "Player.h"
 #include "ObjectManager.h"
-
+#include "BulletLazer.h"
 NormalPlayer::NormalPlayer(){}
 
 NormalPlayer::~NormalPlayer(){}
 
 void NormalPlayer::Initialize()
 {
-	Hp = 10;
+	Hp = 5;
 	Damage = 0;
 	attackSpeed = 0.0f;
-	BoomCount = 10000;
+	BoomCount = 5;
 	as = 1.0f;
 	Level = 1;
 	Exp = 0;
@@ -47,6 +47,10 @@ int NormalPlayer::Update(Transform& Info)
 				bBullet = new BulletNormal2;
 				ObjectManager::GetInstance()->AddBullet(bBullet);
 				break;
+			case BULLETLAZER:
+				bBullet = new BulletLazer;
+				ObjectManager::GetInstance()->AddBullet(bBullet);
+				break;
 			}
 
 			attackSpeed = 0.0f;
@@ -63,21 +67,10 @@ int NormalPlayer::Update(Transform& Info)
 	}
 
 
-
-	CursorManager::GetInstance()->WriteBuffer(
-		Info.Position.x - Info.Scale.x * 0.5f,
-		Info.Position.y - Info.Scale.y * 0.5f,
-		(char*)"  ¡ü  ", 10
-	);
 	CursorManager::GetInstance()->WriteBuffer(
 		Info.Position.x - Info.Scale.x * 0.5f,
 		Info.Position.y - Info.Scale.y * 0.5f + 1,
-		(char*)"£¼¡Ü£¾", 10
-	);
-	CursorManager::GetInstance()->WriteBuffer(
-		Info.Position.x - Info.Scale.x * 0.5f,
-		Info.Position.y - Info.Scale.y * 0.5f + 2,
-		(char*)"  ¡ý  ", 10
+		(char*)"£¼¡Ü£¾", 11
 	);
 	return 0;
 }

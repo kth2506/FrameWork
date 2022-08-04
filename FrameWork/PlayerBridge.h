@@ -20,11 +20,13 @@ public:
 public:
 	void IncreasePower(int _Value) { Damage += _Value; }
 	void IncreaseAttackSpeed() { as += 0.3f; }
-	void IncreaseBoom() { ++BoomCount;  }
+	void IncreaseBoom() { if (BoomCount < 5) ++BoomCount;  }
 	void IncreaseHp() { ++Hp;  }
-	void IncreaseExp() { Exp +=2; }
+	void IncreaseExp() { Exp +=6; }
 	int GetLevel() { return Level; }
 	int GetExp() { return Exp; }
+	int GetBoomCount() { return BoomCount; }
+	float GetAttackSpeed() { return as; }
 	void SetLevel() { Level++; }
 	void SetExp() { Exp = 0; }
 	void ChangeBullet()
@@ -32,7 +34,7 @@ public:
 		int num = 0;
 
 		srand((unsigned int)time(NULL));
-		num = rand() % 2;
+		num = rand() % 3;
 
 		switch (num)
 		{
@@ -41,6 +43,9 @@ public:
 			break;
 		case BULLETNORMAL2:
 			Bulletid = BULLETNORMAL2;
+			break;
+		case BULLETLAZER:
+			Bulletid = BULLETLAZER;
 			break;
 		}
 	};

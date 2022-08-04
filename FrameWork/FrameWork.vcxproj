@@ -143,6 +143,8 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletBoom.cpp" />
     <ClCompile Include="BulletBoom2.cpp" />
+    <ClCompile Include="BulletLazer.cpp" />
+    <ClCompile Include="BulletUI.cpp" />
     <ClCompile Include="Cloud.cpp" />
     <ClCompile Include="CursorManager.cpp" />
     <ClCompile Include="Ending.cpp" />
@@ -190,6 +192,8 @@
     <ClInclude Include="BulletBoom2.h" />
     <ClInclude Include="BulletBridge.h" />
     <ClInclude Include="BulletBoom.h" />
+    <ClInclude Include="BulletLazer.h" />
+    <ClInclude Include="BulletUI.h" />
     <ClInclude Include="Cloud.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Constant.h" />

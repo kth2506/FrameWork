@@ -169,6 +169,12 @@
     <Filter Include="소스 파일\99. Manager\UserInterfaceManager">
       <UniqueIdentifier>{0e5a6b8e-5342-4094-99c4-7d8b87ae7770}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. UserInterface\BulletUI">
+      <UniqueIdentifier>{c43c9cde-2640-426e-bffa-b86ff86465c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\BulletLazer">
+      <UniqueIdentifier>{52dac7da-a339-4357-9136-954497d52f7a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -299,6 +305,12 @@
     </ClCompile>
     <ClCompile Include="UserInterfaceManager.cpp">
       <Filter>소스 파일\99. Manager\UserInterfaceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletUI.cpp">
+      <Filter>소스 파일\03. UserInterface\BulletUI</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletLazer.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletLazer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -463,6 +475,12 @@
     </ClInclude>
     <ClInclude Include="UserInterfaceManager.h">
       <Filter>소스 파일\99. Manager\UserInterfaceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletUI.h">
+      <Filter>소스 파일\03. UserInterface\BulletUI</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletLazer.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletLazer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

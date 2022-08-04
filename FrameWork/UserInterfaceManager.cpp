@@ -5,7 +5,7 @@
 #include "HpBar.h"
 #include "Warning.h"
 #include "Level.h"
-
+#include "BulletUI.h"
 UserInterfaceManager* UserInterfaceManager::Instance = nullptr;
 
 UserInterfaceManager::UserInterfaceManager(){}
@@ -20,7 +20,8 @@ void UserInterfaceManager::Initialize()
 	pHpBar->Initialize();
 	pLevel = new Level;
 	pLevel->Initialize();
-
+	pBulletUI = new BulletUI;
+	pBulletUI->Initialize();
 }
 
 void UserInterfaceManager::Update()
@@ -31,6 +32,7 @@ void UserInterfaceManager::Update()
 	pHpBar->Update();
 	pTime->Update();
 	pLevel->Update();
+	pBulletUI->Update();
 
 }
 
@@ -40,6 +42,8 @@ void UserInterfaceManager::Render()
 	pHpBar->Render();
 	pTime->Render();
 	pLevel->Render();
+	pBulletUI->Render();
+
 }
 
 void UserInterfaceManager::Release()
