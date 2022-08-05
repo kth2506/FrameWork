@@ -9,6 +9,8 @@
 #include "Player.h"
 #include "ObjectManager.h"
 #include "BulletLazer.h"
+#include "BulletBoom2.h"
+#include "BulletFire.h"
 NormalPlayer::NormalPlayer(){}
 
 NormalPlayer::~NormalPlayer(){}
@@ -22,7 +24,7 @@ void NormalPlayer::Initialize()
 	as = 1.0f;
 	Level = 1;
 	Exp = 0;
-
+	Maxhp = Hp;
 	
 }
 
@@ -52,7 +54,6 @@ int NormalPlayer::Update(Transform& Info)
 				ObjectManager::GetInstance()->AddBullet(bBullet);
 				break;
 			}
-
 			attackSpeed = 0.0f;
 		}
 	}
@@ -60,24 +61,31 @@ int NormalPlayer::Update(Transform& Info)
 	if ((dwKey & KEY_CTRL) && BoomCount && ( attackSpeed >= 10.0f))
 	{
 		attackSpeed = 0.0f;
-		Bridge* bBullet;
-		bBullet = new BulletBoom;
-		ObjectManager::GetInstance()->AddBullet(bBullet);
+		for (int i = 0; i < 20; ++i)
+		{
+			Bridge* bBullet;
+			bBullet = new BulletBoom2;
+			Vector3 vec = Vector3(float(rand() % 160) + 10, float(rand() % 30) + 10);
+			ObjectManager::GetInstance()->AddBullet(bBullet, vec);
+		}
 		--BoomCount;
 	}
 
+	if (dwKey & KEY_ALT)
+	{
+		}
 
-	CursorManager::GetInstance()->WriteBuffer(
-		Info.Position.x - Info.Scale.x * 0.5f,
-		Info.Position.y - Info.Scale.y * 0.5f + 1,
-		(char*)"£¼¡Ü£¾", 9
-	);
 	return 0;
 }
 
 void NormalPlayer::Render()
 {
 
+	CursorManager::GetInstance()->WriteBuffer(
+		pObject->GetPosition().x - pObject->GetScale().x * 0.5f,
+		pObject->GetPosition().y - pObject->GetScale().y * 0.5f,
+		(char*)"£¼¡Ü£¾", 9
+	);
 	
 }
 

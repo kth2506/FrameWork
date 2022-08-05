@@ -7,6 +7,7 @@ class HpBar : public UserInterface
 private:
 	Object* pPlayer;
 	int hp;
+	int Maxhp;
 public:
 	virtual void Initialize() override;
 	virtual int Update()override;

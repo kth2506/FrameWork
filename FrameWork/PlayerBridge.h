@@ -8,10 +8,14 @@ protected:
 	// ** Player 의 데이터만 넣음.
 	float as;
 	float attackSpeed;
-	int BoomCount;
+	float FireSpeed;
+	
 	BULLETID Bulletid = BULLETNORMAL;
+	int BoomCount;
 	int Level;
 	int Exp;
+	int Maxhp;
+	
 public:
 	virtual void Initialize()PURE;
 	virtual int Update(Transform& Info)PURE;
@@ -23,7 +27,9 @@ public:
 	void IncreaseBoom() { if (BoomCount < 5) ++BoomCount;  }
 	void IncreaseHp() { ++Hp;  }
 	void IncreaseExp() { Exp +=6; }
+	void IncreaseMaxHp() { ++Hp; ++Maxhp; }
 	int GetLevel() { return Level; }
+	int GetMaxhp() { return Maxhp; }
 	int GetExp() { return Exp; }
 	int GetBoomCount() { return BoomCount; }
 	float GetAttackSpeed() { return as; }

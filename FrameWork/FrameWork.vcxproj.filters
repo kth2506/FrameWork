@@ -175,6 +175,9 @@
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\BulletLazer">
       <UniqueIdentifier>{52dac7da-a339-4357-9136-954497d52f7a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\BulletFire">
+      <UniqueIdentifier>{a7ef6248-4159-4bbf-ac33-d997dddeeeb0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -311,6 +314,9 @@
     </ClCompile>
     <ClCompile Include="BulletLazer.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletLazer</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletFire.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletFire</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -481,6 +487,9 @@
     </ClInclude>
     <ClInclude Include="BulletLazer.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletLazer</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletFire.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletFire</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

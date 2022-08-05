@@ -8,7 +8,10 @@ private:
 	DWORD dwKey;
 	int Select;
 	int Color;
+	int MaxHp;
 	Object* pPlayer;
+	vector<char*> TextureListTemp;
+
 public:
 	virtual void Initialize() override;
 	virtual int Update()override;

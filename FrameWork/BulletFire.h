@@ -1,9 +1,12 @@
 #pragma once
 #include "BulletBridge.h"
 
-class BulletLazer : public BulletBridge
+class BulletFire : public BulletBridge
 {
 private:
+	bool Check;
+	int Grade;
+	int count;
 public:
 
 	virtual void Initialize()override;
@@ -11,7 +14,7 @@ public:
 	virtual void Render()override;
 	virtual void Release()override;
 public:
-	BulletLazer();
-	virtual ~BulletLazer();
+	BulletFire();
+	virtual ~BulletFire();
 };
 

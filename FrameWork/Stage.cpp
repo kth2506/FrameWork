@@ -68,16 +68,16 @@ void Stage::Update()
 		count++;
 
 
-		if (count % 25 == 0)
-		{
-			Bridge* bEnemy = new NormalEnemy;
-			ObjectManager::GetInstance()->AddEnemy(bEnemy);
-		}
-		if (count % (14 * 120) == 0)
-		{
-			Bridge* bEnemy = new EnemyBoss;
-			ObjectManager::GetInstance()->AddEnemyBoss(bEnemy);
-		}
+		//if (count % 25 == 0)
+		//{
+		//	Bridge* bEnemy = new NormalEnemy;
+		//	ObjectManager::GetInstance()->AddEnemy(bEnemy);
+		//}
+		//if (count % (14 * 120) == 0)
+		//{
+		//	Bridge* bEnemy = new EnemyBoss;
+		//	ObjectManager::GetInstance()->AddEnemyBoss(bEnemy);
+		//}
 
 		ObjectManager::GetInstance()->Update();
 		UserInterfaceManager::GetInstance()->Update();
@@ -116,11 +116,10 @@ void Stage::Update()
 								{
 									if (CollisionManager::CircleCollision(*Bulletiter, *Enemyiter))
 									{
-
 										Bridge* bBullet;
 										bBullet = new BulletBoom2;
 										ObjectManager::GetInstance()->AddBullet(bBullet, (*Bulletiter)->GetPosition());
-
+										
 										(*Enemyiter)->GetBridge()->SetHp((*Bulletiter)->GetBridge()->GetDamage()
 											+ pPlayer->GetBridge()->GetDamage());
 
@@ -155,6 +154,7 @@ void Stage::Update()
 							
 
 							Bridge* bItem;
+
 							switch (num)
 							{
 							case 1:
@@ -210,10 +210,7 @@ void Stage::Update()
 							case CHANGE:
 								break;
 							case BOOM:	
-								Bridge* bBullet;
-								bBullet = new BulletBoom2;
-								ObjectManager::GetInstance()->AddBullet(bBullet, pPlayer->GetPosition());
-
+								((PlayerBridge*)pPlayer->GetBridge())->IncreaseBoom();
 								break;
 							case POTION:
 								pPlayer->GetBridge()->SetHp(-1);
