@@ -269,7 +269,7 @@ void Stage::Update()
 		}
 	}
 
-	if (((PlayerBridge*)pPlayer->GetBridge())->GetExp() > 60)
+	if (((PlayerBridge*)pPlayer->GetBridge())->GetExp() >= 60)
 	{
 		((PlayerBridge*)pPlayer->GetBridge())->SetLevel();
 		((PlayerBridge*)pPlayer->GetBridge())->SetExp();

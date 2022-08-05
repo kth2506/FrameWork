@@ -31,28 +31,10 @@ int BulletLazer::Update(Transform& Info)
 
 void BulletLazer::Render()
 {
-	if (Check)
-	{
-		CursorManager::GetInstance()->WriteBuffer(
-			pObject->GetPosition().x,
-			pObject->GetPosition().y,
-			(char*)"===", 2);
-	}
-	else
-	{
-		CursorManager::GetInstance()->WriteBuffer(
-			pObject->GetPosition().x,
-			pObject->GetPosition().y,
-			(char*)"бл", 2);
-		CursorManager::GetInstance()->WriteBuffer(
-			pObject->GetPosition().x,
-			pObject->GetPosition().y + 1,
-			(char*)"бл", 2);
-		CursorManager::GetInstance()->WriteBuffer(
-			pObject->GetPosition().x,
-			pObject->GetPosition().y + 2,
-			(char*)"бл", 2);
-	}
+	CursorManager::GetInstance()->WriteBuffer(
+		pObject->GetPosition().x,
+		pObject->GetPosition().y,
+		(char*)"= =", 2);
 }
 
 void BulletLazer::Release()

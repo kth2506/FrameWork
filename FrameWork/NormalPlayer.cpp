@@ -70,7 +70,7 @@ int NormalPlayer::Update(Transform& Info)
 	CursorManager::GetInstance()->WriteBuffer(
 		Info.Position.x - Info.Scale.x * 0.5f,
 		Info.Position.y - Info.Scale.y * 0.5f + 1,
-		(char*)"£¼¡Ü£¾", 11
+		(char*)"£¼¡Ü£¾", 9
 	);
 	return 0;
 }
