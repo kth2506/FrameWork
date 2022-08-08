@@ -55,8 +55,8 @@ void Level::Render()
 		Console_Width / 2 - 25, 1.0f,
 		level , LIGHTGRAY | (LIGHTGRAY * 4));
 	CursorManager::GetInstance()->WriteBuffer(
-		Console_Width / 2 - 20, 2.0f,
-		(char*)"LEVEL", WHITE | (11 * 4));
+		Console_Width / 2 - 30, 1.0f,
+		(char*)"LEVEL", LIGHTGRAY | (LIGHTGRAY * 4));
 
 }
 

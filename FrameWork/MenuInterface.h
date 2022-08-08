@@ -11,6 +11,7 @@ private:
 	int MaxHp;
 	Object* pPlayer;
 	vector<char*> TextureListTemp;
+	vector<char*> TextureListExplain;
 
 public:
 	virtual void Initialize() override;

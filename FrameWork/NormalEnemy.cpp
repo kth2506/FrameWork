@@ -30,13 +30,13 @@ void NormalEnemy::Render()
 	CursorManager::GetInstance()->WriteBuffer(
 		pObject->GetPosition().x,
 		pObject->GetPosition().y,
-		(char*)"¤·", 12
+		(char*)"IoI", 12
 	);
-	CursorManager::GetInstance()->WriteBuffer(
-		pObject->GetPosition().x,
-		pObject->GetPosition().y + 1,
-		(char*)"¤µ", 12
-	);
+	//CursorManager::GetInstance()->WriteBuffer(
+	//	pObject->GetPosition().x,
+	//	pObject->GetPosition().y + 1,
+	//	(char*)"¤µ", 12
+	//);
 }
 
 void NormalEnemy::Release()

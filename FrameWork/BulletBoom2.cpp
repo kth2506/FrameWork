@@ -27,7 +27,7 @@ int BulletBoom2::Update(Transform& Info)
 		return BUFFER_OVER;
 	pObject->SetPosition(Info.Position);
 
-
+	
 	return 0;
 }
 

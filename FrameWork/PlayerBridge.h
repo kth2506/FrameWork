@@ -9,12 +9,13 @@ protected:
 	float as;
 	float attackSpeed;
 	float FireSpeed;
-	
+	float Fs;
 	BULLETID Bulletid = BULLETNORMAL;
 	int BoomCount;
 	int Level;
 	int Exp;
 	int Maxhp;
+	bool FireGrade;
 	
 public:
 	virtual void Initialize()PURE;
@@ -22,12 +23,13 @@ public:
 	virtual void Render()PURE;
 	virtual void Release()PURE;
 public:
-	void IncreasePower(int _Value) { Damage += _Value; }
-	void IncreaseAttackSpeed() { as += 0.3f; }
+	void IncreasePower() { Damage *= 1.25f; }
+	void IncreaseAttackSpeed() { as *= 1.20f; }
 	void IncreaseBoom() { if (BoomCount < 5) ++BoomCount;  }
 	void IncreaseHp() { ++Hp;  }
 	void IncreaseExp() { Exp +=6; }
 	void IncreaseMaxHp() { ++Hp; ++Maxhp; }
+	void FireUpgrade() { FireGrade = true; Fs *= 1.2f; }
 	int GetLevel() { return Level; }
 	int GetMaxhp() { return Maxhp; }
 	int GetExp() { return Exp; }

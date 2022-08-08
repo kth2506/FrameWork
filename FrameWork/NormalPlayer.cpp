@@ -25,7 +25,9 @@ void NormalPlayer::Initialize()
 	Level = 1;
 	Exp = 0;
 	Maxhp = Hp;
-	
+	FireSpeed = 0.0f;
+	Fs = 0.3f;
+	FireGrade = false;
 }
 
 int NormalPlayer::Update(Transform& Info)
@@ -34,6 +36,7 @@ int NormalPlayer::Update(Transform& Info)
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	attackSpeed += as;
+	FireSpeed += Fs;
 	if (dwKey & KEY_SPACE)
 	{
 		if (attackSpeed >= 10.0f)
@@ -71,9 +74,13 @@ int NormalPlayer::Update(Transform& Info)
 		--BoomCount;
 	}
 
-	if (dwKey & KEY_ALT)
+	if (FireGrade && (FireSpeed > 20.0f))
 	{
-		}
+		Bridge* bBullet;
+		bBullet = new BulletFire;
+		ObjectManager::GetInstance()->AddBullet(bBullet);
+		FireSpeed = 0.0;
+	}
 
 	return 0;
 }
@@ -84,7 +91,7 @@ void NormalPlayer::Render()
 	CursorManager::GetInstance()->WriteBuffer(
 		pObject->GetPosition().x - pObject->GetScale().x * 0.5f,
 		pObject->GetPosition().y - pObject->GetScale().y * 0.5f,
-		(char*)"£¼¡Ü£¾", 9
+		(char*)"£¼¡Ü£¾", CYAN
 	);
 	
 }

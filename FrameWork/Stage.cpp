@@ -68,16 +68,16 @@ void Stage::Update()
 		count++;
 
 
-		//if (count % 25 == 0)
-		//{
-		//	Bridge* bEnemy = new NormalEnemy;
-		//	ObjectManager::GetInstance()->AddEnemy(bEnemy);
-		//}
-		//if (count % (14 * 120) == 0)
-		//{
-		//	Bridge* bEnemy = new EnemyBoss;
-		//	ObjectManager::GetInstance()->AddEnemyBoss(bEnemy);
-		//}
+		if (count % 25 == 0)
+		{
+			Bridge* bEnemy = new NormalEnemy;
+			ObjectManager::GetInstance()->AddEnemy(bEnemy);
+		}
+		if (count % (14 * 120) == 0)
+		{
+			Bridge* bEnemy = new EnemyBoss;
+			ObjectManager::GetInstance()->AddEnemyBoss(bEnemy);
+		}
 
 		ObjectManager::GetInstance()->Update();
 		UserInterfaceManager::GetInstance()->Update();
@@ -205,7 +205,6 @@ void Stage::Update()
 								((PlayerBridge*)pPlayer->GetBridge())->IncreaseAttackSpeed();
 								break;
 							case POWERUP:
-								((PlayerBridge*)pPlayer->GetBridge())->IncreasePower(5);
 								break;
 							case CHANGE:
 								break;
