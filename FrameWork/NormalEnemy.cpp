@@ -13,6 +13,27 @@ void NormalEnemy::Initialize()
 {
 	Hp = 30;
 	Damage = 1;
+	Hp += Stage * 10;
+
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"¢Ê");
+	TextureEnemy.emplace_back((char*)"");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	Stage = 0;
+	Color = 1;
 }
 
 int NormalEnemy::Update(Transform& Info)
@@ -27,10 +48,12 @@ int NormalEnemy::Update(Transform& Info)
 
 void NormalEnemy::Render()
 {
+	
 	CursorManager::GetInstance()->WriteBuffer(
 		pObject->GetPosition().x,
 		pObject->GetPosition().y,
-		(char*)"IoI", 12
+		
+		TextureEnemy[Stage], Color + Stage
 	);
 	//CursorManager::GetInstance()->WriteBuffer(
 	//	pObject->GetPosition().x,

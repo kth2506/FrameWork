@@ -178,6 +178,15 @@
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\BulletFire">
       <UniqueIdentifier>{a7ef6248-4159-4bbf-ac33-d997dddeeeb0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. UserInterface\Die">
+      <UniqueIdentifier>{9e0b4fe2-805c-4153-9d26-e752c0fa283b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. UserInterface\Die\DieEnemy">
+      <UniqueIdentifier>{972dd149-0f7b-4907-ae00-aceb2cc967f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. UserInterface\Die\DiePlayer">
+      <UniqueIdentifier>{65c4b005-3446-474d-8d3b-32c37a0a47ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -317,6 +326,15 @@
     </ClCompile>
     <ClCompile Include="BulletFire.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletFire</Filter>
+    </ClCompile>
+    <ClCompile Include="Die.cpp">
+      <Filter>소스 파일\03. UserInterface\Die</Filter>
+    </ClCompile>
+    <ClCompile Include="DieEnemy.cpp">
+      <Filter>소스 파일\03. UserInterface\Die\DieEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="DiePlayer.cpp">
+      <Filter>소스 파일\03. UserInterface\Die\DiePlayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -490,6 +508,15 @@
     </ClInclude>
     <ClInclude Include="BulletFire.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletFire</Filter>
+    </ClInclude>
+    <ClInclude Include="Die.h">
+      <Filter>소스 파일\03. UserInterface\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="DieEnemy.h">
+      <Filter>소스 파일\03. UserInterface\Die\DieEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="DiePlayer.h">
+      <Filter>소스 파일\03. UserInterface\Die\DiePlayer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

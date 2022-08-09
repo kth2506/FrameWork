@@ -98,10 +98,10 @@ void MenuInterface::Initialize()
 	TextureListExplain.emplace_back((char*)"");
 
 
-	TextureListExplain.emplace_back((char*)"Fire Up");
+	TextureListExplain.emplace_back((char*)"Fire Upgrade");
 	TextureListExplain.emplace_back((char*)"");
-	TextureListExplain.emplace_back((char*)"FireSpeed + 10%");
-	TextureListExplain.emplace_back((char*)"");
+	TextureListExplain.emplace_back((char*)"Fire Reload Rate + 10%");
+	TextureListExplain.emplace_back((char*)"Fire Damage + 20%");
 	TextureListExplain.emplace_back((char*)"");
 
 	TransInfo.Position = Vector3(12.0f, 10.0f);

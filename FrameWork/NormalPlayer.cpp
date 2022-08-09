@@ -28,6 +28,7 @@ void NormalPlayer::Initialize()
 	FireSpeed = 0.0f;
 	Fs = 0.3f;
 	FireGrade = false;
+	
 }
 
 int NormalPlayer::Update(Transform& Info)

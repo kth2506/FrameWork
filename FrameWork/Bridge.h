@@ -19,7 +19,7 @@ public:
 public:
 	void SetObject(Object* _Object) {pObject = _Object;}
 	void SetPower(int _Power) { Power = _Power; }
-	void SetHp(int _Damage) { Hp -= _Damage; }
+	void SetHp(int _Damage) {Hp -= _Damage; }
 	int GetDamage() { return Damage; }
 	int GetHp() { return Hp; }
 public:

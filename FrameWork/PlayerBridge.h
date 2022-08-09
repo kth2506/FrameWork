@@ -26,7 +26,7 @@ public:
 	void IncreasePower() { Damage *= 1.25f; }
 	void IncreaseAttackSpeed() { as *= 1.20f; }
 	void IncreaseBoom() { if (BoomCount < 5) ++BoomCount;  }
-	void IncreaseHp() { ++Hp;  }
+	void IncreaseHp() { if(Maxhp != Hp ) ++Hp;  }
 	void IncreaseExp() { Exp +=6; }
 	void IncreaseMaxHp() { ++Hp; ++Maxhp; }
 	void FireUpgrade() { FireGrade = true; Fs *= 1.2f; }

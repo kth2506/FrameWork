@@ -25,7 +25,7 @@ void ItemPotion::Render()
 	CursorManager::GetInstance()->WriteBuffer(
 		pObject->GetPosition().x,
 		pObject->GetPosition().y,
-		(char*)"¨Ô", 9
+		(char*)"¢¾", LIGHTRED
 	);
 }
 

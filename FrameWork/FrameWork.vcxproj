@@ -148,6 +148,9 @@
     <ClCompile Include="BulletUI.cpp" />
     <ClCompile Include="Cloud.cpp" />
     <ClCompile Include="CursorManager.cpp" />
+    <ClCompile Include="Die.cpp" />
+    <ClCompile Include="DieEnemy.cpp" />
+    <ClCompile Include="DiePlayer.cpp" />
     <ClCompile Include="Ending.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyBoss.cpp" />
@@ -201,6 +204,9 @@
     <ClInclude Include="Constant.h" />
     <ClInclude Include="CursorManager.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Die.h" />
+    <ClInclude Include="DieEnemy.h" />
+    <ClInclude Include="DiePlayer.h" />
     <ClInclude Include="Ending.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyBoss.h" />

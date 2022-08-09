@@ -22,6 +22,8 @@
 #include "EnemyBoss.h"
 #include "UserInterfaceManager.h"
 #include "MenuInterface.h"
+#include "DiePlayer.h"
+
 Stage::Stage() {  }
 Stage::~Stage() { Release(); }
 
@@ -60,18 +62,24 @@ void Stage::Update()
 	{
 		exit(0);
 	}
-	if (dwKey & KEY_TAB)
-		Enable_UI();
+	//if (dwKey & KEY_TAB)
+	//	Enable_UI();
+
 
 	if (Check)
 	{
 		count++;
-
-
+		
 		if (count % 25 == 0)
 		{
 			Bridge* bEnemy = new NormalEnemy;
 			ObjectManager::GetInstance()->AddEnemy(bEnemy);
+			if (count % 75 == 0)
+			{
+				((NormalEnemy*)bEnemy)->StageUp(count / 75);
+				((NormalEnemy*)bEnemy)->DamageUp(count / 150);
+			}
+
 		}
 		if (count % (14 * 120) == 0)
 		{
@@ -212,7 +220,8 @@ void Stage::Update()
 								((PlayerBridge*)pPlayer->GetBridge())->IncreaseBoom();
 								break;
 							case POTION:
-								pPlayer->GetBridge()->SetHp(-1);
+								((PlayerBridge*)pPlayer->GetBridge())->IncreaseHp();
+
 								break;
 							default:
 								break;
@@ -244,8 +253,9 @@ void Stage::Update()
 							++Enemyiter;
 					}
 				}
-				if (pPlayer->GetBridge()->GetHp() < 0)
+				if (pPlayer->GetBridge()->GetHp() <= 0)
 				{
+					pDiePlayer->Initialize();
 					Check = false;
 					
 					//
@@ -258,11 +268,12 @@ void Stage::Update()
 
 	else
 	{
-		pMenuInterface->Update();
-		if (dwKey & KEY_ENTER)
-		{
-			Enable_UI();
-		}
+	//pDiePlayer->Update();
+		//pMenuInterface->Update();
+		//if (dwKey & KEY_ENTER)
+		//{
+		//	Enable_UI();
+		//}
 	}
 
 	if (((PlayerBridge*)pPlayer->GetBridge())->GetExp() >= 60)
@@ -277,8 +288,9 @@ void Stage::Render()
 {
 		ObjectManager::GetInstance()->Render();
 		UserInterfaceManager::GetInstance()->Render();
-	if (!Check)
-		pMenuInterface->Render();
+		//if (!Check)
+		//	pDiePlayer->Render();
+		//pMenuInterface->Render();
 
 }
 

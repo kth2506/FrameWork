@@ -12,7 +12,7 @@ Object* Player::Initialize(string _Key)
 {
 	strKey = _Key;
 
-	TransInfo.Position = Vector3(20.0f, 15.0f);
+	TransInfo.Position = Vector3(Console_Width / 2, Console_Height / 2);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(6.0f, 3.0f);
 	Color = 15;
