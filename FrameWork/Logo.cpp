@@ -24,8 +24,7 @@ void Logo::Update()
 
 	if ((dwKey & KEY_ENTER) && count > 80)
 	{
-		::Safe_Delete(pIntro);
-		SceneManager::GetInstance()->SetScene(MENU);
+		SceneManager::GetInstance()->SetScene(STAGE);
 	}
 	if (dwKey & KEY_ESCAPE)
 	{

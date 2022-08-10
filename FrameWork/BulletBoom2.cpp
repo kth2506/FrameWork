@@ -41,78 +41,78 @@ void BulletBoom2::Render()
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x,
 			pObject->GetPosition().y,
-			(char*)"『", 2);
+			(char*)"『", LIGHTMAGENTA);
 	}
 	else if (Count / 5 == 1)
 	{
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x,
 			pObject->GetPosition().y - 1,
-			(char*)"『", 2);
+			(char*)"『", LIGHTMAGENTA);
 
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x - 2,
 			pObject->GetPosition().y,
-			(char*)"『『『", 2);
+			(char*)"『『『", LIGHTMAGENTA);
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x,
 			pObject->GetPosition().y + 1,
-			(char*)"『", 2);
+			(char*)"『", LIGHTMAGENTA);
 	}
 	else if (Count / 5 == 2)
 	{
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x,
 			pObject->GetPosition().y - 2,
-			(char*)"『", 2);
+			(char*)"『", LIGHTMAGENTA);
 
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x - 2,
 			pObject->GetPosition().y - 1,
-			(char*)"『『『", 2);
+			(char*)"『『『", LIGHTMAGENTA);
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x - 4,
 			pObject->GetPosition().y,
-			(char*)"『『『『『", 2);
+			(char*)"『『『『『", LIGHTMAGENTA);
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x - 2,
 			pObject->GetPosition().y + 1,
-			(char*)"『『『", 2);
+			(char*)"『『『", LIGHTMAGENTA);
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x,
 			pObject->GetPosition().y + 2,
-			(char*)"『", 2);
+			(char*)"『", LIGHTMAGENTA);
 	}
 	else
 	{
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x,
 			pObject->GetPosition().y - 3,
-			(char*)"『", 2);
+			(char*)"『", LIGHTMAGENTA);
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x - 2,
 			pObject->GetPosition().y - 2,
-			(char*)"『『『", 2);
+			(char*)"『『『", LIGHTMAGENTA);
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x - 4,
 			pObject->GetPosition().y - 1,
-			(char*)"『『『『『", 2);
+			(char*)"『『『『『", LIGHTMAGENTA);
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x - 6,
 			pObject->GetPosition().y,
-			(char*)"『『『『『『『", 2);
+			(char*)"『『『『『『『", LIGHTMAGENTA);
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x - 4,
 			pObject->GetPosition().y + 1,
-			(char*)"『『『『『", 2);
+			(char*)"『『『『『", LIGHTMAGENTA);
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x - 2,
 			pObject->GetPosition().y + 2,
-			(char*)"『『『", 2);
+			(char*)"『『『", LIGHTMAGENTA);
 		CursorManager::GetInstance()->WriteBuffer(
 			pObject->GetPosition().x,
 			pObject->GetPosition().y + 3,
-			(char*)"『", 2);
+			(char*)"『", LIGHTMAGENTA);
 	}
 
 	

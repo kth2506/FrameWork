@@ -10,11 +10,13 @@ protected:
 	float attackSpeed;
 	float FireSpeed;
 	float Fs;
+	float Speed;
 	BULLETID Bulletid = BULLETNORMAL;
 	int BoomCount;
 	int Level;
 	int Exp;
 	int Maxhp;
+	
 	bool FireGrade;
 	
 public:
@@ -23,11 +25,12 @@ public:
 	virtual void Render()PURE;
 	virtual void Release()PURE;
 public:
-	void IncreasePower() { Damage *= 1.2; }
-	void IncreaseAttackSpeed() { as *= (float)1.2; }
+	void IncreasePower(int _Value) { Damage += _Value; }
+	void IncreaseAttackSpeed(float _Value) { as += _Value; }
+	void IncreaseSpeed(float _Value) { Speed += _Value; }
+	void IncreaseExp(int _Value) { Exp += _Value; }
 	void IncreaseBoom() { if (BoomCount < 5) ++BoomCount;  }
 	void IncreaseHp() { if(Maxhp != Hp ) ++Hp;  }
-	void IncreaseExp() { Exp +=6; }
 	void IncreaseMaxHp() { ++Hp; ++Maxhp; }
 	void FireUpgrade() { FireGrade = true; Fs *= 1.2f; }
 	int GetLevel() { return Level; }

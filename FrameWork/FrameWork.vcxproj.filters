@@ -190,6 +190,9 @@
     <Filter Include="소스 파일\02. Object\Effect\EffectBridge\EnemyEffect">
       <UniqueIdentifier>{afda22e6-ca03-4ab5-a022-a030d4b05587}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. UserInterface\Score">
+      <UniqueIdentifier>{a2699102-33d7-4f0a-9b50-7bfde78ed737}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -342,6 +345,12 @@
     <ClCompile Include="Intro2.cpp">
       <Filter>소스 파일\03. UserInterface\Intro</Filter>
     </ClCompile>
+    <ClCompile Include="Outtro2.cpp">
+      <Filter>소스 파일\03. UserInterface\Outtro</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp">
+      <Filter>소스 파일\03. UserInterface\Score</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers.h">
@@ -464,9 +473,6 @@
     <ClInclude Include="BulletNormal2.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletNormal2</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerBridge.h">
-      <Filter>소스 파일\02. Object\Player\PlayerBridge</Filter>
-    </ClInclude>
     <ClInclude Include="NormalPlayer.h">
       <Filter>소스 파일\02. Object\Player\PlayerBridge\NormalPlayer</Filter>
     </ClInclude>
@@ -529,6 +535,15 @@
     </ClInclude>
     <ClInclude Include="Intro2.h">
       <Filter>소스 파일\03. UserInterface\Intro</Filter>
+    </ClInclude>
+    <ClInclude Include="Outtro2.h">
+      <Filter>소스 파일\03. UserInterface\Outtro</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>소스 파일\03. UserInterface\Score</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBridge.h">
+      <Filter>소스 파일\02. Object\Player\PlayerBridge</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

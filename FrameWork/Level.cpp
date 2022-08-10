@@ -28,9 +28,6 @@ int Level::Update()
 	level = ((PlayerBridge*)pPlayer->GetBridge())->GetLevel();
 	exp = ((PlayerBridge*)pPlayer->GetBridge())->GetExp();
 
-	if (exp >= 60)
-	{
-	}
 	return 0;
 }
 
@@ -38,24 +35,24 @@ void Level::Render()
 {
 	for (int i = 0; i < 2; ++i)
 	{
-		for (int j = 0; j < 60; ++j)
+		for (int j = 0; j < 50; ++j)
 		{
 			if (j < exp)
 				CursorManager::GetInstance()->WriteBuffer(
-					Console_Width / 2 - 30+ j, 2.0f + i,
+					Console_Width / 2 - 45+ j, 2.0f + i,
 					TextureList[i], KHAKI * 4);
 			else
 				CursorManager::GetInstance()->WriteBuffer(
-					Console_Width / 2 - 30+ j, 2.0f + i,
+					Console_Width / 2 - 45+ j, 2.0f + i,
 					TextureList[i], 4+11 * 4);
 		}
 	}
 
 	CursorManager::GetInstance()->WriteBuffer(
-		Console_Width / 2 - 25, 1.0f,
+		Console_Width / 2 - 40, 1.0f,
 		level , LIGHTGRAY | (LIGHTGRAY * 4));
 	CursorManager::GetInstance()->WriteBuffer(
-		Console_Width / 2 - 30, 1.0f,
+		Console_Width / 2 - 45, 1.0f,
 		(char*)"LEVEL", LIGHTGRAY | (LIGHTGRAY * 4));
 
 }

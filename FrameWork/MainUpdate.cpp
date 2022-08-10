@@ -14,7 +14,8 @@ void MainUpdate::Initialize()
 {
 	ProtoType::GetInstance()->Initialize();
 	CursorManager::GetInstance()->CreateBuffer((float)Console_Width, (float)Console_Height);
-	SceneManager::GetInstance()->SetScene(LOGO);
+	//SceneManager::GetInstance()->SetScene(LOGO);
+	SceneManager::GetInstance()->SetScene(STAGE);
 
 }
 

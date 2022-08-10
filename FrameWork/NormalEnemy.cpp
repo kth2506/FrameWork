@@ -12,9 +12,12 @@ NormalEnemy::~NormalEnemy(){}
 void NormalEnemy::Initialize()
 {
 	Hp = 30;
-	Damage = 1;
-	Hp += Stage * 10;
 
+	Stage = 0;
+	Color = 1;
+	Damage = 1;
+	Speed = 0.5f;
+	Exp = 2;
 	TextureEnemy.emplace_back((char*)"IoI");
 	TextureEnemy.emplace_back((char*)"¢Ê");
 	TextureEnemy.emplace_back((char*)"");
@@ -32,8 +35,26 @@ void NormalEnemy::Initialize()
 	TextureEnemy.emplace_back((char*)"IoI");
 	TextureEnemy.emplace_back((char*)"IoI");
 	TextureEnemy.emplace_back((char*)"IoI");
-	Stage = 0;
-	Color = 1;
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"IoI");
 }
 
 int NormalEnemy::Update(Transform& Info)
@@ -41,7 +62,7 @@ int NormalEnemy::Update(Transform& Info)
 	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 
 	Info.Direction = MathManager::GetDirection(Info.Position, pPlayer->GetPosition());
-	Info.Position += Info.Direction * 0.5f;
+	Info.Position += Info.Direction * Speed;
 
 	return 0;
 }

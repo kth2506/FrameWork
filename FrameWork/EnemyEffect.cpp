@@ -11,8 +11,8 @@ void EnemyEffect::Initialize()
 	Count = 0;
 	TextureList.emplace_back((char*)"¡Ü");
 	TextureList.emplace_back((char*)"¡Û");
-	TextureList.emplace_back((char*)"¡Å");
-	TextureList.emplace_back((char*)"¡¤");
+	TextureList.emplace_back((char*)"");
+	TextureList.emplace_back((char*)"");
 }
 
 int EnemyEffect::Update(Transform& Info)

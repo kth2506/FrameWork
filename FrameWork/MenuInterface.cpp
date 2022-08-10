@@ -74,14 +74,14 @@ void MenuInterface::Initialize()
 
 	TextureListExplain.emplace_back((char*)"Power Up");
 	TextureListExplain.emplace_back((char*)"");
-	TextureListExplain.emplace_back((char*)"Bullet Damage + 25%");
+	TextureListExplain.emplace_back((char*)"Bullet Damage + 2");
 	TextureListExplain.emplace_back((char*)"Boom + 1");
 	TextureListExplain.emplace_back((char*)"");
 
 	TextureListExplain.emplace_back((char*)"Speed Up");
 	TextureListExplain.emplace_back((char*)"");
-	TextureListExplain.emplace_back((char*)"Reload Rate + 20%");
-	TextureListExplain.emplace_back((char*)"Move Speed + 20%");
+	TextureListExplain.emplace_back((char*)"Reload Rate + 2");
+	TextureListExplain.emplace_back((char*)"Move Speed + 1");
 	TextureListExplain.emplace_back((char*)"");
 
 	TextureListExplain.emplace_back((char*)"Change Weapon");
@@ -100,8 +100,8 @@ void MenuInterface::Initialize()
 
 	TextureListExplain.emplace_back((char*)"Fire Upgrade");
 	TextureListExplain.emplace_back((char*)"");
-	TextureListExplain.emplace_back((char*)"Fire Reload Rate + 10%");
-	TextureListExplain.emplace_back((char*)"Fire Damage + 20%");
+	TextureListExplain.emplace_back((char*)"Fire Reload Rate + 1");
+	TextureListExplain.emplace_back((char*)"Fire Damage + 2");
 	TextureListExplain.emplace_back((char*)"");
 
 	TransInfo.Position = Vector3(12.0f, 10.0f);
@@ -134,10 +134,11 @@ int MenuInterface::Update()
 		switch (Select)
 		{
 		case 0:
-			((PlayerBridge*)pPlayer->GetBridge())->IncreasePower();
+			((PlayerBridge*)pPlayer->GetBridge())->IncreasePower(2);
 			break;
 		case 1:
-			((PlayerBridge*)pPlayer->GetBridge())->IncreaseAttackSpeed();
+			((PlayerBridge*)pPlayer->GetBridge())->IncreaseAttackSpeed(0.2f);
+			((PlayerBridge*)pPlayer->GetBridge())->IncreaseSpeed(0.08f);
 			break;
 		case 2:
 			((PlayerBridge*)pPlayer->GetBridge())->ChangeBullet();

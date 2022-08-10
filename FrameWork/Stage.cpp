@@ -17,6 +17,7 @@
 #include "NormalPlayer.h"
 #include "ObjectManager.h"
 #include "ObjectPool.h"
+#include "Outtro.h"
 #include "BulletBoom.h"
 #include "BulletBoom2.h"
 #include "EnemyBoss.h"
@@ -31,7 +32,7 @@ void Stage::Initialize()
 {
 	Check = true;
 	count = 0;
-
+	GameOver = false;
 	Bridge* bPlayer = new NormalPlayer;
 	ObjectManager::GetInstance()->AddPlayer(bPlayer);
 	list<Object*>* pPlayerList = ObjectManager::GetInstance()->GetObjectList("Player");
@@ -49,7 +50,7 @@ void Stage::Update()
 																(char*)"¢Á" );
 	
 	CursorManager::GetInstance()->WriteBuffer(Console_Width / 2 - 40.0f, Console_Height - 2.0f
-		, (char*)"WASD ¡è¡ç¡é¡æ  - Move   SPACE - Shoot   CTRL - Boom   Enter - Select");
+		, (char*)"WASD - Move   SPACE - Shoot   CTRL - Boom   Enter - Select");
 
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
@@ -62,8 +63,8 @@ void Stage::Update()
 	{
 		exit(0);
 	}
-	//if (dwKey & KEY_TAB)
-	//	Enable_UI();
+	if (dwKey & KEY_TAB)
+		Enable_UI();
 
 
 	if (Check)
@@ -74,18 +75,14 @@ void Stage::Update()
 		{
 			Bridge* bEnemy = new NormalEnemy;
 			ObjectManager::GetInstance()->AddEnemy(bEnemy);
-			if (count % 75 == 0)
-			{
-				((NormalEnemy*)bEnemy)->StageUp(count / 75);
-				((NormalEnemy*)bEnemy)->DamageUp(count / 150);
-			}
-
+			
+			((NormalEnemy*)bEnemy)->StageUp(count / 150);
 		}
-		if (count % (14 * 120) == 0)
-		{
-			Bridge* bEnemy = new EnemyBoss;
-			ObjectManager::GetInstance()->AddEnemyBoss(bEnemy);
-		}
+		//if (count % (14 * 120) == 0)
+		//{
+		//	Bridge* bEnemy = new EnemyBoss;
+		//	ObjectManager::GetInstance()->AddEnemyBoss(bEnemy);
+		//}
 
 		ObjectManager::GetInstance()->Update();
 		UserInterfaceManager::GetInstance()->Update();
@@ -155,15 +152,17 @@ void Stage::Update()
 
 						if ((*Enemyiter)->GetBridge()->GetHp() <= 0)
 						{
-							srand((unsigned int)time(NULL));
-							int num = rand() % 10;							
-							((PlayerBridge*)pPlayer->GetBridge())->IncreaseExp();
-							
 							Bridge* bEffect;
 							bEffect = new EnemyEffect;
 							ObjectManager::GetInstance()->AddEffect(bEffect, Enemyiter);
-							
 
+
+							srand((unsigned int)time(NULL));
+							int num = rand() % 10;							
+							((PlayerBridge*)pPlayer->GetBridge())->IncreaseExp
+							(((EnemyBridge*)(*Enemyiter)->GetBridge())->GetExp());
+							
+						
 							Bridge* bItem;
 
 							switch (num)
@@ -213,9 +212,10 @@ void Stage::Update()
 							switch (((ItemBridge*)(*Itemiter)->GetBridge())->GetType())
 							{
 							case SPEEDUP:
-								((PlayerBridge*)pPlayer->GetBridge())->IncreaseAttackSpeed();
+								((PlayerBridge*)pPlayer->GetBridge())->IncreaseAttackSpeed(0.1f);
 								break;
 							case POWERUP:
+								((PlayerBridge*)pPlayer->GetBridge())->IncreasePower(1);
 								break;
 							case CHANGE:
 								break;
@@ -258,31 +258,46 @@ void Stage::Update()
 				if (pPlayer->GetBridge()->GetHp() <= 0)
 				{
 					Check = false;
+					GameOver = true;
 					
-					//
-					//SceneManager::GetInstance()->SetScene(ENDING);
+					pOuttro = new Outtro;
+					pOuttro->Initialize();
 				}
 			}
 		}
 
 	}
 
-	else
-	{
-		pMenuInterface->Update();
-		if (dwKey & KEY_ENTER)
-		{
-			Enable_UI();
-		}
-	}
-
-	if (((PlayerBridge*)pPlayer->GetBridge())->GetExp() >= 60)
+	if (((PlayerBridge*)pPlayer->GetBridge())->GetExp() >= 52)
 	{
 		((PlayerBridge*)pPlayer->GetBridge())->SetLevel();
 		((PlayerBridge*)pPlayer->GetBridge())->SetExp();
 		Enable_UI();
 	}
-	
+
+
+	if(!Check)
+	{
+		if (!GameOver)
+		{
+			pMenuInterface->Update();
+			if (dwKey & KEY_ENTER)
+			{
+				Enable_UI();
+			}
+		}
+		else
+		{
+			pOuttro->Update();
+
+			if (pOuttro->Update() == BUFFER_OVER)
+			{
+				SceneManager::GetInstance()->SetScene(ENDING);
+			}
+		}
+	}
+
+
 }
 
 void Stage::Render()
@@ -290,7 +305,13 @@ void Stage::Render()
 		ObjectManager::GetInstance()->Render();
 		UserInterfaceManager::GetInstance()->Render();
 		if (!Check)
-		pMenuInterface->Render();
+		{
+			if(!GameOver)
+			pMenuInterface->Render();
+			else
+				pOuttro->Render();
+
+		}
 
 }
 

@@ -28,7 +28,7 @@ void NormalPlayer::Initialize()
 	FireSpeed = 0.0f;
 	Fs = 0.3f;
 	FireGrade = false;
-	
+	Speed = 0.8f;
 }
 
 int NormalPlayer::Update(Transform& Info)
@@ -38,6 +38,35 @@ int NormalPlayer::Update(Transform& Info)
 
 	attackSpeed += as;
 	FireSpeed += Fs;
+
+
+	if (dwKey & KEY_UP)
+		Info.Position.y -= Speed;
+
+	if (dwKey & KEY_DOWN)
+		Info.Position.y += Speed;
+
+	if (dwKey & KEY_LEFT)
+		Info.Position.x -= Speed;
+
+	if (dwKey & KEY_RIGHT)
+		Info.Position.x += Speed;
+	{
+		if (Info.Position.x < 10)
+			Info.Position.x = 10;
+		if (Info.Position.x > Console_Width - 10.0f)
+			Info.Position.x = Console_Width - 10.0f;
+		if (Info.Position.y < 10)
+			Info.Position.y = 10;
+		if (Info.Position.y > Console_Height - 5.0f)
+			Info.Position.y = Console_Height - 5.0f;
+	}
+
+
+
+
+
+
 	if (dwKey & KEY_SPACE)
 	{
 		if (attackSpeed >= 10.0f)
@@ -75,7 +104,7 @@ int NormalPlayer::Update(Transform& Info)
 		--BoomCount;
 	}
 
-	if (FireGrade && (FireSpeed > 20.0f))
+	if (FireGrade && (FireSpeed > 30.0f))
 	{
 		Bridge* bBullet;
 		bBullet = new BulletFire;
@@ -92,7 +121,7 @@ void NormalPlayer::Render()
 	CursorManager::GetInstance()->WriteBuffer(
 		pObject->GetPosition().x - pObject->GetScale().x * 0.5f,
 		pObject->GetPosition().y - pObject->GetScale().y * 0.5f,
-		(char*)"£¼¡Ü£¾", CYAN
+		(char*)"IoI", CYAN
 	);
 	
 }

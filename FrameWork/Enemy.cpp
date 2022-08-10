@@ -15,7 +15,7 @@ Object* Enemy::Initialize(string _Key)
 	
 	TransInfo.Position = Vector3(10.0f, 10.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
-	TransInfo.Scale = Vector3(2.0f, 2.0f);
+	TransInfo.Scale = Vector3(2.0f, 1.0f);
 
 	if (pBridge)
 		pBridge->Initialize();

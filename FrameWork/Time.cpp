@@ -131,8 +131,6 @@ void Time::Render()
 	CursorManager::GetInstance()->WriteBuffer(
 		Console_Width - 25.0f, 4.0f, (char*)" ", WHITE << 4);
 
-	CursorManager::GetInstance()->WriteBuffer(
-		Console_Width - 13.0f, 6.0f, (char*)" Survive ! ", WHITE);
 }
 
 void Time::Release()

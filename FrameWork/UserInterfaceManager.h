@@ -6,7 +6,6 @@ class UserInterfaceManager
 {
 private:
 	UserInterface* pTime;
-	UserInterface* pOuttro;
 	UserInterface* pHpBar;
 	UserInterface* pWarning;
 	UserInterface* pLevel;
