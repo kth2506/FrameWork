@@ -97,6 +97,33 @@ void ObjectManager::AddItem(Bridge* _Bridge, list<Object*>::iterator _Iter)
 		iter->second.push_back(pObject);
 }
 
+void ObjectManager::AddEffect(Bridge* _Bridge, list<Object*>::iterator _Iter)
+{
+	Object* pObject = ObjectPool::GetInstance()->ThrowObject("Effect");
+
+
+	if (pObject == nullptr)
+		pObject = ProtoType::GetInstance()->ProtoTypeObject("Effect")->Clone();
+
+
+	_Bridge->Initialize();
+	_Bridge->SetObject(pObject);
+
+	pObject->SetBridge(_Bridge);
+	pObject->SetPosition((*_Iter)->GetPosition());
+
+	map<string, list<Object*>>::iterator iter = EnableList->find("Effect");
+
+	if (iter == EnableList->end())
+	{
+		list<Object*> TempList;
+		TempList.push_back(pObject);
+		EnableList->insert(make_pair(pObject->GetKey(), TempList));
+	}
+	else
+		iter->second.push_back(pObject);
+}
+
 void ObjectManager::AddBullet(Bridge* _Bridge)
 {
 	Object* pObject = ObjectPool::GetInstance()->ThrowObject("Bullet");

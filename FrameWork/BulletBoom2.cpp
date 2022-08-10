@@ -34,7 +34,7 @@ int BulletBoom2::Update(Transform& Info)
 void BulletBoom2::Render()
 {
 
-	pObject->SetScale(Count / 5 * 2, Count/ 5); 
+	pObject->SetScale((float)Count / 5 * 2, (float)Count/ 5); 
 
 	if (Count / 5 == 0)
 	{

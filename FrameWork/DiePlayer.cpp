@@ -9,8 +9,22 @@ DiePlayer::~DiePlayer(){}
 void DiePlayer::Initialize()
 {
 	count = 0;
-	TextureList.emplace_back((char*)"........");
-	//pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
+	TextureList.emplace_back((char*)"¡Ú");
+	TextureList.emplace_back((char*)"¡Ù");
+	TextureList.emplace_back((char*)"¡Ø");
+	TextureList.emplace_back((char*)"¡Ú");
+	TextureList.emplace_back((char*)"¡Ù");
+	TextureList.emplace_back((char*)"¡Ø");
+	TextureList.emplace_back((char*)"¡Ú");
+	TextureList.emplace_back((char*)"¡Ù");
+	TextureList.emplace_back((char*)"¡Ø");
+	TextureList.emplace_back((char*)"¡Ú");
+	TextureList.emplace_back((char*)"¡Ù");
+	TextureList.emplace_back((char*)"¡Ø");
+	TextureList.emplace_back((char*)"¡Ú");
+	TextureList.emplace_back((char*)"¡Ù");
+	
+	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 
 	//TransInfo.Position = Vector3(15.0f, 15.0f);
 

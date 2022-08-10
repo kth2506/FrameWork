@@ -178,14 +178,17 @@
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\BulletFire">
       <UniqueIdentifier>{a7ef6248-4159-4bbf-ac33-d997dddeeeb0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\03. UserInterface\Die">
-      <UniqueIdentifier>{9e0b4fe2-805c-4153-9d26-e752c0fa283b}</UniqueIdentifier>
+    <Filter Include="소스 파일\02. Object\Effect">
+      <UniqueIdentifier>{b4fe9a96-6135-4108-9e25-29e87eac3cc1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\03. UserInterface\Die\DieEnemy">
-      <UniqueIdentifier>{972dd149-0f7b-4907-ae00-aceb2cc967f9}</UniqueIdentifier>
+    <Filter Include="소스 파일\02. Object\Effect\EffectBridge">
+      <UniqueIdentifier>{4ade0b25-48ab-483d-87b1-e8fdd985f45e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\03. UserInterface\Die\DiePlayer">
-      <UniqueIdentifier>{65c4b005-3446-474d-8d3b-32c37a0a47ee}</UniqueIdentifier>
+    <Filter Include="소스 파일\02. Object\Effect\EffectBridge\PlayerEffect">
+      <UniqueIdentifier>{c080c773-4818-414e-8d0f-930aa4be7276}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Effect\EffectBridge\EnemyEffect">
+      <UniqueIdentifier>{afda22e6-ca03-4ab5-a022-a030d4b05587}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -327,14 +330,17 @@
     <ClCompile Include="BulletFire.cpp">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletFire</Filter>
     </ClCompile>
-    <ClCompile Include="Die.cpp">
-      <Filter>소스 파일\03. UserInterface\Die</Filter>
+    <ClCompile Include="Effect.cpp">
+      <Filter>소스 파일\02. Object\Effect</Filter>
     </ClCompile>
-    <ClCompile Include="DieEnemy.cpp">
-      <Filter>소스 파일\03. UserInterface\Die\DieEnemy</Filter>
+    <ClCompile Include="PlayerEffect.cpp">
+      <Filter>소스 파일\02. Object\Effect\EffectBridge\PlayerEffect</Filter>
     </ClCompile>
-    <ClCompile Include="DiePlayer.cpp">
-      <Filter>소스 파일\03. UserInterface\Die\DiePlayer</Filter>
+    <ClCompile Include="EnemyEffect.cpp">
+      <Filter>소스 파일\02. Object\Effect\EffectBridge\EnemyEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="Intro2.cpp">
+      <Filter>소스 파일\03. UserInterface\Intro</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -509,14 +515,20 @@
     <ClInclude Include="BulletFire.h">
       <Filter>소스 파일\02. Object\Bullet\BulletBridge\BulletFire</Filter>
     </ClInclude>
-    <ClInclude Include="Die.h">
-      <Filter>소스 파일\03. UserInterface\Die</Filter>
+    <ClInclude Include="Effect.h">
+      <Filter>소스 파일\02. Object\Effect</Filter>
     </ClInclude>
-    <ClInclude Include="DieEnemy.h">
-      <Filter>소스 파일\03. UserInterface\Die\DieEnemy</Filter>
+    <ClInclude Include="EffectBridge.h">
+      <Filter>소스 파일\02. Object\Effect\EffectBridge</Filter>
     </ClInclude>
-    <ClInclude Include="DiePlayer.h">
-      <Filter>소스 파일\03. UserInterface\Die\DiePlayer</Filter>
+    <ClInclude Include="PlayerEffect.h">
+      <Filter>소스 파일\02. Object\Effect\EffectBridge\PlayerEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyEffect.h">
+      <Filter>소스 파일\02. Object\Effect\EffectBridge\EnemyEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="Intro2.h">
+      <Filter>소스 파일\03. UserInterface\Intro</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

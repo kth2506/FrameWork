@@ -23,8 +23,8 @@ public:
 	virtual void Render()PURE;
 	virtual void Release()PURE;
 public:
-	void IncreasePower() { Damage *= 1.25f; }
-	void IncreaseAttackSpeed() { as *= 1.20f; }
+	void IncreasePower() { Damage *= 1.2; }
+	void IncreaseAttackSpeed() { as *= (float)1.2; }
 	void IncreaseBoom() { if (BoomCount < 5) ++BoomCount;  }
 	void IncreaseHp() { if(Maxhp != Hp ) ++Hp;  }
 	void IncreaseExp() { Exp +=6; }

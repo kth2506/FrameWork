@@ -21,6 +21,7 @@ public:
 	void AddEnemy(Bridge* _Bridge);
 	void AddEnemyBoss(Bridge* _Bridge);
 	void AddItem(Bridge* _Bridge, list<Object*>::iterator _Iter);
+	void AddEffect(Bridge* _Bridge, list<Object*>::iterator _Iter);
 	void AddBullet(Bridge* _Bridge);
 	void AddBullet(Bridge* _Bridge, Vector3 _Position);
 	void AddPlayer(Bridge* _Bridge);

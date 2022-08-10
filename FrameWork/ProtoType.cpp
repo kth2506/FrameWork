@@ -3,7 +3,7 @@
 #include "Bullet.h"
 #include "Enemy.h"
 #include "Item.h"
-
+#include "Effect.h"
 ProtoType* ProtoType::Instance = nullptr;
 
 ProtoType::ProtoType(){}
@@ -26,6 +26,9 @@ void ProtoType::Initialize()
 	ProtoTypeList[Key] = (new Bullet(Info))->Initialize(Key);
 
 	Key = "Item";
+	ProtoTypeList[Key] = (new Item(Info))->Initialize(Key);
+
+	Key = "Effect";	
 	ProtoTypeList[Key] = (new Item(Info))->Initialize(Key);
 
 }

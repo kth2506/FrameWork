@@ -5,7 +5,7 @@ class UserInterface;
 class Menu : public Scene
 {
 private:
-	UserInterface* pMenu;
+	UserInterface* pIntro2;
 	int count;
 public:
 	virtual void Initialize()override;

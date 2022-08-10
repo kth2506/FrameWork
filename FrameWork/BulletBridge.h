@@ -15,6 +15,6 @@ public:
 	virtual void Release()PURE;
 	int GetType() { return Type; }
 public:
-	BulletBridge() {};
+	BulletBridge() : Type(0) , pPlayer(nullptr){};
 	virtual ~BulletBridge() {};
 };

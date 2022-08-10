@@ -1,8 +1,8 @@
 #pragma once
-#include "UserInterface.h"
+#include "Die.h"
 
 class Object;
-class DiePlayer : public UserInterface
+class DiePlayer : public Die
 {
 private:
 	Object* pPlayer;

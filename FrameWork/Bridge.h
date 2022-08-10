@@ -23,7 +23,7 @@ public:
 	int GetDamage() { return Damage; }
 	int GetHp() { return Hp; }
 public:
-	Bridge() : pObject(nullptr) {};
+	Bridge() : pObject(nullptr) , Damage(0), Power(0), Hp(0) {};
 	virtual ~Bridge() {};
 
 };

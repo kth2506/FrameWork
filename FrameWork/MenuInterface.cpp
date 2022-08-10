@@ -185,7 +185,7 @@ void MenuInterface::Render()
 
 	for (int i = 0; i < 5; ++i)
 	{
-		CursorManager::GetInstance()->WriteBuffer(58, 32 + i, TextureListExplain[i + Select * 5]);
+		CursorManager::GetInstance()->WriteBuffer((float)58, (float)32 + i, TextureListExplain[i + Select * 5]);
 	}
 
 }

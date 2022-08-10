@@ -20,9 +20,9 @@
 #include "BulletBoom.h"
 #include "BulletBoom2.h"
 #include "EnemyBoss.h"
+#include "EnemyEffect.h"
 #include "UserInterfaceManager.h"
 #include "MenuInterface.h"
-#include "DiePlayer.h"
 
 Stage::Stage() {  }
 Stage::~Stage() { Release(); }
@@ -46,10 +46,10 @@ void Stage::Initialize()
 void Stage::Update()
 {
 	CursorManager::GetInstance()->WriteBuffer(CursorManager::GetInstance()->GetVector().x, CursorManager::GetInstance()->GetVector().y,
-																(char*)"¡Ý" );
+																(char*)"¢Á" );
 	
-	CursorManager::GetInstance()->WriteBuffer(Console_Width / 2 - 30.0f, Console_Height - 2.0f
-		, (char*)"WASD - Move   SPACE - Shoot   CTRL - Boom");
+	CursorManager::GetInstance()->WriteBuffer(Console_Width / 2 - 40.0f, Console_Height - 2.0f
+		, (char*)"WASD ¡è¡ç¡é¡æ  - Move   SPACE - Shoot   CTRL - Boom   Enter - Select");
 
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
@@ -158,7 +158,10 @@ void Stage::Update()
 							srand((unsigned int)time(NULL));
 							int num = rand() % 10;							
 							((PlayerBridge*)pPlayer->GetBridge())->IncreaseExp();
-
+							
+							Bridge* bEffect;
+							bEffect = new EnemyEffect;
+							ObjectManager::GetInstance()->AddEffect(bEffect, Enemyiter);
 							
 
 							Bridge* bItem;
@@ -235,7 +238,6 @@ void Stage::Update()
 				}
 			}
 
-			// Player 
 			if (pPlayer != nullptr)
 			{
 				if (pEnemyList != nullptr)
@@ -255,7 +257,6 @@ void Stage::Update()
 				}
 				if (pPlayer->GetBridge()->GetHp() <= 0)
 				{
-					pDiePlayer->Initialize();
 					Check = false;
 					
 					//
@@ -268,12 +269,11 @@ void Stage::Update()
 
 	else
 	{
-	//pDiePlayer->Update();
-		//pMenuInterface->Update();
-		//if (dwKey & KEY_ENTER)
-		//{
-		//	Enable_UI();
-		//}
+		pMenuInterface->Update();
+		if (dwKey & KEY_ENTER)
+		{
+			Enable_UI();
+		}
 	}
 
 	if (((PlayerBridge*)pPlayer->GetBridge())->GetExp() >= 60)
@@ -282,15 +282,15 @@ void Stage::Update()
 		((PlayerBridge*)pPlayer->GetBridge())->SetExp();
 		Enable_UI();
 	}
+	
 }
 
 void Stage::Render()
 {
 		ObjectManager::GetInstance()->Render();
 		UserInterfaceManager::GetInstance()->Render();
-		//if (!Check)
-		//	pDiePlayer->Render();
-		//pMenuInterface->Render();
+		if (!Check)
+		pMenuInterface->Render();
 
 }
 
