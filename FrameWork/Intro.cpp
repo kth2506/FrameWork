@@ -35,7 +35,7 @@ void Intro::Initialize()
 
 
 
-	TransInfo.Position = Vector3(float(200 / 2) - 41, 5.0f);
+	TransInfo.Position = Vector3(float(200 / 2) - 41, 6.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(14.0f, 6.0f);
 }
@@ -52,6 +52,10 @@ int Intro::Update()
 void Intro::Render()
 {
 	
+	for (int i = 0; i < 7; ++i)
+		CursorManager::GetInstance()->WriteBuffer
+		(2.0f, i + 1.0f, (char*)"                                                                                                                                                                                                       ");
+
 	for (int i = 0; i < int(count / 3); ++i)
 	{
 		CursorManager::GetInstance()->WriteBuffer(
@@ -61,6 +65,8 @@ void Intro::Render()
 		if(count == (int)TextureList.size() * 3 + 2)
 		count -= 10;
 	}
+
+
 }
 
 void Intro::Release()

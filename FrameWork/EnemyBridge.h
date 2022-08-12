@@ -12,6 +12,7 @@ protected:
 	int Stage = 0;
 	int Exp;
 	Object* pPlayer;
+	int Type;
 public:
 	virtual void Initialize()PURE;
 	virtual int Update(Transform& Info)PURE;
@@ -19,8 +20,9 @@ public:
 	virtual void Release()PURE;
 
 public:
+	int GetType() { return Type; }
 	void StageUp(int _Value) 
-	{ Stage+= _Value;	Hp += Stage * 10; Exp += Stage;	Speed += Stage;}
+	{ Stage+= _Value;	Hp += Stage * 10;	Speed += Stage * 0.1;}
 	void DamageUp(int _Value) { Damage+= _Value; }
 	int GetExp() { return Exp; }
 public:

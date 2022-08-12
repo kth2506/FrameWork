@@ -151,9 +151,6 @@
     <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\BulletBoom">
       <UniqueIdentifier>{1e7aace1-a70d-419e-a745-3b4a9d3e39dc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\EnemyBoss">
-      <UniqueIdentifier>{553b14ec-be74-4ee3-be53-0858f9ba868f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\03. UserInterface\Warning">
       <UniqueIdentifier>{7472b1ec-234c-416d-9402-907ecdb0cd23}</UniqueIdentifier>
     </Filter>
@@ -192,6 +189,12 @@
     </Filter>
     <Filter Include="소스 파일\03. UserInterface\Score">
       <UniqueIdentifier>{a2699102-33d7-4f0a-9b50-7bfde78ed737}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. UserInterface\Clear">
+      <UniqueIdentifier>{d43900d0-5e1a-435f-a2b0-0832225eaa2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\EnemyBoss">
+      <UniqueIdentifier>{553b14ec-be74-4ee3-be53-0858f9ba868f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -350,6 +353,12 @@
     </ClCompile>
     <ClCompile Include="Score.cpp">
       <Filter>소스 파일\03. UserInterface\Score</Filter>
+    </ClCompile>
+    <ClCompile Include="Congraturation.cpp">
+      <Filter>소스 파일\03. UserInterface\Clear</Filter>
+    </ClCompile>
+    <ClCompile Include="BossEffect.cpp">
+      <Filter>소스 파일\02. Object\Effect\EffectBridge\EnemyEffect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -544,6 +553,12 @@
     </ClInclude>
     <ClInclude Include="PlayerBridge.h">
       <Filter>소스 파일\02. Object\Player\PlayerBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Congraturation.h">
+      <Filter>소스 파일\03. UserInterface\Clear</Filter>
+    </ClInclude>
+    <ClInclude Include="BossEffect.h">
+      <Filter>소스 파일\02. Object\Effect\EffectBridge\EnemyEffect</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

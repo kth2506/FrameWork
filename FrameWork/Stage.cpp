@@ -6,6 +6,7 @@
 #include "Enemy.h"
 #include "CursorManager.h"
 #include "CollisionManager.h"
+#include "Congraturation.h"
 #include "InputManager.h"
 #include "SceneManager.h"
 #include "ItemPower.h"
@@ -20,6 +21,7 @@
 #include "Outtro.h"
 #include "BulletBoom.h"
 #include "BulletBoom2.h"
+#include "PlayerEffect.h"
 #include "EnemyBoss.h"
 #include "EnemyEffect.h"
 #include "UserInterfaceManager.h"
@@ -32,6 +34,7 @@ void Stage::Initialize()
 {
 	Check = true;
 	count = 0;
+	Clear = false;
 	GameOver = false;
 	Bridge* bPlayer = new NormalPlayer;
 	ObjectManager::GetInstance()->AddPlayer(bPlayer);
@@ -49,8 +52,6 @@ void Stage::Update()
 	CursorManager::GetInstance()->WriteBuffer(CursorManager::GetInstance()->GetVector().x, CursorManager::GetInstance()->GetVector().y,
 																(char*)"¢Á" );
 	
-	CursorManager::GetInstance()->WriteBuffer(Console_Width / 2 - 40.0f, Console_Height - 2.0f
-		, (char*)"WASD - Move   SPACE - Shoot   CTRL - Boom   Enter - Select");
 
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
@@ -70,19 +71,21 @@ void Stage::Update()
 	if (Check)
 	{
 		count++;
-		
+
+		CursorManager::GetInstance()->WriteBuffer(Console_Width / 2 - 30.0f, Console_Height - 2.0f
+			, (char*)"WASD - Move   SPACE - Shoot   CTRL - Boom");
 		if (count % 25 == 0)
 		{
 			Bridge* bEnemy = new NormalEnemy;
 			ObjectManager::GetInstance()->AddEnemy(bEnemy);
 			
-			((NormalEnemy*)bEnemy)->StageUp(count / 150);
+			((NormalEnemy*)bEnemy)->StageUp(count / 300 + 1);
 		}
-		//if (count % (14 * 120) == 0)
-		//{
-		//	Bridge* bEnemy = new EnemyBoss;
-		//	ObjectManager::GetInstance()->AddEnemyBoss(bEnemy);
-		//}
+		else if (count == (14 * 20))
+		{
+			Bridge* bEnemy = new EnemyBoss;
+			ObjectManager::GetInstance()->AddEnemyBoss(bEnemy);
+		}
 
 		ObjectManager::GetInstance()->Update();
 		UserInterfaceManager::GetInstance()->Update();
@@ -152,6 +155,7 @@ void Stage::Update()
 
 						if ((*Enemyiter)->GetBridge()->GetHp() <= 0)
 						{
+							
 							Bridge* bEffect;
 							bEffect = new EnemyEffect;
 							ObjectManager::GetInstance()->AddEffect(bEffect, Enemyiter);
@@ -255,17 +259,26 @@ void Stage::Update()
 							++Enemyiter;
 					}
 				}
-				if (pPlayer->GetBridge()->GetHp() <= 0)
-				{
-					Check = false;
-					GameOver = true;
-					
-					pOuttro = new Outtro;
-					pOuttro->Initialize();
-				}
+				//if (pPlayer->GetBridge()->GetHp() <= 0)
+				//{
+				//	Check = false;
+				//	GameOver = true;
+				//	
+				//	pOuttro = new Outtro;
+				//	pOuttro->Initialize();
+				//}
 			}
 		}
 
+
+		if (count > 14 * 60)
+		{
+			Check = false;
+			Clear = true; 
+		
+			pCongraturation = new Congraturation;
+			pCongraturation->Initialize();
+		}
 	}
 
 	if (((PlayerBridge*)pPlayer->GetBridge())->GetExp() >= 52)
@@ -278,23 +291,39 @@ void Stage::Update()
 
 	if(!Check)
 	{
-		if (!GameOver)
+		if (Clear)
 		{
-			pMenuInterface->Update();
-			if (dwKey & KEY_ENTER)
+			pCongraturation->Update();
+			if (pCongraturation->Update() == BUFFER_OVER && dwKey & KEY_ENTER)
 			{
-				Enable_UI();
+				SceneManager::GetInstance()->SetScene(EXIT);
 			}
 		}
 		else
 		{
-			pOuttro->Update();
-
-			if (pOuttro->Update() == BUFFER_OVER)
+			if (!GameOver)
 			{
-				SceneManager::GetInstance()->SetScene(ENDING);
+
+				CursorManager::GetInstance()->WriteBuffer(Console_Width / 2 - 15.0f, Console_Height - 2.0f
+					, (char*)"ENTER - Select");
+				pMenuInterface->Update();
+				if (dwKey & KEY_ENTER)
+				{
+					Enable_UI();
+				}
+			}
+			else
+			{
+				pOuttro->Update();
+				if (pOuttro->Update() == BUFFER_OVER && dwKey & KEY_ENTER)
+				{
+
+					SceneManager::GetInstance()->SetScene(EXIT);
+
+				}
 			}
 		}
+	
 	}
 
 
@@ -306,10 +335,16 @@ void Stage::Render()
 		UserInterfaceManager::GetInstance()->Render();
 		if (!Check)
 		{
-			if(!GameOver)
-			pMenuInterface->Render();
+			if(Clear)
+				pCongraturation->Render();
 			else
-				pOuttro->Render();
+			{
+				if (!GameOver)
+					pMenuInterface->Render();
+				else
+					pOuttro->Render();
+			}
+			
 
 		}
 

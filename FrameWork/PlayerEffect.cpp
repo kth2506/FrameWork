@@ -9,10 +9,10 @@ PlayerEffect::~PlayerEffect(){}
 void PlayerEffect::Initialize()
 {
 	Count = 0;
-	TextureList.emplace_back((char*)"¡Ú¡Ø");
-	TextureList.emplace_back((char*)"¡Ú");
 	TextureList.emplace_back((char*)"¡Ù");
-	TextureList.emplace_back((char*)"¡Ø");
+	TextureList.emplace_back((char*)"¡Ú");
+	TextureList.emplace_back((char*)"¡Ù¡Ú¡Ù¡Ú");
+	TextureList.emplace_back((char*)"¡Ú¡Ù¡Ú¡Ù");
 	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 
 }
@@ -27,9 +27,12 @@ int PlayerEffect::Update(Transform& Info)
 
 void PlayerEffect::Render()
 {
-	for (int i = 0; i < (int)TextureList.size(); ++i)
-		CursorManager::GetInstance()->WriteBuffer
-		(pPlayer->GetPosition().x, pPlayer->GetPosition().y + i, TextureList[i]);
+	if(Count < 4)
+	CursorManager::GetInstance()->WriteBuffer
+	(pPlayer->GetPosition().x, pPlayer->GetPosition().y, (char*)"¡Ù");
+	if(Count > 5 && Count < 8)
+	CursorManager::GetInstance()->WriteBuffer
+	(pPlayer->GetPosition().x, pPlayer->GetPosition().y, (char*)"¡Ú");
 
 }
 

@@ -39,20 +39,20 @@ void Level::Render()
 		{
 			if (j < exp)
 				CursorManager::GetInstance()->WriteBuffer(
-					Console_Width / 2 - 45+ j, 2.0f + i,
+					Console_Width / 2 - 60+ j, 2.0f + i,
 					TextureList[i], KHAKI * 4);
 			else
 				CursorManager::GetInstance()->WriteBuffer(
-					Console_Width / 2 - 45+ j, 2.0f + i,
+					Console_Width / 2 - 60+ j, 2.0f + i,
 					TextureList[i], 4+11 * 4);
 		}
 	}
 
 	CursorManager::GetInstance()->WriteBuffer(
-		Console_Width / 2 - 40, 1.0f,
+		Console_Width / 2 - 55, 1.0f,
 		level , LIGHTGRAY | (LIGHTGRAY * 4));
 	CursorManager::GetInstance()->WriteBuffer(
-		Console_Width / 2 - 45, 1.0f,
+		Console_Width / 2 - 60, 1.0f,
 		(char*)"LEVEL", LIGHTGRAY | (LIGHTGRAY * 4));
 
 }

@@ -26,3 +26,9 @@ enum BULLETID
 	BULLETBOOM,
 	BULLETBOOM2,
 };
+
+enum EnemyID
+{
+	NORMALENEMY,
+	BOSS,
+};

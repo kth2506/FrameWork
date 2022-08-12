@@ -12,7 +12,7 @@ void Time::Initialize()
 
 	strKey = "Time";
 
-	Minutes = 9;
+	Minutes = 0;
 	Second2 = 5;
 	Second = 9;
 	count = 0;
@@ -91,22 +91,31 @@ void Time::Initialize()
 
 int Time::Update()
 {
-	count++;
-	if (count % 14 == 0)
+	if ((Minutes == 0) && (Second == 0) && (Second2 == 0))
 	{
-		Second--;
+		return BUFFER_OVER;
+	}
+	else
+	{
+		count++;
+		if (count % 14 == 0)
+		{
+			Second--;
+		}
+
+		if (Second == -1)
+		{
+			Second2--;
+			Second = 9;
+		}
+		if (Second2 == -1)
+		{
+			Minutes--;
+			Second2 = 5;
+		}
 	}
 
-	if (Second == -1)
-	{
-		Second2--;
-		Second = 9;
-	}
-	if (Second2 == -1)
-	{
-		Minutes--;
-		Second2 = 5;
-	}
+
 
 	return 0;
 }
@@ -117,19 +126,19 @@ void Time::Render()
 	for (int i = 0; i < 5; ++i)
 	{
 		CursorManager::GetInstance()->WriteBuffer(
-			Console_Width - 37.0f, 1.0f + i, MS.find(Minutes)->second[i], WHITE);
+			Console_Width - 70.0f, 1.0f + i, MS.find(Minutes)->second[i], WHITE);
 		CursorManager::GetInstance()->WriteBuffer(
-			Console_Width - 22.0f, 1.0f + i, MS.find(Second2)->second[i], WHITE);
+			Console_Width - 55.0f, 1.0f + i, MS.find(Second2)->second[i], WHITE);
 		CursorManager::GetInstance()->WriteBuffer(
-			Console_Width - 13.0f, 1.0f + i, MS.find(Second)->second[i], WHITE);
+			Console_Width - 46.0f, 1.0f + i, MS.find(Second)->second[i], WHITE);
 	}
 	CursorManager::GetInstance()->WriteBuffer(0.0f, 7.0f,
 		(char*)"--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 	CursorManager::GetInstance()->WriteBuffer(
-		Console_Width - 25.0f, 2.0f, (char*)" ", WHITE << 4);
+		Console_Width - 58.0f, 2.0f, (char*)" ", WHITE << 4);
 
 	CursorManager::GetInstance()->WriteBuffer(
-		Console_Width - 25.0f, 4.0f, (char*)" ", WHITE << 4);
+		Console_Width - 58.0f, 4.0f, (char*)" ", WHITE << 4);
 
 }
 

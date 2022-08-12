@@ -18,10 +18,10 @@ NormalPlayer::~NormalPlayer(){}
 void NormalPlayer::Initialize()
 {
 	Hp = 5;
-	Damage = 0;
+	Damage = 20;
 	attackSpeed = 0.0f;
 	BoomCount = 5;
-	as = 1.0f;
+	as = 2.0f;
 	Level = 1;
 	Exp = 0;
 	Maxhp = Hp;
@@ -121,9 +121,18 @@ void NormalPlayer::Render()
 	CursorManager::GetInstance()->WriteBuffer(
 		pObject->GetPosition().x - pObject->GetScale().x * 0.5f,
 		pObject->GetPosition().y - pObject->GetScale().y * 0.5f,
-		(char*)"IoI", CYAN
+		(char*)"早為早", CYAN
 	);
 	
+	if (Level > 5)
+	{
+		CursorManager::GetInstance()->WriteBuffer(
+			pObject->GetPosition().x - pObject->GetScale().x * 0.5f,
+			pObject->GetPosition().y - pObject->GetScale().y * 0.5f,
+			(char*)"早o早", CYAN
+		);
+
+	}
 }
 
 void NormalPlayer::Release()

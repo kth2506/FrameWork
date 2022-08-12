@@ -164,7 +164,7 @@ void MenuInterface::Render()
 		CursorManager::GetInstance()->WriteBuffer(
 			TransInfo.Position.x,
 			TransInfo.Position.y + i,
-			TextureList[i], 11);
+			TextureList[i], 8);
 	}
 
 	for (int i = 0; i < 5; ++i)

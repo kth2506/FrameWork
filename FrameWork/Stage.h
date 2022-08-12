@@ -8,9 +8,10 @@ class Stage : public Scene
 private:
 	UserInterface* pMenuInterface;
 	UserInterface* pOuttro;
-
+	UserInterface* pCongraturation;
 	bool GameOver;
 	bool Check;
+	bool Clear;
 	int count;
 	Object* pPlayer;
 public:

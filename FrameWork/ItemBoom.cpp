@@ -26,7 +26,7 @@ void ItemBoom::Render()
 	CursorManager::GetInstance()->WriteBuffer(
 		pObject->GetPosition().x,
 		pObject->GetPosition().y,
-		(char*)"¨Î", LIGHTCYAN
+		(char*)"¨Î", LIGHTBLUE
 	);
 }
 

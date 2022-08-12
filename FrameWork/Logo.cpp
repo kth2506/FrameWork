@@ -22,7 +22,7 @@ void Logo::Update()
 	if (pIntro)
 		pIntro->Update();
 
-	if ((dwKey & KEY_ENTER) && count > 80)
+	if ((dwKey & KEY_ENTER) && count > 75)
 	{
 		SceneManager::GetInstance()->SetScene(STAGE);
 	}

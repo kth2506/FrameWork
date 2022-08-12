@@ -56,7 +56,7 @@ void ObjectManager::AddEnemyBoss(Bridge* _Bridge)
 	_Bridge->SetObject(pObject);
 
 	pObject->SetBridge(_Bridge);
-	pObject->SetPosition(100.0f, 20.0f);
+	pObject->SetPosition(160.0f, 10.0f);
 
 	map<string, list<Object*>>::iterator iter = EnableList->find("Enemy");
 
@@ -68,6 +68,34 @@ void ObjectManager::AddEnemyBoss(Bridge* _Bridge)
 	}
 	else
 		iter->second.push_back(pObject);
+}
+
+void ObjectManager::AddEnemyBoss(Bridge* _Bridge, Vector3 _Position)
+{
+	Object* pObject = ObjectPool::GetInstance()->ThrowObject("Enemy");
+
+
+	if (pObject == nullptr)
+		pObject = ProtoType::GetInstance()->ProtoTypeObject("Enemy")->Clone();
+
+
+	_Bridge->Initialize();
+	_Bridge->SetObject(pObject);
+	pObject->SetBridge(_Bridge);
+	pObject->SetPosition(Vector3(_Position.x , float(rand() % 15) + _Position.y));
+	pObject->SetDirection(MathManager::GetCursorDirection(pObject->GetPosition()));
+
+	map<string, list<Object*>>::iterator iter = EnableList->find("Enemy");
+
+	if (iter == EnableList->end())
+	{
+		list<Object*> TempList;
+		TempList.push_back(pObject);
+		EnableList->insert(make_pair(pObject->GetKey(), TempList));
+	}
+	else
+		iter->second.push_back(pObject);
+
 }
 
 void ObjectManager::AddItem(Bridge* _Bridge, list<Object*>::iterator _Iter)

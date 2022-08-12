@@ -13,17 +13,17 @@ void NormalEnemy::Initialize()
 {
 	Hp = 30;
 
+	Type = NORMALENEMY;
 	Stage = 0;
 	Color = 1;
 	Damage = 1;
 	Speed = 0.5f;
-	Exp = 2;
-	TextureEnemy.emplace_back((char*)"IoI");
+	Exp = 10;
+	TextureEnemy.emplace_back((char*)"¡ë");
 	TextureEnemy.emplace_back((char*)"¢Ê");
-	TextureEnemy.emplace_back((char*)"");
-	TextureEnemy.emplace_back((char*)"IoI");
-	TextureEnemy.emplace_back((char*)"IoI");
-	TextureEnemy.emplace_back((char*)"IoI");
+	TextureEnemy.emplace_back((char*)"¢È");
+	TextureEnemy.emplace_back((char*)"¢Ç");
+	TextureEnemy.emplace_back((char*)"¢É");
 	TextureEnemy.emplace_back((char*)"IoI");
 	TextureEnemy.emplace_back((char*)"IoI");
 	TextureEnemy.emplace_back((char*)"IoI");
@@ -74,13 +74,8 @@ void NormalEnemy::Render()
 		pObject->GetPosition().x,
 		pObject->GetPosition().y,
 		
-		TextureEnemy[Stage], Color + Stage
+		TextureEnemy[Stage], RED
 	);
-	//CursorManager::GetInstance()->WriteBuffer(
-	//	pObject->GetPosition().x,
-	//	pObject->GetPosition().y + 1,
-	//	(char*)"¤µ", 12
-	//);
 }
 
 void NormalEnemy::Release()
